@@ -1,0 +1,20 @@
+C:\hpsdr\KISS\branches\VK6APH\SharpDSP\SharpDSP\bin\Release\SharpDSP.dll
+C:\hpsdr\KISS\branches\VK6APH\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
+C:\hpsdr\KISS\branches\VK6APH\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
+C:\hpsdr\KISS\branches\VK6APH\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
+C:\hpsdr\KISS\branches\VK6APH\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb
+C:\hpsdr\KISS Ethernet\SharpDSP\SharpDSP\bin\Release\SharpDSP.dll
+C:\hpsdr\KISS Ethernet\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
+C:\hpsdr\KISS Ethernet\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Ethernet\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
+C:\hpsdr\KISS Ethernet\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb
+C:\hpsdr\KISS Unified\SharpDSP\SharpDSP\bin\Release\SharpDSP.dll
+C:\hpsdr\KISS Unified\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
+C:\hpsdr\KISS Unified\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
+C:\hpsdr\KISS Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb
+C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\bin\Release\SharpDSP.dll
+C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
+C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
+C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb

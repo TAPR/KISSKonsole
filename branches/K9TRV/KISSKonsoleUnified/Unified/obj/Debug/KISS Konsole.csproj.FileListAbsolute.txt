@@ -1,0 +1,50 @@
+C:\hpsdr\KISS Ethernet\Unified\bin\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Ethernet\Unified\bin\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Ethernet\Unified\bin\Debug\HPSDR_USB_LIB_V1.dll
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.CheckBoxesUserControl.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.DeviceChooserForm.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.DeviceTypeForm.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.Form1.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.Properties.Resources.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.SetupForm.resources
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS Konsole.csproj.GenerateResource.Cache
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Ethernet\Unified\obj\Debug\KISS_Konsole.AlexUserControl.resources
+C:\hpsdr\KISS Ethernet\Unified\bin\Debug\SharpDSP.dll
+C:\hpsdr\KISS Ethernet\Unified\bin\Debug\SharpDSP.pdb
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Unified\Unified\bin\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Unified\Unified\bin\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Unified\Unified\bin\Debug\HPSDR_USB_LIB_V1.dll
+C:\hpsdr\KISS Unified\Unified\bin\Debug\SharpDSP.dll
+C:\hpsdr\KISS Unified\Unified\bin\Debug\SharpDSP.pdb
+C:\hpsdr\KISS Unified\Unified\obj\Debug\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.CheckBoxesUserControl.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.AlexUserControl.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.DeviceChooserForm.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.DeviceTypeForm.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.Form1.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.Properties.Resources.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.SetupForm.resources
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS Konsole.csproj.GenerateResource.Cache
+C:\hpsdr\KISS Unified\Unified\obj\Debug\KISS_Konsole.KISSAboutBox.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Konsole Unified\Unified\bin\Debug\KISS Konsole.exe
+C:\hpsdr\KISS Konsole Unified\Unified\bin\Debug\KISS Konsole.pdb
+C:\hpsdr\KISS Konsole Unified\Unified\bin\Debug\HPSDR_USB_LIB_V1.dll
+C:\hpsdr\KISS Konsole Unified\Unified\bin\Debug\SharpDSP.dll
+C:\hpsdr\KISS Konsole Unified\Unified\bin\Debug\SharpDSP.pdb
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\ResolveAssemblyReference.cache
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.CheckBoxesUserControl.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.AlexUserControl.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.DeviceChooserForm.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.DeviceTypeForm.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.Form1.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.KISSAboutBox.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.Properties.Resources.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS_Konsole.SetupForm.resources
+C:\hpsdr\KISS Konsole Unified\Unified\obj\Debug\KISS Konsole.csproj.GenerateResource.Cache

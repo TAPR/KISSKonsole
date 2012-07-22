@@ -1,0 +1,167 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{008A1E2E-F3E2-47DC-A124-2C238745ADD5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KISS_Konsole</RootNamespace>
+    <AssemblyName>KISS Konsole</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <ApplicationIcon>hpsdr.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HPSDR_USB_LIB_V1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\HPSDR_USB_LIB_V1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckBoxesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckBoxesUserControl.Designer.cs">
+      <DependentUpon>CheckBoxesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlexUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlexUserControl.Designer.cs">
+      <DependentUpon>AlexUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceChooserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceChooserForm.Designer.cs">
+      <DependentUpon>DeviceChooserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceTypeForm.Designer.cs">
+      <DependentUpon>DeviceTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EthernetDevice.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HPSDRDevice.cs" />
+    <Compile Include="KISSAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KISSAboutBox.Designer.cs">
+      <DependentUpon>KISSAboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KKCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CheckBoxesUserControl.resx">
+      <DependentUpon>CheckBoxesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlexUserControl.resx">
+      <DependentUpon>AlexUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceChooserForm.resx">
+      <DependentUpon>DeviceChooserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceTypeForm.resx">
+      <DependentUpon>DeviceTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KISSAboutBox.resx">
+      <DependentUpon>KISSAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setupform.resx">
+      <DependentUpon>Setupform.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Setupform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setupform.Designer.cs">
+      <DependentUpon>Setupform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USBDevice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SharpDSP.dll" />
+    <Content Include="bin\Release\SharpDSP.dll" />
+    <Content Include="hpsdr.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDSP\SharpDSP\SharpDSP.csproj">
+      <Project>{F27304FD-1398-488C-BDA7-680E1F7558A0}</Project>
+      <Name>SharpDSP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
