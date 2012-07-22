@@ -1,0 +1,63 @@
+Form1
+	InitializeComponent 
+	  (creates all GUI objects - see Form1.Designer.cs
+	   all event handlers are specified here.)
+	start_adc
+
+pictureBox1_Paint
+	DrawGrid
+	RefreshScope
+
+RefreshScope
+	read_adc
+	r_i.doFilter
+	r_q.doFilter
+	ps.PowerSpectrumSignal
+
+timer1_Tick
+	pictureBox1.Invalidate
+
+start_adc
+	USB.InitFindAndOpenDevice
+	libUSB_Interface.usb_set_configuration
+	 (also claim_interface, set_altinterface, clear_halt)
+
+stop_adc
+	libUSB_Interface.usb_release_interface
+	 (also close)
+
+read_adc
+	libUSB_Interface.usb_bulk_write
+	libUSB_Interface.usb_bulk_read
+
+set_frequency_Scroll_1
+
+checkBox1_CheckedChanged
+	(sets adcon, and timer1.Enabled)
+
+button1_Click
+	(sets adcon)
+	pictureBox1.Invalidate
+
+timer2_Tick
+	(sets timer2.Enabled = false)
+	start_adc
+
+Form1_FormClosed
+	stop_adc
+
+BandSelect_SelectedIndexChanged
+
+stepSize_SelectedIndexChanged
+
+
+----------------------------------
+timer1.Interval = 250
+timer2.Interval = 1000
+----------------------------------
+
+timer1_Tick handler calls pictureBox1.Invalidate
+This causes pictureBox1_Paint to run,
+which calls RefreshScope,
+which calls read_adc
+

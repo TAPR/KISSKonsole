@@ -1,0 +1,147 @@
+Users Call,Your Call
+KKDevice,1
+Band,20m
+Sample Rate,192000
+Step Size,10Hz
+Mode,USB
+Volume,7
+Bandwidth,3257
+Last Freq 160m,1826970
+Last Freq 80m,3643985
+Last Freq 40m,7070010
+Last Freq 30m,10126050
+Last Freq 20m,14191810
+Last Freq 17m,18118700
+Last Freq 15m,21170382
+Last Freq 12m,24950000
+Last Freq 10m,28264840
+Last Freq 6m,50257000
+Last Freq GC,0
+Last frequency,14191810
+ANF,False
+NR,False
+NB1,False
+NB2,False
+NB1 Threshold,3
+NB2 Threshold,3.8
+Bandscope Average,True
+Bandscope Smooth,0.38
+Rate,17
+Preamp 160,False
+Preamp 80,True
+Preamp 40,True
+Preamp 30,False
+Preamp 20,True
+Preamp 17,False
+Preamp 15,False
+Preamp 12,False
+Preamp 10,True
+Preamp 6,False
+Preamp GC,False
+ANFAdaptiveFilterSize,65
+ANFDelay,33
+ANFAdaptationRate,0.005
+ANFLeakage,0.01
+NRAdaptiveFilterSize,67
+NRDelay,47
+NRAdaptationRate,0.005
+NRLeakage,0.01
+Bandscope Grid Max,10
+Bandscope Grid Min,-140
+Bandscope Grid Step,20
+AGC Speed,Fast
+AGC Fixed Gain,60
+AGC Hang Threshold,0
+AGC Max Gain,55
+AGC Slope,0.999999999999999
+AGC Attack Time,1.70000004768372
+AGC Decay Time,0
+AGC Hang Time,2000
+WaterfallHigh,-40
+WaterfallLow,-149
+WaterFall AGC,True
+Squelch level,-1096
+Hermes,False
+PennyLane,True
+Penny Present,False
+Mic Gain 20dB,True
+Atlas 10MHz,False
+Mercury 10MHz,False
+Penelope 10MHz,False
+Excalibur Present,True
+Tx Filter High,2400
+Tx Filter Low,300
+Drive Level,0
+Band Gain 160m,100
+Band Gain 80m,100
+Band Gain 60m,100
+Band Gain 40m,100
+Band Gain 30m,100
+Band Gain 20m,100
+Band Gain 17m,68
+Band Gain 15m,100
+Band Gain 12m,100
+Band Gain 10m,100
+Band Gain 6m,100
+Full Duplex,True
+Only Tx on PTT,True
+Tune Level,20
+CWPitch,625
+Penny OC Enable,True
+Penny OC 160mTx,0
+Penny OC 80mTx,0
+Penny OC 60mTx,0
+Penny OC 40mTx,0
+Penny OC 30mTx,0
+Penny OC 20mTx,0
+Penny OC 17mTx,0
+Penny OC 15mTx,0
+Penny OC 12mTx,0
+Penny OC 10mTx,0
+Penny OC 6mTx,0
+Penny OC 160mRx,0
+Penny OC 80mRx,0
+Penny OC 60mRx,0
+Penny OC 40mRx,0
+Penny OC 30mRx,0
+Penny OC 20mRx,0
+Penny OC 17mRx,0
+Penny OC 15mRx,0
+Penny OC 12mRx,0
+Penny OC 10mRx,0
+Penny OC 6mRx,0
+DelayRF,5
+DelayPTT,10
+FM deviation,2400
+Speech Processor,False
+Processor Gain,10
+Bass Cut,False
+VOX On,False
+VOX Level,0
+VOX Hang,400
+Mic Gain,0
+Processor Gain,10
+Line In,False
+Last MAC,00-09-46-06-08-93
+Mic AGC,False
+Noise Gate,False
+Noise Gate Level,0
+Alex,False
+Apollo,False
+Alex160mState,65
+Alex80mState,65
+Alex60mState,65
+Alex40mState,65
+Alex30mState,65
+Alex20mState,65
+Alex17mState,65
+Alex15mState,65
+Alex12mState,65
+Alex10mState,65
+Alex6mState,65
+AlexGCState,65
+SkipVersionCheck,False
+Allow16kWidebandSamples,True
+DoFastEthernetConnect,True
+EthernetHostIPAddress,192.168.0.3
+Metis_IP_address,192.168.0.10
