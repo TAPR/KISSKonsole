@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="KISSKonsole" Language="1033" Version="1.0.0.0" Manufacturer="OpenHPSDR/TAPR" UpgradeCode="6653631e-b4c0-4304-beef-672561edd6e6">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<Media Id="1" Cabinet="disk1.cab" EmbedCab="yes" />
+
+    <PropertyRef Id="NETFRAMEWORK40FULL" />
+    <Condition Message="You must install Microsoft .NET 4.0 (FULL, NOT CLIENT!) first!">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    </Condition>
+    
+		<Feature Id="ProductFeature" Title="KISSKonsole" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="HPSDRFolder" Name="HPSDR">
+				<Directory Id="INSTALLFOLDER" Name="KISSKonsole" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Guid="10D2C1A5-4DF9-478A-BC4C-5401748B6F7B">
+        <File Id="Kiss_Konsole.EXE"
+              Source="..\Unified\Bin\Release\Kiss Konsole.exe"
+              KeyPath="yes"
+              />
+			</Component>
+      
+      <Component Guid="FBD42B82-F1EF-41CE-99E1-F58ABDCA1CA6">
+        <File Id="SharpDSP.DLL"
+              Source="..\Unified\Bin\Release\SharpDSP.dll"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="77C53B5B-CD8C-4AF8-B6D4-2A1357B9FC70">
+        <File Id="HPSDRUSBLIB.DLL"
+              Source="..\Unified\Bin\Release\HPSDR_USB_LIB_V1.dll"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="B2A22657-D41A-416C-9C67-4B4AC632840E">
+        <File Id="InitOzy11.BAT"
+              Source="..\Unified\Bin\Release\initozy11.bat"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="617F9759-FB5F-48B4-9DF3-D98442F93E19">
+        <File Id="InitOzy11.BAT.MANIFEST"
+              Source="..\Unified\Bin\Release\initozy11.bat.manifest"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="4E1ABD89-C7EF-4D3C-9CA9-19F47B4F5E43">
+        <File Id="KK.CSV"
+              Source="..\Unified\Bin\Release\KK.csv"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="C89AF16A-B30D-4597-B825-C6BF3AC938F4">
+        <File Id="LibFFTW3F.DLL"
+              Source="..\Unified\Bin\Release\libfftw3f.dll"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="0285E497-6CCF-4E44-8666-84211A1E0451">
+        <File Id="loadFPGA.EXE"
+              Source="..\Unified\Bin\Release\loadFPGA.exe"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="A0375099-8AFC-4079-9C6A-1F9902799595">
+        <File Id="loadFW.EXE"
+              Source="..\Unified\Bin\Release\loadFW.exe"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="04007F99-453E-452A-A6C3-ED84E3576E3A">
+        <File Id="msecsleep.EXE"
+              Source="..\Unified\Bin\Release\msecsleep.exe"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="74A19059-7716-4B02-AD37-8F05B9C19AFB">
+        <File Id="writeI2C.EXE"
+              Source="..\Unified\Bin\Release\writeI2C.exe"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="C261149D-408D-4835-A4EE-906880502589">
+        <File Id="Ozy_Janus.RBF"
+              Source="..\Unified\Bin\Release\Ozy_Janus.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="45AFF335-4C1C-4707-A43C-F07260F82143">
+        <File Id="Ozy_Janus.v18.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus.v18.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="D690B475-DAC1-4A7B-A391-06E859B84493">
+        <File Id="Ozy_Janus.v19.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus.v19.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="C952E346-4E30-41F6-B584-06ADCCACC7A5">
+        <File Id="Ozy_Janus.v20.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus.v20.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="17EEB93E-764E-4ED9-84A8-22385D456A3E">
+        <File Id="Ozy_Janus.v21.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus.v21.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="E01B2808-E46B-4D53-AEA1-822234E06B88">
+        <File Id="Ozy_Janus.v22.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus.v22.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="4CEC0905-BDBD-4129-AF7D-A5065B7309A4">
+        <File Id="ozyfwsdr1k.hex"
+              Source="..\Unified\Bin\Release\ozyfw-sdr1k.hex"
+              KeyPath="yes"
+              />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

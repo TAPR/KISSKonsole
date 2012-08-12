@@ -56,21 +56,31 @@ namespace KISS_Konsole
             // Listen to data on this PC's IP address. Allow the program to allocate a free port.
             iep = new IPEndPoint(HostIP, LocalPort);  // was iep = new IPEndPoint(ipa, 0);
 
-            // bind to socket and Port
-            socket.Bind(iep);
-            socket.ReceiveBufferSize = 0xFFFF;   // no lost frame counts at 192kHz with this setting
-            socket.Blocking = true;
-
-            IPEndPoint localEndPoint = (IPEndPoint)socket.LocalEndPoint;
-            Console.WriteLine("Looking for Metis boards using host adapter IP {0}, port {1}", localEndPoint.Address, localEndPoint.Port);
-
-            if (Metis_Discovery(ref mhdList, iep, null))
+            try
             {
-                result = true;
-            }
+                // bind to socket and Port
+                socket.Bind(iep);
+                socket.ReceiveBufferSize = 0xFFFF;   // no lost frame counts at 192kHz with this setting
+                socket.Blocking = true;
 
-            socket.Close();
-            socket = null;
+                IPEndPoint localEndPoint = (IPEndPoint)socket.LocalEndPoint;
+                Console.WriteLine("Looking for Metis boards using host adapter IP {0}, port {1}", localEndPoint.Address, localEndPoint.Port);
+
+                if (Metis_Discovery(ref mhdList, iep, null))
+                {
+                    result = true;
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                result = false;
+            }
+            finally
+            {
+                socket.Close();
+                socket = null;
+            }
 
             return result;
         }
