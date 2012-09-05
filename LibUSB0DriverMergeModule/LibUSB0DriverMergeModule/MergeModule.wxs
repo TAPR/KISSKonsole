@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="LibUSB0DriverMergeModule" Language="1033" Version="1.0.0.0">
+		<Package Id="06c72135-9bf7-491c-b774-6bcee09b4df0" Manufacturer="OpenHPSDR/TAPR" InstallerVersion="200" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="MergeRedirectFolder">
+
+        <Component Id="infwizard.exe" Guid="{765135C8-FCAC-4CED-93E7-5DFBB97B3005}">
+          <File Id="infwizard.exe" Source="..\SourceDir\inf-wizard.exe" KeyPath="yes" />
+        </Component>
+
+        <Component Id="installfilter.exe" Guid="{4081FDED-FF1F-4E5B-BC11-9DB97A0C7FED}">
+          <File Id="installfilter.exe" Source="..\SourceDir\install-filter.exe" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusb0.dll" Guid="{9FE466BB-ABC6-4331-9AB6-A0A48E203023}">
+          <File Id="libusb0.dll" Source="..\SourceDir\libusb0.dll" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusb0.sys" Guid="{B5D87F9A-DCAF-45FE-93E9-7A2364FEF89F}">
+          <File Id="libusb0.sys" Source="..\SourceDir\libusb0.sys" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusb0_x64.dll" Guid="{9D34B6AC-AA1D-4795-B20D-3B7A0CCF3629}">
+          <File Id="libusb0_x64.dll" Source="..\SourceDir\libusb0_x64.dll" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusb0_x64.sys" Guid="{E6A6A81B-8F97-490D-9C8F-C45B1F541FB0}">
+          <File Id="libusb0_x64.sys" Source="..\SourceDir\libusb0_x64.sys" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusbHPSDR.cat" Guid="{62858817-E81F-4C02-979E-A3A421D293D4}">
+          <File Id="libusbHPSDR.cat" Source="..\SourceDir\libusb-HPSDR.cat" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusbHPSDR.cdf" Guid="{8A8DF14F-1410-4440-B9D7-C58696B0F22C}">
+          <File Id="libusbHPSDR.cdf" Source="..\SourceDir\libusb-HPSDR.cdf" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusbHPSDR.inf" Guid="{DF0487C3-9290-4736-A569-4F363514D8BD}">
+          <File Id="libusbHPSDR.inf" Source="..\SourceDir\libusb-HPSDR.inf" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusbHPSDR_x64.cat" Guid="{AC5B400C-FD89-426A-AF9D-C9EE9ADD9670}">
+          <File Id="libusbHPSDR_x64.cat" Source="..\SourceDir\libusb-HPSDR_x64.cat" KeyPath="yes" />
+        </Component>
+
+        <Component Id="libusbHPSDR_x64.cdf" Guid="{B376320B-07B3-4D5E-A7F2-D8B16BC0907D}">
+          <File Id="libusbHPSDR_x64.cdf" Source="..\SourceDir\libusb-HPSDR_x64.cdf" KeyPath="yes" />
+        </Component>
+
+        <Component Id="testlibusb.exe" Guid="{A78DDB56-1B08-463F-BC38-A8A35680B204}">
+          <File Id="testlibusb.exe" Source="..\SourceDir\testlibusb.exe" KeyPath="yes" />
+        </Component>
+
+        <Component Id="testlibusbwin.exe" Guid="{BE322E16-9DD5-4B94-B658-EF995FA637D3}">
+          <File Id="testlibusbwin.exe" Source="..\SourceDir\testlibusb-win.exe" KeyPath="yes" />
+        </Component>
+      </Directory>
+		</Directory>
+	</Module>
+</Wix>

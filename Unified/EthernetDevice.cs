@@ -74,6 +74,7 @@ namespace KISS_Konsole
             }
             catch (System.Exception ex)
             {
+                Console.WriteLine("Caught an exception while binding a socket to endpoint{0}.  Exception was: {1} ", iep.ToString(), ex.ToString());
                 result = false;
             }
             finally

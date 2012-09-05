@@ -6,7 +6,7 @@ namespace KISS_Konsole
 {
     partial class Form1
     {
-        private void CreateKKCSV()
+        private void CreateKKCSV(string KKCSVName)
         {
             #region The contents of KK.csv
             /*  contents of a KK.CSV default file
@@ -131,10 +131,10 @@ namespace KISS_Konsole
             Metis_IP_address = "";
 
             // create the file
-            WriteKKCSV();
+            WriteKKCSV(KKCSVName);
         }
 
-        private void WriteKKCSV()
+        private void WriteKKCSV(string KKCSVName)
         {
             // save the current settings to KK.csv
             List<string> lines = new List<string>();        // create a List<string> to hold all the output lines
@@ -308,7 +308,7 @@ namespace KISS_Konsole
             lines.Add("Metis_IP_address," + Metis_IP_address.ToString(nfi));            // string
 
             // write all the lines
-            File.WriteAllLines(@"KK.csv", lines.ToArray());
+            File.WriteAllLines(KKCSVName, lines.ToArray());
         }
 
         public string LookupKKCSVValue(string key, string defaultValue, List<string> value)
@@ -404,10 +404,10 @@ namespace KISS_Konsole
             return defaultValue;
         }
 
-        public void ReadKKCSV()
+        public void ReadKKCSV(string KKCSVName)
         {
             // read the file into an array so we can process each entry
-            var lines = File.ReadAllLines("KK.csv");
+            var lines = File.ReadAllLines(KKCSVName);
             List<string> value = new List<string>();
 
             // process the string array of data that was read

@@ -18,3 +18,8 @@ C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
 C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
 C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
 C:\hpsdr\KISS Konsole Unified\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb
+C:\hpsdr\KISSKonsoleUnified\SharpDSP\SharpDSP\bin\Release\SharpDSP.dll
+C:\hpsdr\KISSKonsoleUnified\SharpDSP\SharpDSP\bin\Release\SharpDSP.pdb
+C:\hpsdr\KISSKonsoleUnified\SharpDSP\SharpDSP\obj\Release\ResolveAssemblyReference.cache
+C:\hpsdr\KISSKonsoleUnified\SharpDSP\SharpDSP\obj\Release\SharpDSP.dll
+C:\hpsdr\KISSKonsoleUnified\SharpDSP\SharpDSP\obj\Release\SharpDSP.pdb
