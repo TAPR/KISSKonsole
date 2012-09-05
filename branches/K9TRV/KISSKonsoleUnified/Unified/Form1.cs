@@ -273,6 +273,13 @@
  * 18 July 2012 - V1.1.16 - G Byrkit (K9TRV) Ken N9VV requested TX bandwidth on setup increased from 5000 to 8000 max for 'wideband'
  *                          strange stuff...  Also looks like the ProcessorFilter bandwidth isn't being kept in sync with the TransmitFilter
  *                          bandwidth.  checking with Phil VK6APH on this...
+ * 10 Aug  2012 - V1.1.17 - G Byrkit (K9TRV) convert to VS2010 and using .Net Framework 4.0.  Add a manifest that runs 'requireAdministrator'
+ *                          rather than 'asInvoker'.  Update the USB (Ozy) utils to those built with VS2010 and having manifests that 'requireAdministrator'
+ *                          Also have a manifest for InitOzy11.bat (InitOzy11.bat.manifest) that also requests 'requireAdministrator',
+ *                          just in case it helps.  This (use of 'requireAdministrator') is intended to help those on Vista, Win7, and the
+ *                          future Win8 which is released next week.
+ * 24 Aug  2012 - V1.1.18 - G Byrkit (K9TRV) make an installer using WiX.  Also make KK.CSV save into AppDataDir + "OpenHPSDR\KISS Konsole\".  No
+ *                          longer is KK.CSV part of what's downloaded or distributed.  So it won't be overwritten by new versions of KK.
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
@@ -313,7 +320,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.16 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.18 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -544,12 +551,20 @@ namespace KISS_Konsole
         public bool DoFastEthernetConnect = false;
         public string EthernetHostIPAddress = "";
 
+        public string app_data_path = "";
+        public string KKCSVName = "";
         public Form1()
         {
             //Control.CheckForIllegalCrossThreadCalls = false;  // leave on so we catch these
             InitializeComponent();
 
             Debug.Indent();                         // Indent Debug messages to make them easier to see
+
+            app_data_path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OpenHPSDR\\KISS Konsole\\";
+            if (!Directory.Exists(app_data_path))
+            {
+                Directory.CreateDirectory(app_data_path);
+            }
 
             // make the pen for the squelch line on the spectrum display have 'dot' properties
             dotPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
@@ -580,17 +595,18 @@ namespace KISS_Konsole
 
             // Load the previous radio settings from the KK.csv file and allocate values.
             // First check that the file exists
-            if (!File.Exists("KK.csv"))   //if file doesn't exist, create it
+            KKCSVName = app_data_path + "KK.csv";
+            if (!File.Exists(KKCSVName))   //if file doesn't exist, create it
             {
-                CreateKKCSV();
+                CreateKKCSV(KKCSVName);
             }
 
             // now read the lines in the config file.  Warn if action above didn't create one!
             // This allows KK.CSV to be no longer part of the SVN tree.  This means that the KK.CSV
             // file won't get mangled/updated by SVN when someone updates the code!
-            if (File.Exists("KK.csv"))   //if file exists open it
+            if (File.Exists(KKCSVName))   //if file exists open it
             {
-                ReadKKCSV();
+                ReadKKCSV(KKCSVName);
 
                 BandSelect.Text = BandText;    // set  band to start on 
                 Frequency_change();                 // check we are in band, update frequency and display 
@@ -1509,7 +1525,7 @@ namespace KISS_Konsole
                 case "GC": set_frequency_GC = set_frequency.Value; break;
             }
             // save program settings in KK.csv file
-            WriteKKCSV();
+            WriteKKCSV(KKCSVName);
         }
 
         private void SetSMeterGraph(double value)

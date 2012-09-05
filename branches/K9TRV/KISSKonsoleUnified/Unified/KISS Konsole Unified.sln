@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDSP", "..\SharpDSP\SharpDSP\SharpDSP.csproj", "{F27304FD-1398-488C-BDA7-680E1F7558A0}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "KISSKonsoleSetup", "..\KISSKonsoleSetup\KISSKonsoleSetup.wixproj", "{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}"
+	ProjectSection(ProjectDependencies) = postProject
+		{008A1E2E-F3E2-47DC-A124-2C238745ADD5} = {008A1E2E-F3E2-47DC-A124-2C238745ADD5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,11 +41,11 @@ Global
 		{F27304FD-1398-488C-BDA7-680E1F7558A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F27304FD-1398-488C-BDA7-680E1F7558A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F27304FD-1398-488C-BDA7-680E1F7558A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{F27304FD-1398-488C-BDA7-680E1F7558A0}.Release|x86.Build.0 = Release|Any CPU
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Debug|x86.ActiveCfg = Debug|x86
-		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Debug|x86.Build.0 = Debug|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Release|Any CPU.ActiveCfg = Release|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{82B28501-2CE3-4DD4-AF5A-9C3EA533B177}.Release|Mixed Platforms.Build.0 = Release|x86

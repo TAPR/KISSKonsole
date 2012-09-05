@@ -1,31 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="KISSKonsole" Language="1033" Version="1.0.0.0" Manufacturer="OpenHPSDR/TAPR" UpgradeCode="6653631e-b4c0-4304-beef-672561edd6e6">
+	<Product Id="*" Name="KISS Konsole" Language="1033" Version="1.1.18.0" Manufacturer="OpenHPSDR/TAPR" UpgradeCode="6653631e-b4c0-4304-beef-672561edd6e6">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<Media Id="1" Cabinet="disk1.cab" EmbedCab="yes" />
+		<MediaTemplate EmbedCab="yes" />
 
     <PropertyRef Id="NETFRAMEWORK40FULL" />
-    <Condition Message="You must install Microsoft .NET 4.0 (FULL, NOT CLIENT!) first!">
-      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
+    <Condition Message="You must install Microsoft .NET 4.0 (FULL OR CLIENT!) first!">
+      <![CDATA[Installed OR NETFRAMEWORK40FULL OR NETFRAMEWORK40CLIENT]]>
     </Condition>
-    
-		<Feature Id="ProductFeature" Title="KISSKonsole" Level="1">
+
+    <WixVariable Id="WixUILicenseRtf" Value="GNU_GENERAL_PUBLIC_LICENSE.rtf" />
+
+    <Feature Id="ProductFeature" Title="KISS Konsole" Level="1" ConfigurableDirectory="INSTALLFOLDER">
 			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+
+    <Feature Id="OzyDriver" Title="LibUSB0 Driver for Ozy" AllowAdvertise="no" Display="hidden" Level="1">
+      <MergeRef Id="LibUSB0DriverForOzy"/>
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_Mondo" />
+  </Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="HPSDRFolder" Name="HPSDR">
-				<Directory Id="INSTALLFOLDER" Name="KISSKonsole" />
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="OpenHPSDRFolder" Name="OpenHPSDR">
+          <Directory Id="OzyDriver" Name="LibUSB0 Driver for Ozy">
+            <Merge Id="LibUSB0DriverForOzy" SourceFile="LibUSB0DriverMergeModule.msm" DiskId="1" Language="1033"/>
+          </Directory>
+
+          <Directory Id="INSTALLFOLDER" Name="KISS Konsole" />
 			</Directory>
-		</Directory>
+    </Directory>
+
+    <Directory Id="ProgramMenuFolder">
+        <Directory Id="OpenHPSDRShortcutsDir" Name="OpenHPSDR">
+          <Directory Id="ShortcutsDir" Name="KISS Konsole">
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder">
+      </Directory>
+
+    </Directory>
 	</Fragment>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+   <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="49C49553-6511-40A9-9DC1-0BC4F08C7B00">
+        <Shortcut Id="ProgramDesktopShortcut"
+                  Name="KISS Konsole"
+                  Description="Run KISS Konsole"
+                  Target="[INSTALLFOLDER]Kiss Konsole.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                 />
+        <RegistryValue Root="HKLM" Key="Software\OpenHPSDR\KISSKonsole"
+                Name="desktopShortcut" Type="integer" Value="1" KeyPath="yes"
+                 />
+
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ShortcutsDir">
+      <Component Id="StartMenuShortcut">
+        <Shortcut Id="KissKonsoleShortcut"
+                  Name="KISS Konsole Unified"
+                  Description="Run KISS Konsole"
+                  Target="[INSTALLFOLDER]Kiss Konsole.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  />
+
+        <RemoveFolder Id="RemoveShortcutsDir" On="uninstall" />
+
+        <RegistryValue Root="HKLM"
+                     Key="SOFTWARE\OpenHPSDR\KISSKonsole"
+                     Name="installed"
+                     Type="integer"
+                     Value="1"
+                     KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
 			<Component Guid="10D2C1A5-4DF9-478A-BC4C-5401748B6F7B">
         <File Id="Kiss_Konsole.EXE"
               Source="..\Unified\Bin\Release\Kiss Konsole.exe"
@@ -60,13 +123,15 @@
               KeyPath="yes"
               />
       </Component>
-
+      
+<!--
       <Component Guid="4E1ABD89-C7EF-4D3C-9CA9-19F47B4F5E43">
         <File Id="KK.CSV"
               Source="..\Unified\Bin\Release\KK.csv"
               KeyPath="yes"
               />
       </Component>
+-->
 
       <Component Guid="C89AF16A-B30D-4597-B825-C6BF3AC938F4">
         <File Id="LibFFTW3F.DLL"
