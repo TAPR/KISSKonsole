@@ -278,16 +278,21 @@
  *                          Also have a manifest for InitOzy11.bat (InitOzy11.bat.manifest) that also requests 'requireAdministrator',
  *                          just in case it helps.  This (use of 'requireAdministrator') is intended to help those on Vista, Win7, and the
  *                          future Win8 which is released next week.
- * 24 Aug  2012 - V1.1.18 - G Byrkit (K9TRV) make an installer using WiX.  Also make KK.CSV save into AppDataDir + "OpenHPSDR\KISS Konsole\".  No
+ * 24 Aug  2012 - V1.1.18 - G Byrkit (K9TRV) make an installer using WiX.  Also make KK.CSV save into AppDataDir + "\OpenHPSDR\KISS Konsole\".  No
  *                          longer is KK.CSV part of what's downloaded or distributed.  So it won't be overwritten by new versions of KK.
+ *  9 Sep  2012 - V1.1.19 - G Byrkit (K9TRV) allow a command line argument of 'appdatadir' (case insensitive) followed by a relative or absolute path
+ *                          that will be used as the path to where the KK.CSV file will be stored.  If relative, the path will be under
+ *                          AppDataDir + "\OpenHPSDR".  This will allow multiple instances of KK on the same system.  Otherwise, they would all share
+ *                          the same KK.CSV file.  Note that the installer will only allow 1 version to be 'installed' at any one time.  but that
+ *                          doesn't prevent you from making copies of the executable folder.
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
- *              - Investigate CPU useage when ANF/NR on at 192kHz sampling rate
+ *              - Investigate CPU usage when ANF/NR on at 192kHz sampling rate
  *              - Change USB buffer sizes as a function of sampling rate i.e. 
  *                    WriteBuf size = 1024 bytes for samples/block < 1024, 2048 otherwise
  *                    ReadBuf size = WriteBuf size * (1,2,4) for (48k, 96k, 192k) sample rates
- *              - Check 1Hz steps with mouse scoll is OK with other mice.
+ *              - Check 1Hz steps with mouse scroll is OK with other mice.
  *              - Review CPU usage of ANF and NR values 
  *              - Add  multi band EQ for the receiver (like the 10 band one in PowerSDR)
  *              - User calibration of frequency and amplitude
@@ -320,7 +325,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.18 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.19 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -553,14 +558,49 @@ namespace KISS_Konsole
 
         public string app_data_path = "";
         public string KKCSVName = "";
-        public Form1()
+        public Form1(string appDataDir)
         {
             //Control.CheckForIllegalCrossThreadCalls = false;  // leave on so we catch these
             InitializeComponent();
 
             Debug.Indent();                         // Indent Debug messages to make them easier to see
 
+            // determine where a default appDataDir would be located
             app_data_path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OpenHPSDR\\KISS Konsole\\";
+
+            // see if the non-default appDataDir is provided, and if so, whether it is valid or can be created.
+            if ((appDataDir != null) && (appDataDir.Length > 0))
+            {
+                bool relativePath = true;
+                try
+                {
+                    relativePath = !Path.IsPathRooted(appDataDir);
+                    if (relativePath)
+                    {
+                        appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OpenHPSDR\\" + appDataDir;
+                        appDataDir = Path.GetFullPath(appDataDir) + "\\";
+                    }
+                    try
+                    {
+                        if (!Directory.Exists(appDataDir))
+                        {
+                            Directory.CreateDirectory(appDataDir);
+                        }
+                        app_data_path = appDataDir;
+                    }
+                    catch
+                    {
+                        // failed, use the default value
+                    }
+                }
+                catch
+                {
+                	// path contains invalid characters.  Ignore it!
+
+                }
+
+            }
+
             if (!Directory.Exists(app_data_path))
             {
                 Directory.CreateDirectory(app_data_path);
