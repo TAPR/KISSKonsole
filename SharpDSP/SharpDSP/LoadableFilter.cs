@@ -80,12 +80,12 @@ namespace SharpDSP2._1
             for (int i = 0; i < nsize; i++)
             {
                 input.real = real[i];
-                input.imag = imag[i];
+                input.imaginary = imag[i];
 
                 output = DoFir(input, filter_cpx.Length, filter_cpx, delay_cpx);
 
                 real[i] = output.real;
-                imag[i] = output.imag;
+                imag[i] = output.imaginary;
             }
         }
 
@@ -96,14 +96,14 @@ namespace SharpDSP2._1
             CPX accum;            
 
             accum.real = 0f;
-            accum.imag = 0f;
+            accum.imaginary = 0f;
 
             z[state] = z[state + ntaps] = input;            
 
             for (int i = 0; i < ntaps; i++)
             {
                 accum.real += h[i].real * z[state + i].real;
-                accum.imag += h[i].imag * z[state + i].imag;
+                accum.imaginary += h[i].imaginary * z[state + i].imaginary;
             }
 
             if (--state < 0) state += ntaps;
@@ -230,7 +230,7 @@ namespace SharpDSP2._1
             for (int i = 0; i < nsize; i++)
             {
                 coeff[i].real = (float)B[i];
-                coeff[i].imag = (float)B[i];
+                coeff[i].imaginary = (float)B[i];
             }
         }
 

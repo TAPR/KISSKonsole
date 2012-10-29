@@ -132,8 +132,8 @@ namespace SharpDSP2._1
 			
 			for (int i = 0; i < blocksize; i++)
 			{
-                d.tmp_cpx_1[i].real = d.cpx[i].real * this.volume_left + d.cpx[i].imag * this.volume_right;
-                d.tmp_cpx_1[i].imag = d.cpx[i].real * this.volume_right + d.cpx[i].imag * this.volume_left;
+                d.tmp_cpx_1[i].real = d.cpx[i].real * this.volume_left + d.cpx[i].imaginary * this.volume_right;
+                d.tmp_cpx_1[i].imaginary = d.cpx[i].real * this.volume_right + d.cpx[i].imaginary * this.volume_left;
 			}
 			d.CopyTemp1BotToMainBot();			
 		}

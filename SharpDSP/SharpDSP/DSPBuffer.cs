@@ -215,8 +215,8 @@ namespace SharpDSP2._1
 		{
             return (float)Math.Sqrt(cpx[index].real *
                                     cpx[index].real +
-                                    cpx[index].imag *
-                                    cpx[index].imag);
+                                    cpx[index].imaginary *
+                                    cpx[index].imaginary);
 
             //if (Math.Abs(cpx[index].real) > Math.Abs(cpx[index].imag))
             //    return (float)(Math.Abs(cpx[index].real) + 0.4 * Math.Abs(cpx[index].imag));
@@ -265,19 +265,19 @@ namespace SharpDSP2._1
 
         public float GetPower(int index)
 		{
-			return cpx[index].real * cpx[index].real + cpx[index].imag * cpx[index].imag;
+			return cpx[index].real * cpx[index].real + cpx[index].imaginary * cpx[index].imaginary;
 		}
 		
 		public float GetPowerTemp(int index)
 		{
-			return tmp_cpx_1[index].real * tmp_cpx_1[index].real + tmp_cpx_1[index].imag * tmp_cpx_1[index].imag;
+			return tmp_cpx_1[index].real * tmp_cpx_1[index].real + tmp_cpx_1[index].imaginary * tmp_cpx_1[index].imaginary;
 		}
 						
 		public void CopyImagToReal()
 		{
 			for (int i = 0; i < halfsize; i++)
 			{
-				cpx[i].real = cpx[i].imag;
+				cpx[i].real = cpx[i].imaginary;
 			}
 		}
 				
@@ -286,7 +286,7 @@ namespace SharpDSP2._1
 			for (int i = 0; i < halfsize; i++)
 			{
 				cpx[i].real *= rscaling;
-				cpx[i].imag *= iscaling;
+				cpx[i].imaginary *= iscaling;
 			}
 		}
 										
@@ -314,7 +314,7 @@ namespace SharpDSP2._1
 			for (int i = 0; i < size; i++)
 			{
 				cpx[i].real *= this.scalefactor;
-				cpx[i].imag *= this.scalefactor;
+				cpx[i].imaginary *= this.scalefactor;
 			}
 		}
 		
@@ -323,7 +323,7 @@ namespace SharpDSP2._1
 			for (int i = 0; i < size; i++)
 			{
 				tmp_cpx_1[i].real *= this.scalefactor;
-				tmp_cpx_1[i].imag *= this.scalefactor;
+				tmp_cpx_1[i].imaginary *= this.scalefactor;
 			}
 		}
 		
@@ -332,7 +332,7 @@ namespace SharpDSP2._1
 			for (int i = 0; i < size; i++)
 			{
 				tmp_cpx_2[i].real *= this.scalefactor;
-				tmp_cpx_2[i].imag *= this.scalefactor;
+				tmp_cpx_2[i].imaginary *= this.scalefactor;
 			}
 		}
 		
@@ -341,7 +341,7 @@ namespace SharpDSP2._1
 			for (int i = 0; i < size; i++)
 			{
 				tmp_cpx_3[i].real *= this.scalefactor;
-				tmp_cpx_3[i].imag *= this.scalefactor;
+				tmp_cpx_3[i].imaginary *= this.scalefactor;
 			}
 		}
 		
@@ -426,8 +426,8 @@ namespace SharpDSP2._1
 		{
 			return (float)Math.Sqrt(tmp_cpx_1[index].real * 
 			                        tmp_cpx_1[index].real + 
-			                        tmp_cpx_1[index].imag * 
-			                        tmp_cpx_1[index].imag);
+			                        tmp_cpx_1[index].imaginary * 
+			                        tmp_cpx_1[index].imaginary);
 		}
 						
 		internal void ScaleTemp1(float rscaling, float iscaling)
@@ -435,14 +435,14 @@ namespace SharpDSP2._1
 			for (int i = 0; i < halfsize; i++)
 			{
 				tmp_cpx_1[i].real *= rscaling;
-				tmp_cpx_1[i].imag *= iscaling;
+				tmp_cpx_1[i].imaginary *= iscaling;
 			}
 		}
 		
 		internal void ScaleTemp1(float rscaling, float iscaling, int index)
 		{			
 			tmp_cpx_1[index].real *= rscaling;
-			tmp_cpx_1[index].imag *= iscaling;
+			tmp_cpx_1[index].imaginary *= iscaling;
 		}
 		
 		internal bool DownSampleMain()

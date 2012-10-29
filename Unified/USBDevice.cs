@@ -451,6 +451,26 @@ namespace KISS_Konsole
                      }
                      break;
 
+                 // Ozy v2.3 has a problem with some hardware configs/PC option selections yield incorrect freq assignment for Rx1, incorrect 122.88 MHz clock assignment when Penelope selected as source
+                 case 23:
+                     if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 17)) ||
+                         ((MainForm.Merc_version != 33)))
+                     {
+                         MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Ozy version 23", MessageBoxButtons.OK);
+                         MessageBox.Show(whatsPresent, "Ozy version 23 has problems.  Please upgrade to Ozy version 24", MessageBoxButtons.OK);
+                         result = false;
+                     }
+                     break;
+
+                 case 24:
+                     if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 17)) ||
+                         ((MainForm.Merc_version != 33)))
+                     {
+                         MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Ozy version 24", MessageBoxButtons.OK);
+                         result = false;
+                     }
+                     break;
+
                  default:
                      MessageBox.Show(whatsPresent, "This version of Ozy hasn't been entered into the program.", MessageBoxButtons.OK);
                      whatsPresent = "Please contact K9TRV or the current KISS Konsole maintainer with a screen shot of this message,\n"

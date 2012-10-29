@@ -35,32 +35,32 @@ namespace SharpDSP2._1
 	public struct CPX
 	{		
 		[FieldOffset(0)] public float real;		
-		[FieldOffset(4)] public float imag;	
+		[FieldOffset(4)] public float imaginary;	
 		
 		public CPX(float real, float imag)
 		{
 			this.real = real;
-			this.imag = imag;
+			this.imaginary = imag;
 		}
 		
 		public static CPX operator +(CPX c1, CPX c2)
 		{
-			return new CPX(c1.real + c2.real, c1.imag + c2.imag);
+			return new CPX(c1.real + c2.real, c1.imaginary + c2.imaginary);
 		}
 		
 		public static CPX operator *(CPX c1, CPX c2)
 		{
-			return new CPX(c1.real * c2.real, c1.imag * c2.imag);
+			return new CPX(c1.real * c2.real, c1.imaginary * c2.imaginary);
 		}
 
-        public static CPX[] ToCPX(float[] real, float[] imag)
+        public static CPX[] ToCPX(float[] real, float[] imaginary)
         {
             CPX[] mycpx = new CPX[real.Length];
 
             for (int i = 0; i < real.Length; i++)
             {
                 mycpx[i].real = real[i];
-                mycpx[i].imag = imag[i];
+                mycpx[i].imaginary = imaginary[i];
             }
 
             return mycpx;
@@ -68,7 +68,7 @@ namespace SharpDSP2._1
 
         public override string ToString()
 		{
-			return (System.String.Format("{0} + {1}i", real, imag));
+			return (System.String.Format("{0} + {1}i", real, imaginary));
 		}
 	}
 	

@@ -72,7 +72,7 @@ namespace SharpDSP2._1
             {
                 // save data in the circuilar buffer
                 this.filter_memory[this.filter_memory_index].real = input[i].real;
-                this.filter_memory[this.filter_memory_index].imag = input[i].imag;
+                this.filter_memory[this.filter_memory_index].imaginary = input[i].imaginary;
                 j = this.filter_memory_index;
                 jj = j;
 
@@ -84,13 +84,13 @@ namespace SharpDSP2._1
                 {
                     j = jj;
                     output[this.output_index].real = 0.0f;
-                    output[this.output_index].imag = 0.0f;
+                    output[this.output_index].imaginary = 0.0f;
 
                     // convolution
                     for (int k = this.phase_count; k < this.filter_coeff_sz; k += this.interpolation_factor)
                     {
                         output[this.output_index].real = output[this.output_index].real + (this.filter_memory[j].real * this.filter_coeff[k].real);
-                        output[this.output_index].imag = output[this.output_index].imag + (this.filter_memory[j].imag * this.filter_coeff[k].imag);
+                        output[this.output_index].imaginary = output[this.output_index].imaginary + (this.filter_memory[j].imaginary * this.filter_coeff[k].imaginary);
                         
                         // circular addressing
                         j = (j + this.mask) & this.mask;
@@ -98,7 +98,7 @@ namespace SharpDSP2._1
 
                     // scale output
                     output[this.output_index].real = output[this.output_index].real * this.interpolation_factor;
-                    output[this.output_index].imag = output[this.output_index].imag * this.interpolation_factor;
+                    output[this.output_index].imaginary = output[this.output_index].imaginary * this.interpolation_factor;
                     this.output_index += 1;
 
                     // increment the interploation phase number by decimation factor
@@ -119,7 +119,7 @@ namespace SharpDSP2._1
             {
                 // save data in the circuilar buffer
                 this.filter_memory[this.filter_memory_index].real = input[i].real;
-                this.filter_memory[this.filter_memory_index].imag = input[i].imag;
+                this.filter_memory[this.filter_memory_index].imaginary = input[i].imaginary;
                 j = this.filter_memory_index;
                 jj = j;
 
@@ -137,7 +137,7 @@ namespace SharpDSP2._1
                     for (int k = this.phase_count; k < this.filter_coeff.Length; k += this.interpolation_factor)
                     {
                         output_r[this.output_index] = output_r[this.output_index] + (this.filter_memory[j].real * this.filter_coeff[k].real);
-                        output_i[this.output_index] = output_i[this.output_index] + (this.filter_memory[j].imag * this.filter_coeff[k].imag);
+                        output_i[this.output_index] = output_i[this.output_index] + (this.filter_memory[j].imaginary * this.filter_coeff[k].imaginary);
 
                         // circular addressing
                         j = (j + this.mask) & this.mask;
@@ -208,7 +208,7 @@ namespace SharpDSP2._1
             for (int i = 0; i < insz; i++)
             {
                 // save data in the circuilar buffer
-                this.filter_memory[this.filter_memory_index].real = input[i].imag;
+                this.filter_memory[this.filter_memory_index].real = input[i].imaginary;
                 j = this.filter_memory_index;
                 jj = j;
 

@@ -18,7 +18,7 @@
     </UpgradeBackupLocation>
     <ApplicationIcon>hpsdr.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>

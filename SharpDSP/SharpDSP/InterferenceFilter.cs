@@ -104,7 +104,7 @@ namespace SharpDSP2._1
                 // figure error term and related info (scaling factor and such)
                 float error = d.cpx[i].real - accum;
                 d.cpx[i].real = error; //this makes it an interference filter
-                d.cpx[i].imag = error;
+                d.cpx[i].imaginary = error;
                 
                 float scl2 = this.ifadaptation_rate / (sum_sq + 1e-10F);
                 error *= scl2;

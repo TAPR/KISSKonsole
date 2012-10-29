@@ -77,7 +77,7 @@ namespace SharpDSP2._1
                 if (this.hangtime > 0)
                 {
                 	d.cpx[i].real = 0.0f;
-                	d.cpx[i].imag = 0.0f;
+                	d.cpx[i].imaginary = 0.0f;
                 	this.hangtime--;
                 }
                 else
@@ -97,7 +97,7 @@ namespace SharpDSP2._1
                 float magnitude = (float)Math.Sqrt(real[i] * real[i] + imag[i] * imag[i]);
 
                 this.delay_line[this.sigindex].real = real[i];
-                this.delay_line[this.sigindex].imag = imag[i];
+                this.delay_line[this.sigindex].imaginary = imag[i];
                 this.average_magnitude = 0.999F * (this.average_magnitude) + 0.001F * magnitude;
 
                 if ((this.hangtime == 0) && (magnitude > (this.BlockNBThreshold * this.average_magnitude)))
@@ -114,7 +114,7 @@ namespace SharpDSP2._1
                 else
                 {
                     real[i] = this.delay_line[this.delayindex].real;
-                    imag[i] = this.delay_line[this.delayindex].imag;
+                    imag[i] = this.delay_line[this.delayindex].imaginary;
                 }
 
                 this.sigindex = (this.sigindex + 7) & 7;

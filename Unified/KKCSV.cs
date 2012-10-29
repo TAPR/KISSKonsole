@@ -8,54 +8,6 @@ namespace KISS_Konsole
     {
         private void CreateKKCSV(string KKCSVName)
         {
-            #region The contents of KK.csv
-            /*  contents of a KK.CSV default file
-             * 
-                Users Call,your call here
-                Band,40m
-                Sample Rate,48000
-                Step Size,10Hz
-                Mode,USB
-                Volume,8
-                AGC-T,43
-                AGC Speed,Long
-                Bandwidth,3382
-                Last Freq 160m,1836056
-                Last Freq 80m,3635928
-                Last Freq 40m,7135010
-                Last Freq 30m,10120082
-                Last Freq 20m,14266100
-                Last Freq 17m,18091270
-                Last Freq 15m,21045856
-                Last Freq 12m,24950010
-                Last Freq 10m,28040534
-                Last Freq 6m,50257000
-                Last Freq GC,16998470
-                Last frequency,14266100
-                ANF,False
-                NR,False
-                NB1,False
-                NB2,False
-                NB1 Threshold,8.8
-                NB2 Threshold,9
-                Bandscope Average,True
-                Bandscope Smooth,0.6
-                Rate,15
-                Preamp 160,False
-                Preamp 80,False
-                Preamp 40,False
-                Preamp 30,False
-                Preamp 20,False
-                Preamp 17,True
-                Preamp 15,False
-                Preamp 12,False
-                Preamp 10,False
-                Preamp 6,False
-                Preamp GC,False
-             * 
-             */
-            #endregion
-
             // set all data accordingly
             Your_call = "your call here";
             SampleRate = 48000;
@@ -111,18 +63,19 @@ namespace KISS_Konsole
             Alex = false;
             Apollo = false;
 
-            Alex160mState = 0;
-            Alex80mState = 0;
-            Alex60mState = 0;
-            Alex40mState = 0;
-            Alex30mState = 0;
-            Alex20mState = 0;
-            Alex17mState = 0;
-            Alex15mState = 0;
-            Alex12mState = 0;
-            Alex10mState = 0;
-            Alex6mState = 0;
-            AlexGCState = 0;
+            // 65 is the default value for AlexState. It corresponds to TXAnt1 (64) | RXAnt1 (1) = 65
+            Alex160mState = DefaultAlexState;
+            Alex80mState = DefaultAlexState;
+            Alex60mState = DefaultAlexState;
+            Alex40mState = DefaultAlexState;
+            Alex30mState = DefaultAlexState;
+            Alex20mState = DefaultAlexState;
+            Alex17mState = DefaultAlexState;
+            Alex15mState = DefaultAlexState;
+            Alex12mState = DefaultAlexState;
+            Alex10mState = DefaultAlexState;
+            Alex6mState = DefaultAlexState;
+            AlexGCState = DefaultAlexState;
 
             SkipVersionCheck = false;
             Allow16kWidebandSamples = true;
@@ -610,6 +563,8 @@ namespace KISS_Konsole
             // can be fixed.  Common defects include getting a value of 0,
             // or other value where TX or RX antenna selector is 0.  If such a defect
             // is found, cause the TX or RX antenna selector to be 1.
+            // This turns a value of 0 that is read in to '65' (decimal), which is a
+            // 1 for Tx (64) and a 1 for Rx (1).
             GetValidAlexState("Alex160mState", ref Alex160mState, value);
             GetValidAlexState("Alex80mState", ref Alex80mState, value);
             GetValidAlexState("Alex60mState", ref Alex60mState, value);

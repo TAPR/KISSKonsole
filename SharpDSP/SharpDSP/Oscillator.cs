@@ -89,8 +89,8 @@ namespace SharpDSP2._1
 	                this.CosN = Math.Cos(this.phaseTone);
 	                this.SinN = Math.Sin(this.phaseTone);
 	                
-	                d.tmp_cpx_1[i].real = (float)((this.CosN * d.cpx[i].real) - (this.SinN * d.cpx[i].imag)) * this.magnitudeTone;
-	                d.tmp_cpx_1[i].imag = (float)((this.CosN * d.cpx[i].imag) + (this.SinN * d.cpx[i].real)) * this.magnitudeTone;
+	                d.tmp_cpx_1[i].real = (float)((this.CosN * d.cpx[i].real) - (this.SinN * d.cpx[i].imaginary)) * this.magnitudeTone;
+	                d.tmp_cpx_1[i].imaginary = (float)((this.CosN * d.cpx[i].imaginary) + (this.SinN * d.cpx[i].real)) * this.magnitudeTone;
 	               	
 					this.phaseTone += this.stepTone;					
 	            }
@@ -117,12 +117,12 @@ namespace SharpDSP2._1
                     this.SinN = Math.Sin(this.phaseTone);
 
                     this.temp[i].real = (float)((this.CosN * real[i]) - (this.SinN * imag[i])) * this.magnitudeTone;
-                    this.temp[i].imag = (float)((this.CosN * imag[i]) + (this.SinN * real[i])) * this.magnitudeTone;
+                    this.temp[i].imaginary = (float)((this.CosN * imag[i]) + (this.SinN * real[i])) * this.magnitudeTone;
 
                     this.phaseTone += this.stepTone;
 
                     real[i] = this.temp[i].real;
-                    imag[i] = this.temp[i].imag;
+                    imag[i] = this.temp[i].imaginary;
                 }                
             }
             else { return; }

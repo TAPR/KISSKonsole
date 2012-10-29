@@ -152,8 +152,8 @@ namespace SharpDSP2._1
             
         	for (int i = 0; i < size; i++)  //convolution in frequency here
             {
-        		d.tmp_cpx_2[i].real = (filter_cpx[i].real * d.tmp_cpx_1[i].real) - (filter_cpx[i].imag * d.tmp_cpx_1[i].imag);
-                d.tmp_cpx_2[i].imag = (filter_cpx[i].real * d.tmp_cpx_1[i].imag) + (filter_cpx[i].imag * d.tmp_cpx_1[i].real);                  
+        		d.tmp_cpx_2[i].real = (filter_cpx[i].real * d.tmp_cpx_1[i].real) - (filter_cpx[i].imaginary * d.tmp_cpx_1[i].imaginary);
+                d.tmp_cpx_2[i].imaginary = (filter_cpx[i].real * d.tmp_cpx_1[i].imaginary) + (filter_cpx[i].imaginary * d.tmp_cpx_1[i].real);                  
             }        	
         }       
                        
