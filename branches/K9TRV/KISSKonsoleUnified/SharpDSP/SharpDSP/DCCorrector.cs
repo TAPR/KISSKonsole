@@ -63,7 +63,7 @@ namespace SharpDSP2._1
             for (int i = 0; i < blocksize; i++)
             {
                 this.dc_i = oneminussmooth * this.dc_i + smooth * d.cpx[i].real;
-                this.dc_q = oneminussmooth * this.dc_q + smooth * d.cpx[i].imag;
+                this.dc_q = oneminussmooth * this.dc_q + smooth * d.cpx[i].imaginary;
 
                 if (this.dc_i >= this.dc_limit)
                 {
@@ -84,7 +84,7 @@ namespace SharpDSP2._1
                 }
 
                 d.cpx[i].real -= this.dc_i;
-                d.cpx[i].imag -= this.dc_q;
+                d.cpx[i].imaginary -= this.dc_q;
             }
         }
 

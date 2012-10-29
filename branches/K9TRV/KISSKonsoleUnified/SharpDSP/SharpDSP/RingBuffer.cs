@@ -76,7 +76,7 @@ namespace SharpDSP2._1
         public void Write(float real, float imag)
         {
             buffer[writePos].real = real;
-            buffer[writePos].imag = imag;
+            buffer[writePos].imaginary = imag;
             writePos = (writePos + 1) % size;
         }
 
@@ -97,7 +97,7 @@ namespace SharpDSP2._1
             int pos = readPos;
             readPos = (readPos + 1) % size;
             real = buffer[pos].real;
-            imag = buffer[pos].imag;
+            imag = buffer[pos].imaginary;
         }  
 
         public void Discard(int num)

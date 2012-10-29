@@ -442,10 +442,10 @@ namespace SharpDSP2._1
             for (int i = 0; i < ring_buffsize; i++)
             {
                 ring[i].real = 0.0f;
-                ring[i].imag = 0.0f;
+                ring[i].imaginary = 0.0f;
             }
             out_sample.real = 0.0f;
-            out_sample.imag = 0.0f;
+            out_sample.imaginary = 0.0f;
             abs_out_sample = 0.0f;
             decay_type = 0;
         }
@@ -523,7 +523,7 @@ namespace SharpDSP2._1
                 out_sample = ring[out_index];
                 abs_out_sample = abs_ring[out_index];
                 ring[in_index] = buff[i];
-                abs_ring[in_index] = Math.Max(Math.Abs(ring[in_index].real), Math.Abs(ring[in_index].imag));
+                abs_ring[in_index] = Math.Max(Math.Abs(ring[in_index].real), Math.Abs(ring[in_index].imaginary));
 
                 fast_backaverage = fast_backmult * abs_out_sample + onemfast_backmult * fast_backaverage;
                 hang_backaverage = hang_backmult * abs_out_sample + onemhang_backmult * hang_backaverage;
@@ -671,7 +671,7 @@ namespace SharpDSP2._1
                 
                 mult = (out_target - slope_constant * Math.Min(0.0, Math.Log10 (inv_max_input * volts))) / volts;
                 buff[i].real = (float)(out_sample.real * mult);
-                buff[i].imag = (float)(out_sample.imag * mult);
+                buff[i].imaginary = (float)(out_sample.imaginary * mult);
             }
         }
         #endregion

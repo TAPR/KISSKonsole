@@ -63,12 +63,12 @@ namespace SharpDSP2._1
             {
             	float magnitude = d.GetMagnitude(i);
                 this.average_signal_real = (this.average_signal_real * 0.75f) + (d.cpx[i].real * 0.25f);
-                this.average_signal_imag = (this.average_signal_imag * 0.75f) + (d.cpx[i].imag * 0.25f);
+                this.average_signal_imag = (this.average_signal_imag * 0.75f) + (d.cpx[i].imaginary * 0.25f);
                 this.average_magnitude = 0.999f * (this.average_magnitude) + 0.001f * magnitude;
                 if (magnitude > (this.AveNBThreshold * this.average_magnitude))
                 {
                     d.cpx[i].real = this.average_signal_real;
-                    d.cpx[i].imag = this.average_signal_imag;
+                    d.cpx[i].imaginary = this.average_signal_imag;
                 }
             }
         }

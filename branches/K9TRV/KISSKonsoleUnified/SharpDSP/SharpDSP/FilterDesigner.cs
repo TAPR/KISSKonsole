@@ -66,12 +66,12 @@ namespace SharpDSP2._1
                 if (i != midpoint)
                 {
                     taps[j].real = (Convert.ToSingle(Math.Sin(TWOPI * (i - midpoint) * fc) / (ONEPI * (i - midpoint)))) * window[j];
-                    taps[j].imag = (Convert.ToSingle(Math.Cos(TWOPI * (i - midpoint) * fc) / (ONEPI * (i - midpoint)))) * window[j];
+                    taps[j].imaginary = (Convert.ToSingle(Math.Cos(TWOPI * (i - midpoint) * fc) / (ONEPI * (i - midpoint)))) * window[j];
                 }
                 else
                 {
                     taps[midpoint - 1].real = 2.0F * fc;
-                    taps[midpoint - 1].imag = 2.0F * fc;
+                    taps[midpoint - 1].imaginary = 2.0F * fc;
                 }
             }
 
@@ -107,7 +107,7 @@ namespace SharpDSP2._1
                     temp = 2.0F * fc;
                 temp *= 2.0F;
                 taps[j].real = temp * (float)(Math.Cos(phase));
-                taps[j].imag = temp * (float)(Math.Sin(phase));
+                taps[j].imaginary = temp * (float)(Math.Sin(phase));
             }
 
         }

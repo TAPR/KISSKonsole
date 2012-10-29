@@ -433,9 +433,9 @@ namespace KISS_Konsole
                             else
                             {
                                 // IS Hermes
-                                if (MainForm.Ozy_FPGA_version < 10)
+                                if (MainForm.Ozy_FPGA_version < 19)
                                     MessageBox.Show("Warning - Hermes code version is V" + ((float)(MainForm.Ozy_FPGA_version / 10f)).ToString() +
-                                    "\nMust be V1.0 or higher");
+                                    "\nMust be V1.9 (production release version) or higher");
                             }
 
                             // check we find a Penny board if selected 
@@ -510,7 +510,7 @@ namespace KISS_Konsole
                     MainForm.SignalBuffer.cpx[sample_no].real = scaleIn * (float)((rbuf[k + 2] << 8) | (rbuf[k + 1] << 16) | (rbuf[k] << 24));
 
                     // get a Q sample
-                    MainForm.SignalBuffer.cpx[sample_no].imag = scaleIn * (float)((rbuf[k + 5] << 8) | (rbuf[k + 4] << 16) | (rbuf[k + 3] << 24));
+                    MainForm.SignalBuffer.cpx[sample_no].imaginary = scaleIn * (float)((rbuf[k + 5] << 8) | (rbuf[k + 4] << 16) | (rbuf[k + 3] << 24));
 
                     // Get a microphone sample & store it in a simple buffer.
                     // If EP6 sample rate > 48k, the Mic samples received contain duplicates, which we'll ignore.
@@ -561,18 +561,18 @@ namespace KISS_Konsole
                             if (MicSampleIn > 0)
                             {
                                 ProcessorFilterBuffer.cpx[MicSampleIn].real = Sample - 0.99f * ProcessorFilterBuffer.cpx[MicSampleIn - 1].real;
-                                ProcessorFilterBuffer.cpx[MicSampleIn].imag = Sample - 0.99f * ProcessorFilterBuffer.cpx[MicSampleIn - 1].imag;
+                                ProcessorFilterBuffer.cpx[MicSampleIn].imaginary = Sample - 0.99f * ProcessorFilterBuffer.cpx[MicSampleIn - 1].imaginary;
                             }
                             else if (MicSampleIn == 0)
                             {
                                 ProcessorFilterBuffer.cpx[MicSampleIn].real = Sample - 0.99f * ProcessorFilterBuffer.cpx[Form1.iqsize - 1].real;
-                                ProcessorFilterBuffer.cpx[MicSampleIn].imag = Sample - 0.99f * ProcessorFilterBuffer.cpx[Form1.iqsize - 1].imag;
+                                ProcessorFilterBuffer.cpx[MicSampleIn].imaginary = Sample - 0.99f * ProcessorFilterBuffer.cpx[Form1.iqsize - 1].imaginary;
                             }
                         }
                         else
                         {
                             ProcessorFilterBuffer.cpx[MicSampleIn].real = Sample;
-                            ProcessorFilterBuffer.cpx[MicSampleIn].imag = Sample;
+                            ProcessorFilterBuffer.cpx[MicSampleIn].imaginary = Sample;
                         }
 
                         float MicPeak = 0;
@@ -626,7 +626,7 @@ namespace KISS_Konsole
                             for (int x = 0; x < Form1.iqsize; x++)
                             {
                                 ProcessorFilterBuffer.cpx[x].real *= (MicAGCGain * MainForm.ProcGain); // * Mute);
-                                ProcessorFilterBuffer.cpx[x].imag = ProcessorFilterBuffer.cpx[x].real;
+                                ProcessorFilterBuffer.cpx[x].imaginary = ProcessorFilterBuffer.cpx[x].real;
                                 if (MicPeak < Math.Abs(ProcessorFilterBuffer.cpx[x].real))
                                     MicPeak = Math.Abs(ProcessorFilterBuffer.cpx[x].real);
                             }
@@ -641,7 +641,7 @@ namespace KISS_Konsole
                             {
                                 // calculate the envelope of the I and Q signals using Sqrt(I*I + Q*Q)
                                 envelope = (float)Math.Sqrt(ProcessorFilterBuffer.cpx[enve].real * ProcessorFilterBuffer.cpx[enve].real +
-                                                            ProcessorFilterBuffer.cpx[enve].imag * ProcessorFilterBuffer.cpx[enve].imag);
+                                                            ProcessorFilterBuffer.cpx[enve].imaginary * ProcessorFilterBuffer.cpx[enve].imaginary);
                                 // apply the clipper
                                 if (envelope > 1.0f)
                                 {
@@ -655,7 +655,7 @@ namespace KISS_Konsole
                             for (int enve = 0; enve < Form1.iqsize; ++enve)
                             {
                                 TransmitFilterBuffer.cpx[enve].real = ProcessorFilterBuffer.cpx[enve].real * 0.49f;  // was 0.59f
-                                TransmitFilterBuffer.cpx[enve].imag = TransmitFilterBuffer.cpx[enve].real;
+                                TransmitFilterBuffer.cpx[enve].imaginary = TransmitFilterBuffer.cpx[enve].real;
                             }
 
                             TransmitFilter.Process(); // This reads from and writes to the TransmitFilterBuffer
@@ -942,7 +942,12 @@ namespace KISS_Konsole
 
                     case 1:
                         // set CO  to  0x02 and send frequency for Penelope/PennyLane/Hermes Tx  (and Mercury/Hermes if not full Duplex)
-                        C0 = 0x02; C1 = MainForm.frequency[3]; C2 = MainForm.frequency[2]; C3 = MainForm.frequency[1]; C4 = MainForm.frequency[0]; // send frequency data
+                        C0 = 0x02;
+                        // send frequency data
+                        C1 = MainForm.frequency[3];
+                        C2 = MainForm.frequency[2];
+                        C3 = MainForm.frequency[1];
+                        C4 = MainForm.frequency[0];
 
                         // check if Duplex or PennyLane or Hermes is selected - if so go to next state else loop back to starting state
                         send_state = MainForm.Duplex ? 2 : 3;
@@ -950,7 +955,11 @@ namespace KISS_Konsole
 
                     case 2:
                         // Duplex is selected so set CO to  0x04 and send duplex frequency to Mercury_1/ Hermes 
-                        C0 = 0x04; C1 = MainForm.duplex_frequency[3]; C2 = MainForm.duplex_frequency[2]; C3 = MainForm.duplex_frequency[1]; C4 = MainForm.duplex_frequency[0];
+                        C0 = 0x04;
+                        C1 = MainForm.duplex_frequency[3];
+                        C2 = MainForm.duplex_frequency[2];
+                        C3 = MainForm.duplex_frequency[1];
+                        C4 = MainForm.duplex_frequency[0];
 
                         send_state = 3;
                         break;
@@ -1006,9 +1015,15 @@ namespace KISS_Konsole
 
                 pntr = (frame_number * 512) + bufferOffset;     // start past the 8 bytes header before the data
 
-                to_Device[pntr] = sync; to_Device[++pntr] = sync; to_Device[++pntr] = sync;
-                to_Device[++pntr] = C0; to_Device[++pntr] = C1; to_Device[++pntr] = C2;
-                to_Device[++pntr] = C3; to_Device[++pntr] = C4;
+                to_Device[pntr] = sync;
+                to_Device[++pntr] = sync;
+                to_Device[++pntr] = sync;
+
+                to_Device[++pntr] = C0;
+                to_Device[++pntr] = C1;
+                to_Device[++pntr] = C2;
+                to_Device[++pntr] = C3;
+                to_Device[++pntr] = C4;
 
                 for (x = 8; x < 512; x += 8)        // fill out one 512-byte frame
                 {
@@ -1039,6 +1054,7 @@ namespace KISS_Konsole
                                     if (++CWnoteIndex >= 80) CWnoteIndex = 0;
                                 }
                                 break;
+
                             case OperMode.LSB:  // need to swap the phase of I&Q if LSB signal
                             case OperMode.CWL:
                                 {

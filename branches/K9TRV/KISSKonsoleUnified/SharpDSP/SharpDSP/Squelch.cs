@@ -75,12 +75,12 @@ namespace SharpDSP2._1
                         for (int i = 0; i < this.num; i++)
                         {
                             d.cpx[i].real *= 1.0F - (float)(i / this.num);
-                            d.cpx[i].imag *= 1.0F - (float)(i / this.num);
+                            d.cpx[i].imaginary *= 1.0F - (float)(i / this.num);
                         }
                         for (int i = this.num; i < blocksize; i++)
                         {
                             d.cpx[i].real = 0F;
-                            d.cpx[i].imag = 0F;
+                            d.cpx[i].imaginary = 0F;
                         }
                         this.running = true;
                     }
@@ -89,7 +89,7 @@ namespace SharpDSP2._1
                         for (int i = 0; i < blocksize; i++)
                         {
                             d.cpx[i].real = 0F;
-                            d.cpx[i].imag = 0F;
+                            d.cpx[i].imaginary = 0F;
                         }
                     }
                 }
@@ -102,7 +102,7 @@ namespace SharpDSP2._1
                     for (int i = 0; i < this.num; i++)
                     {
                         d.cpx[i].real *= 1.0F - (float)(i / this.num);
-                        d.cpx[i].imag *= 1.0F - (float)(i / this.num);
+                        d.cpx[i].imaginary *= 1.0F - (float)(i / this.num);
                     }
                     this.running = false;
                 }

@@ -135,7 +135,7 @@ namespace SharpDSP2._1
 				for (int i = 0; i < blocksize; i++)
 				{
 					tmp_cpx[i].real = d.cpx[i].real * this.window[i];
-					tmp_cpx[i].imag = d.cpx[i].imag * this.window[i];				
+					tmp_cpx[i].imaginary = d.cpx[i].imaginary * this.window[i];				
 				}	
 				
 				DoFFTForwardPS();  // note: this reverses the order, need to flip (see below).
@@ -174,7 +174,7 @@ namespace SharpDSP2._1
 		
 		private float GetPowerPS(int index)
 		{
-			return ps_cpx[index].real * ps_cpx[index].real + ps_cpx[index].imag * ps_cpx[index].imag;
+			return ps_cpx[index].real * ps_cpx[index].real + ps_cpx[index].imaginary * ps_cpx[index].imaginary;
 		}
 		
 		private void DoFFTForwardPS()

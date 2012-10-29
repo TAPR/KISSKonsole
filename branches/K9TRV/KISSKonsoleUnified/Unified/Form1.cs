@@ -285,6 +285,10 @@
  *                          AppDataDir + "\OpenHPSDR".  This will allow multiple instances of KK on the same system.  Otherwise, they would all share
  *                          the same KK.CSV file.  Note that the installer will only allow 1 version to be 'installed' at any one time.  but that
  *                          doesn't prevent you from making copies of the executable folder.
+ * 11 Oct  2012 - V1.1.20 - G Byrkit (K9TRV) update to account for new firmware versions for Ozy/Metis/Penny/Mercury/Hermes
+ * 26 Oct  2012 - v1.1.21 - G Byrkit (K9TRV) Change to .Net Framework 4.0 CLIENT PROFILE so that it runs on more computers without extra software
+ *                          Also change installer to reflect this.  Also add new versions of firmware, and note that Metis 1.9, Metis 2.0 and Ozy 2.3
+ *                          all have various defects and mostly should NOT be used.  Add Ozy v2.4 to installer and initozy11.bat.  Ozy v2.1 still the default...
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
@@ -325,7 +329,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.19 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.21 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -733,7 +737,7 @@ namespace KISS_Konsole
             for (int i = 0; i < iqsize; i++)
             {
                 I_sample[i] = (int)(scaleIQDisplay * SignalBuffer.cpx[i].real);
-                Q_sample[i] = (int)(scaleIQDisplay * SignalBuffer.cpx[i].imag);
+                Q_sample[i] = (int)(scaleIQDisplay * SignalBuffer.cpx[i].imaginary);
             }
         }
 

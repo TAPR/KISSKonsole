@@ -756,11 +756,28 @@ namespace KISS_Konsole
                     break;
 
                     // Metis 19 and Mercury 33 support 16k samples on 'wideband' data.  And other things...
+                // Metis 19 has a problem with some hardware configs/PC option selections yield incorrect freq assignment for Rx1, incorrect 122.88 MHz clock assignment when Penelope selected as source
                 case 19:
                     if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 17)) ||
                         ((MainForm.Merc_version != 33)))
                     {
-                        MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Metis version 19", MessageBoxButtons.OK);
+                        MessageBox.Show(whatsPresent, "Metis version 19 has problems.  Please upgrade to Metis version 21", MessageBoxButtons.OK);
+                        //MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Metis version 19", MessageBoxButtons.OK);
+                        result = false;
+                    }
+                    break;
+
+                // Metis 20 has a problem with some hardware configs/PC option selections yield incorrect freq assignment for Rx1
+                case 20:
+                        MessageBox.Show(whatsPresent, "Metis version 20 has problems.  Please upgrade to Metis version 21", MessageBoxButtons.OK);
+                        result = false;
+                    break;
+
+                case 21:
+                    if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 17)) ||
+                        ((MainForm.Merc_version != 33)))
+                    {
+                        MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Metis version 21", MessageBoxButtons.OK);
                         result = false;
                     }
                     break;

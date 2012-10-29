@@ -91,7 +91,7 @@ namespace SharpDSP2._1
                 pll_internal_state.dc = 0.999f * pll_internal_state.dc + 0.001f * magn;
                 pll_internal_state.smooth = 0.70f * pll_internal_state.smooth + 0.30f * (magn - pll_internal_state.dc);
                 d.cpx[i].real = pll_internal_state.smooth;
-                d.cpx[i].imag = pll_internal_state.smooth;                
+                d.cpx[i].imaginary = pll_internal_state.smooth;                
             }                                   
         }
 		
@@ -108,8 +108,8 @@ namespace SharpDSP2._1
                 float tempCos = (float)Math.Cos(pll_internal_state.phase);
                 float tempSin = (float)Math.Sin(pll_internal_state.phase);
 
-                float delay_real = tempCos * d.cpx[i].real + tempSin * d.cpx[i].imag;
-                float delay_imag = -tempSin * d.cpx[i].real + tempCos * d.cpx[i].imag;
+                float delay_real = tempCos * d.cpx[i].real + tempSin * d.cpx[i].imaginary;
+                float delay_imag = -tempSin * d.cpx[i].real + tempCos * d.cpx[i].imaginary;
 
                 float difference = d.GetMagnitude(i) * 
                 					(float)Math.Atan2(delay_imag, delay_real);
@@ -132,7 +132,7 @@ namespace SharpDSP2._1
                 pll_internal_state.lockprevious = pll_internal_state.lockcurrent;
                 pll_internal_state.dc = 0.9999F * pll_internal_state.dc + 0.0001F * delay_real;
                 d.tmp_cpx_1[i].real = delay_real - pll_internal_state.dc;
-                d.tmp_cpx_1[i].imag = d.tmp_cpx_1[i].real;
+                d.tmp_cpx_1[i].imaginary = d.tmp_cpx_1[i].real;
             }
             d.CopyTemp1BotToMainBot();
         }
@@ -150,8 +150,8 @@ namespace SharpDSP2._1
                 float tempCos = (float)Math.Cos(pll_internal_state.phase);
                 float tempSin = (float)Math.Sin(pll_internal_state.phase);
 
-                float delay_real = tempCos *  d.cpx[i].real + tempSin *  d.cpx[i].imag;
-                float delay_imag = -tempSin *  d.cpx[i].real + tempCos * d.cpx[i].imag;
+                float delay_real = tempCos *  d.cpx[i].real + tempSin *  d.cpx[i].imaginary;
+                float delay_imag = -tempSin *  d.cpx[i].real + tempCos * d.cpx[i].imaginary;
                 
                 float difference = (float)(Math.Atan2(delay_imag, delay_real));
 
@@ -171,7 +171,7 @@ namespace SharpDSP2._1
 
                 pll_internal_state.afc = 0.9999F * pll_internal_state.afc + 0.0001F * PLLFrequency;
                 d.tmp_cpx_1[i].real = (PLLFrequency - pll_internal_state.afc) * pll_internal_state.cvt;
-                d.tmp_cpx_1[i].imag = d.tmp_cpx_1[i].real;
+                d.tmp_cpx_1[i].imaginary = d.tmp_cpx_1[i].real;
             }
             d.CopyTemp1BotToMainBot();
         }
