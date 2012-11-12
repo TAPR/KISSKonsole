@@ -433,9 +433,9 @@ namespace KISS_Konsole
                             else
                             {
                                 // IS Hermes
-                                if (MainForm.Ozy_FPGA_version < 19)
+                                if (MainForm.Ozy_FPGA_version < 18)
                                     MessageBox.Show("Warning - Hermes code version is V" + ((float)(MainForm.Ozy_FPGA_version / 10f)).ToString() +
-                                    "\nMust be V1.9 (production release version) or higher");
+                                    "\nMust be V1.8 (production release version) or higher");
                             }
 
                             // check we find a Penny board if selected 
