@@ -289,6 +289,8 @@
  * 26 Oct  2012 - v1.1.21 - G Byrkit (K9TRV) Change to .Net Framework 4.0 CLIENT PROFILE so that it runs on more computers without extra software
  *                          Also change installer to reflect this.  Also add new versions of firmware, and note that Metis 1.9, Metis 2.0 and Ozy 2.3
  *                          all have various defects and mostly should NOT be used.  Add Ozy v2.4 to installer and initozy11.bat.  Ozy v2.1 still the default...
+ * 31 Oct  2012 - v1.1.22 - G Byrkit (K9TRV) Phil advised me that there is NOT YET a Hermes V1.9.  Must have been one of those Hermes/Metis confusions.
+ *                          So change the code and re-release so that KK will work with Hermes 1.8 without complaining.
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
