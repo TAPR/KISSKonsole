@@ -291,6 +291,9 @@
  *                          all have various defects and mostly should NOT be used.  Add Ozy v2.4 to installer and initozy11.bat.  Ozy v2.1 still the default...
  * 31 Oct  2012 - v1.1.22 - G Byrkit (K9TRV) Phil advised me that there is NOT YET a Hermes V1.9.  Must have been one of those Hermes/Metis confusions.
  *                          So change the code and re-release so that KK will work with Hermes 1.8 without complaining.
+ * 16 Nov  2012 - v1.1.23 - G Byrkit (K9TRV) Bill Diaz discovered a problem with fast-connect to previous device when the IP addr of the previous device
+ *                          had changed (likely due to DHCP handing out a different IP address).  Fixed in EthernetDevice.cs.  Also, previous version
+ *                          identified itself as 1.1.21 and not as 1.1.22 as it should have.
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
@@ -331,7 +334,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.22 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.23 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
