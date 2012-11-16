@@ -66,7 +66,7 @@ namespace KISS_Konsole
                 IPEndPoint localEndPoint = (IPEndPoint)socket.LocalEndPoint;
                 Console.WriteLine("Looking for Metis boards using host adapter IP {0}, port {1}", localEndPoint.Address, localEndPoint.Port);
 
-                if (Metis_Discovery(ref mhdList, iep, null))
+                if (Metis_Discovery(ref mhdList, iep, targetIP))
                 {
                     result = true;
                 }
@@ -74,7 +74,7 @@ namespace KISS_Konsole
             }
             catch (System.Exception ex)
             {
-                Console.WriteLine("Caught an exception while binding a socket to endpoint{0}.  Exception was: {1} ", iep.ToString(), ex.ToString());
+                Console.WriteLine("Caught an exception while binding a socket to endpoint {0}.  Exception was: {1} ", iep.ToString(), ex.ToString());
                 result = false;
             }
             finally
@@ -121,6 +121,8 @@ namespace KISS_Konsole
                 IPAddress hostIP;
                 if (IPAddress.TryParse(MainForm.EthernetHostIPAddress, out hostIP) && IPAddress.TryParse(MainForm.Metis_IP_address, out targetIP))
                 {
+                    Console.WriteLine(String.Format("Attempting fast re-connect to host adapter {0}, metis IP {1}", MainForm.EthernetHostIPAddress, MainForm.Metis_IP_address));
+
                     if (DiscoverMetisOnPort(ref mhd, hostIP, targetIP))
                     {
                         foundMetis = true;
@@ -129,7 +131,7 @@ namespace KISS_Konsole
                         if (mhd.Count > 0)
                         {
                             // remove the extra ones that don't match!
-                            MetisHermesDevice m2 = new MetisHermesDevice();
+                            MetisHermesDevice m2 = null;
                             foreach (var m in mhd)
                             {
                                 if (m.IPAddress.CompareTo(MainForm.Metis_IP_address) == 0)
@@ -138,9 +140,16 @@ namespace KISS_Konsole
                                 }
                             }
 
-                            // clear the list and put our single element in it.
+                            // clear the list and put our single element in it, if we found it.
                             mhd.Clear();
-                            mhd.Add(m2);
+                            if (m2 != null)
+                            {
+                                mhd.Add(m2);
+                            }
+                            else
+                            {
+                                foundMetis = false;
+                            }
                         }
                     }
                 }
@@ -584,8 +593,7 @@ namespace KISS_Konsole
                         // (G Byrkit, 8 Jan 2012)
                         if ((data[0] == 0xEF) && (data[1] == 0xFE) && ((data[2] & 0x02) != 0))
                         {
-                            Console.WriteLine("\nFound a Metis/Hermes/Griffin");
-                            have_Metis = true;
+                            Console.WriteLine("\nFound a Metis/Hermes/Griffin.  Checking whether it qualifies");
 
                             // get Metis IP address from the IPEndPoint passed to ReceiveFrom.
                             IPEndPoint ripep = (IPEndPoint)remoteEP;
@@ -617,14 +625,20 @@ namespace KISS_Konsole
                                 mhd.codeVersion = codeVersion;
                                 mhd.InUse = false;
                                 mhd.hostPortIPAddress = hostPortIPAddress;
-                                mhdList.Add(mhd);
 
                                 if (targetIP != null)
                                 {
                                     if (mhd.IPAddress.CompareTo(targetIP.ToString()) == 0)
                                     {
+                                        have_Metis = true;
+                                        mhdList.Add(mhd);
                                         return true;
                                     }
+                                }
+                                else
+                                {
+                                    have_Metis = true;
+                                    mhdList.Add(mhd);
                                 }
                             }
                         }
@@ -641,7 +655,7 @@ namespace KISS_Konsole
                 } while (data_available);
             }
 
-            return true;
+            return have_Metis;
         }
 
         /// <summary>
