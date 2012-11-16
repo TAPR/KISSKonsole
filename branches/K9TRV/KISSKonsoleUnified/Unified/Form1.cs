@@ -331,7 +331,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.21 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.22 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
