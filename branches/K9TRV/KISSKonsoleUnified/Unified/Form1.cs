@@ -6,7 +6,7 @@
  * Copyright (C) 2009, 2010, 2011 Phil Harman, VK6APH
  * Copyright (C) 2009 David McQuate WA8YWQ
  * Copyright (C) 2009 Joe Martin K5SO
- * Copyright (C) 2009, 2010, 2011, 2012 George Byrkit K9TRV
+ * Copyright (C) 2009-2013 George Byrkit K9TRV
  * Copyright (C) 2009 Mark Amos W8XR
  * Copyright (C) 2011 Erik Anderson KE7YOA
  * Copyright (C) 2011-2012 Warren Pratt NR0V (wcpAGC code)
@@ -295,6 +295,7 @@
  *                          had changed (likely due to DHCP handing out a different IP address).  Fixed in EthernetDevice.cs.  Also, previous version
  *                          identified itself as 1.1.21 and not as 1.1.22 as it should have.
  * 15 Dec  2012 - v1.1.24 - G Byrkit (K9TRV) Accommodate Metis 2.2, which fixes an occasional hang in previous versions of Metis.
+ * 1  Jan  2013 - v1.1.25 - G Byrkit (K9TRV) Accommodate Metis 2.3.  Change copyright dates to include 2013
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
@@ -335,7 +336,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.24 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.25 - Unified wcpAGC";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
