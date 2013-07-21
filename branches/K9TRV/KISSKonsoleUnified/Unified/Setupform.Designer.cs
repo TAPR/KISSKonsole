@@ -348,10 +348,11 @@
             this.SampleRate.Items.AddRange(new object[] {
             "48000",
             "96000",
-            "192000"});
-            this.SampleRate.Location = new System.Drawing.Point(47, 19);
+            "192000",
+            "384000"});
+            this.SampleRate.Location = new System.Drawing.Point(34, 19);
             this.SampleRate.Name = "SampleRate";
-            this.SampleRate.Size = new System.Drawing.Size(67, 21);
+            this.SampleRate.Size = new System.Drawing.Size(80, 21);
             this.SampleRate.TabIndex = 0;
             this.SampleRate.SelectedIndexChanged += new System.EventHandler(this.SampleRate_SelectedIndexChanged);
             // 
@@ -369,7 +370,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 22);
+            this.label3.Location = new System.Drawing.Point(11, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 13);
             this.label3.TabIndex = 7;

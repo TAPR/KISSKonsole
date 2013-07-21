@@ -115,6 +115,7 @@ namespace KISS_Konsole
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -228,7 +229,7 @@ namespace KISS_Konsole
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(447, 571);
+            this.label10.Location = new System.Drawing.Point(447, 592);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 54;
@@ -326,8 +327,8 @@ namespace KISS_Konsole
             this.BandwidthTrackBar.Name = "BandwidthTrackBar";
             this.BandwidthTrackBar.Size = new System.Drawing.Size(104, 45);
             this.BandwidthTrackBar.TabIndex = 73;
-            this.BandwidthTrackBar.ValueChanged += new System.EventHandler(this.BandwidthTrackBar_ValueChanged);
             this.BandwidthTrackBar.Scroll += new System.EventHandler(this.BandwidthTrackBar_Scroll);
+            this.BandwidthTrackBar.ValueChanged += new System.EventHandler(this.BandwidthTrackBar_ValueChanged);
             // 
             // ANF
             // 
@@ -518,21 +519,21 @@ namespace KISS_Konsole
             // setupToolStripMenuItem
             // 
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.setupToolStripMenuItem.Text = "Setup";
             this.setupToolStripMenuItem.Click += new System.EventHandler(this.setupToolStripMenuItem_Click);
             // 
             // deviceConfigToolStripMenuItem
             // 
             this.deviceConfigToolStripMenuItem.Name = "deviceConfigToolStripMenuItem";
-            this.deviceConfigToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.deviceConfigToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.deviceConfigToolStripMenuItem.Text = "Connection Type";
             this.deviceConfigToolStripMenuItem.Click += new System.EventHandler(this.deviceConfigToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -576,12 +577,12 @@ namespace KISS_Konsole
             this.pictureBoxSpectrum.Size = new System.Drawing.Size(1024, 255);
             this.pictureBoxSpectrum.TabIndex = 0;
             this.pictureBoxSpectrum.TabStop = false;
+            this.pictureBoxSpectrum.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSpectrum_Paint);
+            this.pictureBoxSpectrum.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSpectrum_MouseDown);
+            this.pictureBoxSpectrum.MouseEnter += new System.EventHandler(this.pictureBoxSpectrum_MouseEnter);
             this.pictureBoxSpectrum.MouseLeave += new System.EventHandler(this.pictureBoxSpectrum_MouseLeave);
             this.pictureBoxSpectrum.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSpectrum_MouseMove);
-            this.pictureBoxSpectrum.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSpectrum_MouseDown);
-            this.pictureBoxSpectrum.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSpectrum_Paint);
             this.pictureBoxSpectrum.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSpectrum_MouseUp);
-            this.pictureBoxSpectrum.MouseEnter += new System.EventHandler(this.pictureBoxSpectrum_MouseEnter);
             // 
             // pictureBoxWideband
             // 
@@ -873,8 +874,8 @@ namespace KISS_Konsole
             this.VOXLevel.Size = new System.Drawing.Size(100, 20);
             this.VOXLevel.TabIndex = 142;
             this.VOXLevel.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.VOXLevel.ValueChanged += new System.EventHandler(this.VOXLevel_ValueChanged);
             this.VOXLevel.Scroll += new System.EventHandler(this.VOXLevel_Scroll);
+            this.VOXLevel.ValueChanged += new System.EventHandler(this.VOXLevel_ValueChanged);
             // 
             // label6
             // 
@@ -933,8 +934,8 @@ namespace KISS_Konsole
             this.ProcessorGain.TabIndex = 137;
             this.ProcessorGain.TickStyle = System.Windows.Forms.TickStyle.None;
             this.ProcessorGain.Value = 10;
-            this.ProcessorGain.ValueChanged += new System.EventHandler(this.ProcessorGain_ValueChanged);
             this.ProcessorGain.Scroll += new System.EventHandler(this.ProcessorGain_Scroll);
+            this.ProcessorGain.ValueChanged += new System.EventHandler(this.ProcessorGain_ValueChanged);
             // 
             // chkClipper
             // 
@@ -1115,8 +1116,8 @@ namespace KISS_Konsole
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "KISS Konsole";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.set_frequency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AGCTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BandwidthTrackBar)).EndInit();
@@ -1127,6 +1128,7 @@ namespace KISS_Konsole
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpectrum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWideband)).EndInit();

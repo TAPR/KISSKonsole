@@ -297,6 +297,11 @@
  * 15 Dec  2012 - v1.1.24 - G Byrkit (K9TRV) Accommodate Metis 2.2, which fixes an occasional hang in previous versions of Metis.
  * 1  Jan  2013 - v1.1.25 - G Byrkit (K9TRV) Accommodate Metis 2.3.  Change copyright dates to include 2013
  * 20 Jan  2013 - v1.1.26 - G Byrkit (K9TRV) Accommodate Metis 2.4.
+ * 27 Jan  2013 - v1.1.27 - G Byrkit (K9TRV) Implement 384k spectrum size for Hermes only for now.  Also remove 'Unified wcpAGC' from the title bar
+ *                          version string.
+ * 26 May  2013 - v1.1.28 - G Byrkit (K9TRV) Allow 384k spectrum for Metis and Ozy as well.  Add support for Mercury 3.4, Penny 1.8, Metis 2.6, Ozy 2.5.
+ *                          Ozy/Magister 2.5 set as default in InitOzy11.bat
+ *                          
  *    
  * 
  * TODO:        - Save IQScale in KK.CSV and set it accordingly at start
@@ -337,7 +342,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.26 - Unified wcpAGC";  // change this for each release!
+        string version = "V1.1.28";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -694,8 +699,7 @@ namespace KISS_Konsole
 
                 SignalBuffer = new SharpDSP2._1.DSPBuffer(state);
             } 
-
-            else  // TODO: can't find KK.csv file - should add some error handling or default values here.
+            else
             {
                 MessageBox.Show("Can't find KK.csv, should be in the same directory as KISS Konsole.exe?", "File Error");
             }
@@ -732,7 +736,7 @@ namespace KISS_Konsole
         {
             UpdateFormTitle();
 
-            this.StartPosition = FormStartPosition.CenterScreen;  // TODO save last postion and restore from KK.csv
+            this.StartPosition = FormStartPosition.CenterScreen;  // TODO save last position and restore from KK.csv
 
             this.Height = 800;
         }
@@ -927,7 +931,6 @@ namespace KISS_Konsole
                 for (int k = 0; k < wideBandSpectrumInterval; ++k)
                 {
                     // we have 2 x 4095 samples since we use a real signal so start half way
-                    // TODO: K9TRV note: I think that wideBandSampleStart should be 4096.
                     // when EP4BufSize is 8192, I think that the first half of the samples are numbered 0 thru 4095,
                     // and the second half from 4096 thru 8191.
                     Sample = FullBandwidthPowerSpectrumData[wideBandSampleStart + (wideBandSpectrumInterval * xpos) + k];

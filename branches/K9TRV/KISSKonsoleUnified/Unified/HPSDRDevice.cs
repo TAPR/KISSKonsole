@@ -893,12 +893,20 @@ namespace KISS_Konsole
                         // set sampling rate bits in C1
                         switch (MainForm.SampleRate)
                         {
-                            case 480000: break;
+                                // there was an error here that 48000 was represented as 480000.  It however had no real effect as an error
+                                // since the result was still the C1 was set to 0
+                            case 48000:
+                                // value for lower 2 bits of C1 is 0
+                                break;
                             case 96000:
                                 C1 = (byte)(C1 | 0x01);
                                 break;
                             case 192000:
                                 C1 = (byte)(C1 | 0x02);
+                                break;
+
+                            case 384000:    // added 26 Jan 2013 initially for Hermes, now also for Metis and Ozy
+                                C1 = (byte)(C1 | 0x03);
                                 break;
                         }
 
