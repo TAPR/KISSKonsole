@@ -1,5 +1,6 @@
 loadFW 0xfffe 0x0007 ozyfw-sdr1k.hex
 msecsleep 3000
+
 rem Mercury 2.9a Penelope v1.3
 rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v18.rbf
 
@@ -10,7 +11,7 @@ rem Mercury v3.0 Penelope v1.5
 rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v20.rbf
 
 rem Mercury v3.1 Penelope v1.6
-loadFPGA 0xfffe 0x0007 Ozy_Janus.v21.rbf
+rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v21.rbf
 
 rem Mercury v3.2 Penelope v1.7
 rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v22.rbf
@@ -19,4 +20,4 @@ rem Mercury v3.3 Penelope v1.7
 rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v24.rbf
 
 rem Mercury v3.4 Penelope v1.8
-rem loadFPGA 0xfffe 0x0007 Ozy_Janus.v2.5.rbf
+loadFPGA 0xfffe 0x0007 Ozy_Janus_v2.5.rbf

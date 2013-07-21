@@ -477,6 +477,7 @@ namespace KISS_Konsole
 
             SafeTrackBarValueChange( LookupKKCSVValue("Squelch level", Squelch_level.Value, value), Squelch_level);
             Hermes = LookupKKCSVValue("Hermes", Hermes, value);
+
             PennyLane = LookupKKCSVValue("PennyLane", PennyLane, value);
             PenneyPresent = LookupKKCSVValue("Penny Present", PenneyPresent, value);
             MicGain20dB = LookupKKCSVValue("Mic Gain 20dB", MicGain20dB, value);

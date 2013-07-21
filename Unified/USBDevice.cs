@@ -298,12 +298,8 @@ namespace KISS_Konsole
 
             if (MainForm.KK_on)  // send the frames to Ozy via the USB
             {
-                int ret;
-                //do
-                //{
-                ret = libUSB_Interface.usb_bulk_write(hdev, 0x02, to_Device, toDeviceSize, 100);
-                //} while (ret != toDeviceSize);
-                // TODO: Need to add error routine if write to USB fails
+                int ret = libUSB_Interface.usb_bulk_write(hdev, 0x02, to_Device, toDeviceSize, 100);
+
                 if (ret != toDeviceSize)
                 {
                     Debug.WriteLine("Write to Ozy failed - returned \t" + ret);
@@ -467,6 +463,15 @@ namespace KISS_Konsole
                          ((MainForm.Merc_version != 33)))
                      {
                          MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Ozy version 24", MessageBoxButtons.OK);
+                         result = false;
+                     }
+                     break;
+
+                 case 25:
+                     if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 18)) ||
+                         ((MainForm.Merc_version != 34)))
+                     {
+                         MessageBox.Show(whatsPresent, "You must use Penney Version 18 and Mercury version 34 with Ozy version 25", MessageBoxButtons.OK);
                          result = false;
                      }
                      break;

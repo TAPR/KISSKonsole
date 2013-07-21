@@ -197,7 +197,9 @@ namespace KISS_Konsole
             // bind (open) the socket so we can use the Metis/Hermes that was found/selected
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             socket.Bind(iep);
-            socket.ReceiveBufferSize = 0xFFFF;   // no lost frame counts at 192kHz with this setting
+
+            //TODO: look at the next line and consider when a larger buffer might be required, such as SpectrumSize > 192k
+            socket.ReceiveBufferSize = 0x00040000;   // no lost frame counts at 192kHz with this setting
             socket.SendBufferSize = 1032;
             socket.Blocking = true;
 
@@ -214,6 +216,7 @@ namespace KISS_Konsole
             Data_thread = new Thread(new ThreadStart(DataLoop));
             Data_thread.Name = "Ethernet Loop";
             Data_thread.Priority = ThreadPriority.Highest; // run USB thread at high priority
+            Console.WriteLine("Ethernet Thread ID {0}", Data_thread.ManagedThreadId);
             Data_thread.Start();
             Data_thread_running = true;
 
@@ -228,7 +231,7 @@ namespace KISS_Konsole
             last_spectrum_sequence_number = 0xFFFFFFFF;
 
             // start data from Metis
-            Metis_start_stop(MainForm.Metis_IP_address, 0x03);   // bit 0 is start, bit 1 is wide spectrum
+            Metis_start_stop(MainForm.Metis_IP_address, 0x03);   // bit 0 is EP6 (normal data), bit 1 is EP4 (wide spectrum)
 
             MainForm.timer1.Enabled = true;  // start timer for bandscope update etc.
 
@@ -412,7 +415,9 @@ namespace KISS_Konsole
                         }
                     }
                 }
-            } 
+            }
+
+            Console.WriteLine("Ethernet thread exiting");
         }
 
         // Send two frames of 512 bytes to Metis/Hermes/Griffin
@@ -819,6 +824,17 @@ namespace KISS_Konsole
                         ((MainForm.Merc_version != 33)))
                     {
                         MessageBox.Show(whatsPresent, "You must use Penney Version 17 and Mercury version 33 with Metis version 24", MessageBoxButtons.OK);
+                        result = false;
+                    }
+                    break;
+
+                    // I'm not sure what ever happened with Metis V 2.5...
+
+                case 26:
+                    if (((MainForm.PenneyPresent || MainForm.PennyLane) && (MainForm.Penny_version != 18)) ||
+                        ((MainForm.Merc_version != 34)))
+                    {
+                        MessageBox.Show(whatsPresent, "You must use Penney Version 18 and Mercury version 34 with Metis version 26", MessageBoxButtons.OK);
                         result = false;
                     }
                     break;

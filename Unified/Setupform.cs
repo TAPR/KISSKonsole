@@ -361,7 +361,12 @@ namespace KISS_Konsole
                 return;
             }
 
-            MainForm.SampleRate = Int32.Parse(this.SampleRate.Text); // 48000,96000 or 192000
+            // originally 48000, 96000 or 192000.  384000 now added first for Hermes.
+            // Now also for Metis and Ozy.  No way to tell if valid except to try and crash and burn!
+            int sampleRate = Int32.Parse(this.SampleRate.Text);
+
+            MainForm.SampleRate = sampleRate;
+
             MainForm.rcvr.SampleRate = MainForm.SampleRate;      // change the DSP sample rate
 
             // set the bandwidth since dependent on sample rate
