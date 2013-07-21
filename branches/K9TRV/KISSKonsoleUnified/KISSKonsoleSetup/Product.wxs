@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="KISS Konsole" Language="1033" Version="1.1.26.0" Manufacturer="OpenHPSDR/TAPR" UpgradeCode="6653631e-b4c0-4304-beef-672561edd6e6">
+	<Product Id="*" Name="KISS Konsole" Language="1033" Version="1.1.28.0" Manufacturer="OpenHPSDR/TAPR" UpgradeCode="6653631e-b4c0-4304-beef-672561edd6e6">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -213,6 +213,13 @@
       <Component Guid="{F45CCE9F-CE14-40FE-8157-FAB130E583E4}">
         <File Id="Ozy_Janus.v24.rbf"
               Source="..\Unified\Bin\Release\Ozy_Janus.v24.rbf"
+              KeyPath="yes"
+              />
+      </Component>
+
+      <Component Guid="{8989402D-C428-4B19-AFC8-0BB09D6E3735}">
+        <File Id="Ozy_Janus_v2.5.rbf"
+              Source="..\Unified\Bin\Release\Ozy_Janus_v2.5.rbf"
               KeyPath="yes"
               />
       </Component>
