@@ -37,7 +37,7 @@ namespace KISS_Konsole
             set_frequency_10 = 28040534;
             set_frequency_6 = 50257000;
             set_frequency_GC = 16998470;
-            set_frequency.Value = 14266100;
+            trackBarSetFrequency.Value = 14266100;
             BandSelect.Text = "40m";
             ANF.Checked = false;
             NR.Checked = false;
@@ -112,7 +112,7 @@ namespace KISS_Konsole
             lines.Add("Last Freq 10m," + set_frequency_10);
             lines.Add("Last Freq 6m," + set_frequency_6);
             lines.Add("Last Freq GC," + set_frequency_GC);
-            lines.Add("Last frequency," + set_frequency.Value);
+            lines.Add("Last frequency," + trackBarSetFrequency.Value);
             // we need to store the following controls as true or false, first we convert from bool to a string
             lines.Add("ANF," + (ANF.Checked).ToString());
             lines.Add("NR," + (NR.Checked).ToString());
@@ -432,7 +432,7 @@ namespace KISS_Konsole
             set_frequency_10 = LookupKKCSVValue("Last Freq 10m", set_frequency_10, value);
             set_frequency_6 = LookupKKCSVValue("Last Freq 6m", set_frequency_6, value);
             set_frequency_GC = LookupKKCSVValue("Last Freq GC", set_frequency_GC, value);
-            SafeTrackBarValueChange( LookupKKCSVValue("Last frequency", set_frequency.Value, value), set_frequency);
+            SafeTrackBarValueChange( LookupKKCSVValue("Last frequency", trackBarSetFrequency.Value, value), trackBarSetFrequency);
 
             ANF.Checked = LookupKKCSVValue("ANF", ANF.Checked, value);
             NR.Checked = LookupKKCSVValue("NR", NR.Checked, value);

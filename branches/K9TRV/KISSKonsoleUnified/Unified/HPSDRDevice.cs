@@ -93,6 +93,7 @@ namespace KISS_Konsole
         protected int CWnoteIndex = 0;
 
         protected int loop_count = 0;         // delay until we read FPGA code version from Ozy
+        const int max_loop_count = 100;
 
         protected bool PTTReleased = false;
         protected int CWtailIndex = 0;
@@ -364,7 +365,7 @@ namespace KISS_Konsole
                         }
 
                         // get serial # of Mercury and Penelope software, only need to do this once when KK starts
-                        if (loop_count == 99)  // wait for 100 reads so Ozy data is stable
+                        if (loop_count == max_loop_count)  // wait for 100 reads so Ozy data is stable
                         {
                             MainForm.Merc_version = (int)rc2;        // Version number of Mercury FPGA code
                             MainForm.Penny_version = (int)rc3;       // Version number of Penelope FPGA code
@@ -442,7 +443,7 @@ namespace KISS_Konsole
                             if (MainForm.Penny_version == 0 && (MainForm.PenneyPresent || MainForm.PennyLane))
                                 MessageBox.Show(" Warning - Penelope/PennyLane selected but board not found");
                         }
-                        if (loop_count < 100)
+                        if (loop_count <= max_loop_count)
                             loop_count++;
                         break;
 

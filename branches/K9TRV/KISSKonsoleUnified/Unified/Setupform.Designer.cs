@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.SampleRate = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -171,28 +172,6 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chkExtCtrlEnable = new System.Windows.Forms.CheckBox();
             this.PennyOC = new System.Windows.Forms.GroupBox();
-            this.checkBoxesPenOC6mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC10mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC12mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC15mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC17mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC20mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC30mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC40mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC60mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC80mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC160mTX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC6mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC10mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC12mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC15mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC17mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC20mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC30mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC40mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC60mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC80mRX = new KISS_Konsole.CheckBoxesUserControl();
-            this.checkBoxesPenOC160mRX = new KISS_Konsole.CheckBoxesUserControl();
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
@@ -225,7 +204,6 @@
             this.groupBoxAlex = new System.Windows.Forms.GroupBox();
             this.label103 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
-            this.alexUserControlGC = new KISS_Konsole.AlexUserControl();
             this.label101 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
@@ -233,17 +211,6 @@
             this.label97 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.alexUserControl6m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl10m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl12m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl15m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl17m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl20m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl30m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl40m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl60m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl80m = new KISS_Konsole.AlexUserControl();
-            this.alexUserControl160m = new KISS_Konsole.AlexUserControl();
             this.label85 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
@@ -269,6 +236,40 @@
             this.IP_adapters = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
             this.Metis_IP = new System.Windows.Forms.TextBox();
+            this.checkBoxesPenOC6mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC10mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC12mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC15mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC17mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC20mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC30mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC40mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC60mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC80mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC160mTX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC6mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC10mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC12mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC15mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC17mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC20mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC30mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC40mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC60mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC80mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.checkBoxesPenOC160mRX = new KISS_Konsole.CheckBoxesUserControl();
+            this.alexUserControlGC = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl6m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl10m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl12m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl15m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl17m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl20m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl30m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl40m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl60m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl80m = new KISS_Konsole.AlexUserControl();
+            this.alexUserControl160m = new KISS_Konsole.AlexUserControl();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NB1Threshold)).BeginInit();
@@ -817,7 +818,6 @@
             this.numericUpDownANFLeakage.Name = "numericUpDownANFLeakage";
             this.numericUpDownANFLeakage.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownANFLeakage.TabIndex = 3;
-            this.numericUpDownANFLeakage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownANFLeakage.ValueChanged += new System.EventHandler(this.numericUpDownANFLeakage_ValueChanged);
             // 
             // numericUpDownANFAdaptationRate
@@ -832,7 +832,6 @@
             this.numericUpDownANFAdaptationRate.Name = "numericUpDownANFAdaptationRate";
             this.numericUpDownANFAdaptationRate.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownANFAdaptationRate.TabIndex = 2;
-            this.numericUpDownANFAdaptationRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownANFAdaptationRate.ValueChanged += new System.EventHandler(this.numericUpDownANFAdaptationRate_ValueChanged);
             // 
             // numericUpDownANFDelay
@@ -841,7 +840,6 @@
             this.numericUpDownANFDelay.Name = "numericUpDownANFDelay";
             this.numericUpDownANFDelay.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownANFDelay.TabIndex = 1;
-            this.numericUpDownANFDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownANFDelay.ValueChanged += new System.EventHandler(this.numericUpDownANFDelay_ValueChanged);
             // 
             // numericUpDownANFAdaptiveFilterSize
@@ -850,7 +848,6 @@
             this.numericUpDownANFAdaptiveFilterSize.Name = "numericUpDownANFAdaptiveFilterSize";
             this.numericUpDownANFAdaptiveFilterSize.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownANFAdaptiveFilterSize.TabIndex = 0;
-            this.numericUpDownANFAdaptiveFilterSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownANFAdaptiveFilterSize.ValueChanged += new System.EventHandler(this.numericUpDownANFAdaptiveFilterSize_ValueChanged);
             // 
             // groupBoxNR
@@ -918,7 +915,6 @@
             this.numericUpDownNRLeakage.Name = "numericUpDownNRLeakage";
             this.numericUpDownNRLeakage.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownNRLeakage.TabIndex = 3;
-            this.numericUpDownNRLeakage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownNRLeakage.ValueChanged += new System.EventHandler(this.numericUpDownNRLeakage_ValueChanged);
             // 
             // numericUpDownNRAdaptationRate
@@ -933,7 +929,6 @@
             this.numericUpDownNRAdaptationRate.Name = "numericUpDownNRAdaptationRate";
             this.numericUpDownNRAdaptationRate.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownNRAdaptationRate.TabIndex = 2;
-            this.numericUpDownNRAdaptationRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownNRAdaptationRate.ValueChanged += new System.EventHandler(this.numericUpDownNRAdaptationRate_ValueChanged);
             // 
             // numericUpDownNRDelay
@@ -942,7 +937,6 @@
             this.numericUpDownNRDelay.Name = "numericUpDownNRDelay";
             this.numericUpDownNRDelay.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownNRDelay.TabIndex = 1;
-            this.numericUpDownNRDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownNRDelay.ValueChanged += new System.EventHandler(this.numericUpDownNRDelay_ValueChanged);
             // 
             // numericUpDownNRAdaptiveFilterSize
@@ -951,7 +945,6 @@
             this.numericUpDownNRAdaptiveFilterSize.Name = "numericUpDownNRAdaptiveFilterSize";
             this.numericUpDownNRAdaptiveFilterSize.Size = new System.Drawing.Size(81, 20);
             this.numericUpDownNRAdaptiveFilterSize.TabIndex = 0;
-            this.numericUpDownNRAdaptiveFilterSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownNRAdaptiveFilterSize.ValueChanged += new System.EventHandler(this.numericUpDownNRAdaptiveFilterSize_ValueChanged);
             // 
             // groupBox6
@@ -988,7 +981,6 @@
             this.numericUpDownAGCSlope.Name = "numericUpDownAGCSlope";
             this.numericUpDownAGCSlope.Size = new System.Drawing.Size(37, 20);
             this.numericUpDownAGCSlope.TabIndex = 13;
-            this.numericUpDownAGCSlope.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCSlope.ValueChanged += new System.EventHandler(this.numericUpDownAGCSlope_ValueChanged);
             // 
             // numericUpDownAGCMaxGain
@@ -1007,7 +999,6 @@
             this.numericUpDownAGCMaxGain.Name = "numericUpDownAGCMaxGain";
             this.numericUpDownAGCMaxGain.Size = new System.Drawing.Size(46, 20);
             this.numericUpDownAGCMaxGain.TabIndex = 12;
-            this.numericUpDownAGCMaxGain.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCMaxGain.Value = new decimal(new int[] {
             70,
             0,
@@ -1031,7 +1022,6 @@
             this.numericUpDownAGCAttackTime.Name = "numericUpDownAGCAttackTime";
             this.numericUpDownAGCAttackTime.Size = new System.Drawing.Size(37, 20);
             this.numericUpDownAGCAttackTime.TabIndex = 11;
-            this.numericUpDownAGCAttackTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCAttackTime.Value = new decimal(new int[] {
             2,
             0,
@@ -1055,7 +1045,6 @@
             this.numericUpDownAGCDecayTime.Name = "numericUpDownAGCDecayTime";
             this.numericUpDownAGCDecayTime.Size = new System.Drawing.Size(53, 20);
             this.numericUpDownAGCDecayTime.TabIndex = 10;
-            this.numericUpDownAGCDecayTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCDecayTime.Value = new decimal(new int[] {
             250,
             0,
@@ -1079,7 +1068,6 @@
             this.numericUpDownAGCHangTime.Name = "numericUpDownAGCHangTime";
             this.numericUpDownAGCHangTime.Size = new System.Drawing.Size(53, 20);
             this.numericUpDownAGCHangTime.TabIndex = 9;
-            this.numericUpDownAGCHangTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCHangTime.Value = new decimal(new int[] {
             250,
             0,
@@ -1103,7 +1091,6 @@
             this.numericUpDownAGCFixedGain.Name = "numericUpDownAGCFixedGain";
             this.numericUpDownAGCFixedGain.Size = new System.Drawing.Size(46, 20);
             this.numericUpDownAGCFixedGain.TabIndex = 8;
-            this.numericUpDownAGCFixedGain.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAGCFixedGain.Value = new decimal(new int[] {
             20,
             0,
@@ -1460,7 +1447,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(483, 344);
+            this.tabControl1.Size = new System.Drawing.Size(494, 352);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage1
@@ -1476,7 +1463,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(475, 318);
+            this.tabPage1.Size = new System.Drawing.Size(486, 326);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1644,7 +1631,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(475, 318);
+            this.tabPage2.Size = new System.Drawing.Size(476, 316);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Display";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1654,7 +1641,7 @@
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(475, 318);
+            this.tabPage3.Size = new System.Drawing.Size(476, 316);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "AGC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1667,7 +1654,7 @@
             this.tabPage4.Controls.Add(this.groupBoxANF);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(475, 318);
+            this.tabPage4.Size = new System.Drawing.Size(476, 316);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Noise Reduction";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1683,7 +1670,7 @@
             this.tabPage5.Controls.Add(this.TransmitFilterGroup);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(475, 318);
+            this.tabPage5.Size = new System.Drawing.Size(476, 316);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Transmitter";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -2242,7 +2229,7 @@
             this.tabPage6.Controls.Add(this.PennyOC);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(475, 318);
+            this.tabPage6.Size = new System.Drawing.Size(476, 316);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Ext Ctrl";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -2318,226 +2305,6 @@
             this.PennyOC.TabIndex = 0;
             this.PennyOC.TabStop = false;
             this.PennyOC.Text = " External Control";
-            // 
-            // checkBoxesPenOC6mTX
-            // 
-            this.checkBoxesPenOC6mTX.Location = new System.Drawing.Point(231, 263);
-            this.checkBoxesPenOC6mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC6mTX.Name = "checkBoxesPenOC6mTX";
-            this.checkBoxesPenOC6mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC6mTX.TabIndex = 200;
-            this.checkBoxesPenOC6mTX.Value = 0;
-            this.checkBoxesPenOC6mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC6mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC10mTX
-            // 
-            this.checkBoxesPenOC10mTX.Location = new System.Drawing.Point(231, 243);
-            this.checkBoxesPenOC10mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC10mTX.Name = "checkBoxesPenOC10mTX";
-            this.checkBoxesPenOC10mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC10mTX.TabIndex = 199;
-            this.checkBoxesPenOC10mTX.Value = 0;
-            this.checkBoxesPenOC10mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC10mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC12mTX
-            // 
-            this.checkBoxesPenOC12mTX.Location = new System.Drawing.Point(231, 223);
-            this.checkBoxesPenOC12mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC12mTX.Name = "checkBoxesPenOC12mTX";
-            this.checkBoxesPenOC12mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC12mTX.TabIndex = 198;
-            this.checkBoxesPenOC12mTX.Value = 0;
-            this.checkBoxesPenOC12mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC12mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC15mTX
-            // 
-            this.checkBoxesPenOC15mTX.Location = new System.Drawing.Point(231, 203);
-            this.checkBoxesPenOC15mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC15mTX.Name = "checkBoxesPenOC15mTX";
-            this.checkBoxesPenOC15mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC15mTX.TabIndex = 197;
-            this.checkBoxesPenOC15mTX.Value = 0;
-            this.checkBoxesPenOC15mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC15mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC17mTX
-            // 
-            this.checkBoxesPenOC17mTX.Location = new System.Drawing.Point(231, 183);
-            this.checkBoxesPenOC17mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC17mTX.Name = "checkBoxesPenOC17mTX";
-            this.checkBoxesPenOC17mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC17mTX.TabIndex = 196;
-            this.checkBoxesPenOC17mTX.Value = 0;
-            this.checkBoxesPenOC17mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC17mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC20mTX
-            // 
-            this.checkBoxesPenOC20mTX.Location = new System.Drawing.Point(231, 163);
-            this.checkBoxesPenOC20mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC20mTX.Name = "checkBoxesPenOC20mTX";
-            this.checkBoxesPenOC20mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC20mTX.TabIndex = 195;
-            this.checkBoxesPenOC20mTX.Value = 0;
-            this.checkBoxesPenOC20mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC20mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC30mTX
-            // 
-            this.checkBoxesPenOC30mTX.Location = new System.Drawing.Point(231, 143);
-            this.checkBoxesPenOC30mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC30mTX.Name = "checkBoxesPenOC30mTX";
-            this.checkBoxesPenOC30mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC30mTX.TabIndex = 194;
-            this.checkBoxesPenOC30mTX.Value = 0;
-            this.checkBoxesPenOC30mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC30mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC40mTX
-            // 
-            this.checkBoxesPenOC40mTX.Location = new System.Drawing.Point(231, 123);
-            this.checkBoxesPenOC40mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC40mTX.Name = "checkBoxesPenOC40mTX";
-            this.checkBoxesPenOC40mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC40mTX.TabIndex = 193;
-            this.checkBoxesPenOC40mTX.Value = 0;
-            this.checkBoxesPenOC40mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC40mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC60mTX
-            // 
-            this.checkBoxesPenOC60mTX.Location = new System.Drawing.Point(231, 103);
-            this.checkBoxesPenOC60mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC60mTX.Name = "checkBoxesPenOC60mTX";
-            this.checkBoxesPenOC60mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC60mTX.TabIndex = 192;
-            this.checkBoxesPenOC60mTX.Value = 0;
-            this.checkBoxesPenOC60mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC60mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC80mTX
-            // 
-            this.checkBoxesPenOC80mTX.Location = new System.Drawing.Point(231, 83);
-            this.checkBoxesPenOC80mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC80mTX.Name = "checkBoxesPenOC80mTX";
-            this.checkBoxesPenOC80mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC80mTX.TabIndex = 191;
-            this.checkBoxesPenOC80mTX.Value = 0;
-            this.checkBoxesPenOC80mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC80mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC160mTX
-            // 
-            this.checkBoxesPenOC160mTX.Location = new System.Drawing.Point(231, 63);
-            this.checkBoxesPenOC160mTX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC160mTX.Name = "checkBoxesPenOC160mTX";
-            this.checkBoxesPenOC160mTX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC160mTX.TabIndex = 190;
-            this.checkBoxesPenOC160mTX.Value = 0;
-            this.checkBoxesPenOC160mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC160mTX_CheckedChanged);
-            // 
-            // checkBoxesPenOC6mRX
-            // 
-            this.checkBoxesPenOC6mRX.Location = new System.Drawing.Point(64, 263);
-            this.checkBoxesPenOC6mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC6mRX.Name = "checkBoxesPenOC6mRX";
-            this.checkBoxesPenOC6mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC6mRX.TabIndex = 189;
-            this.checkBoxesPenOC6mRX.Value = 0;
-            this.checkBoxesPenOC6mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC6mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC10mRX
-            // 
-            this.checkBoxesPenOC10mRX.Location = new System.Drawing.Point(64, 243);
-            this.checkBoxesPenOC10mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC10mRX.Name = "checkBoxesPenOC10mRX";
-            this.checkBoxesPenOC10mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC10mRX.TabIndex = 188;
-            this.checkBoxesPenOC10mRX.Value = 0;
-            this.checkBoxesPenOC10mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC10mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC12mRX
-            // 
-            this.checkBoxesPenOC12mRX.Location = new System.Drawing.Point(64, 223);
-            this.checkBoxesPenOC12mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC12mRX.Name = "checkBoxesPenOC12mRX";
-            this.checkBoxesPenOC12mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC12mRX.TabIndex = 187;
-            this.checkBoxesPenOC12mRX.Value = 0;
-            this.checkBoxesPenOC12mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC12mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC15mRX
-            // 
-            this.checkBoxesPenOC15mRX.Location = new System.Drawing.Point(64, 203);
-            this.checkBoxesPenOC15mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC15mRX.Name = "checkBoxesPenOC15mRX";
-            this.checkBoxesPenOC15mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC15mRX.TabIndex = 186;
-            this.checkBoxesPenOC15mRX.Value = 0;
-            this.checkBoxesPenOC15mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC15mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC17mRX
-            // 
-            this.checkBoxesPenOC17mRX.Location = new System.Drawing.Point(64, 183);
-            this.checkBoxesPenOC17mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC17mRX.Name = "checkBoxesPenOC17mRX";
-            this.checkBoxesPenOC17mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC17mRX.TabIndex = 185;
-            this.checkBoxesPenOC17mRX.Value = 0;
-            this.checkBoxesPenOC17mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC17mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC20mRX
-            // 
-            this.checkBoxesPenOC20mRX.Location = new System.Drawing.Point(64, 163);
-            this.checkBoxesPenOC20mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC20mRX.Name = "checkBoxesPenOC20mRX";
-            this.checkBoxesPenOC20mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC20mRX.TabIndex = 184;
-            this.checkBoxesPenOC20mRX.Value = 0;
-            this.checkBoxesPenOC20mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC20mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC30mRX
-            // 
-            this.checkBoxesPenOC30mRX.Location = new System.Drawing.Point(64, 143);
-            this.checkBoxesPenOC30mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC30mRX.Name = "checkBoxesPenOC30mRX";
-            this.checkBoxesPenOC30mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC30mRX.TabIndex = 183;
-            this.checkBoxesPenOC30mRX.Value = 0;
-            this.checkBoxesPenOC30mRX.CheckedChanged += new System.EventHandler(this.checkBoxPenOC30mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC40mRX
-            // 
-            this.checkBoxesPenOC40mRX.Location = new System.Drawing.Point(64, 123);
-            this.checkBoxesPenOC40mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC40mRX.Name = "checkBoxesPenOC40mRX";
-            this.checkBoxesPenOC40mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC40mRX.TabIndex = 182;
-            this.checkBoxesPenOC40mRX.Value = 0;
-            this.checkBoxesPenOC40mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC40mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC60mRX
-            // 
-            this.checkBoxesPenOC60mRX.Location = new System.Drawing.Point(64, 103);
-            this.checkBoxesPenOC60mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC60mRX.Name = "checkBoxesPenOC60mRX";
-            this.checkBoxesPenOC60mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC60mRX.TabIndex = 181;
-            this.checkBoxesPenOC60mRX.Value = 0;
-            this.checkBoxesPenOC60mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC60mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC80mRX
-            // 
-            this.checkBoxesPenOC80mRX.Location = new System.Drawing.Point(64, 83);
-            this.checkBoxesPenOC80mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC80mRX.Name = "checkBoxesPenOC80mRX";
-            this.checkBoxesPenOC80mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC80mRX.TabIndex = 180;
-            this.checkBoxesPenOC80mRX.Value = 0;
-            this.checkBoxesPenOC80mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC80mRX_CheckedChanged);
-            // 
-            // checkBoxesPenOC160mRX
-            // 
-            this.checkBoxesPenOC160mRX.Location = new System.Drawing.Point(64, 63);
-            this.checkBoxesPenOC160mRX.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxesPenOC160mRX.Name = "checkBoxesPenOC160mRX";
-            this.checkBoxesPenOC160mRX.Size = new System.Drawing.Size(150, 21);
-            this.checkBoxesPenOC160mRX.TabIndex = 3;
-            this.checkBoxesPenOC160mRX.Value = 0;
-            this.checkBoxesPenOC160mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC160mRX_CheckedChanged);
             // 
             // label72
             // 
@@ -2796,7 +2563,7 @@
             this.tabPage8.Controls.Add(this.groupBoxAlex);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(475, 318);
+            this.tabPage8.Size = new System.Drawing.Size(476, 316);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Alex";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -2861,15 +2628,6 @@
             this.label102.TabIndex = 197;
             this.label102.Text = "Antenna";
             // 
-            // alexUserControlGC
-            // 
-            this.alexUserControlGC.Location = new System.Drawing.Point(104, 279);
-            this.alexUserControlGC.Name = "alexUserControlGC";
-            this.alexUserControlGC.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControlGC.TabIndex = 196;
-            this.alexUserControlGC.Value = 65;
-            this.alexUserControlGC.StateChanged += new System.EventHandler(this.alexUserControlGC_StateChanged);
-            // 
             // label101
             // 
             this.label101.AutoSize = true;
@@ -2932,105 +2690,6 @@
             this.label44.Size = new System.Drawing.Size(52, 13);
             this.label44.TabIndex = 189;
             this.label44.Text = "1     2    3";
-            // 
-            // alexUserControl6m
-            // 
-            this.alexUserControl6m.Location = new System.Drawing.Point(104, 259);
-            this.alexUserControl6m.Name = "alexUserControl6m";
-            this.alexUserControl6m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl6m.TabIndex = 188;
-            this.alexUserControl6m.Value = 65;
-            this.alexUserControl6m.StateChanged += new System.EventHandler(this.alexUserControl6m_StateChanged);
-            // 
-            // alexUserControl10m
-            // 
-            this.alexUserControl10m.Location = new System.Drawing.Point(104, 239);
-            this.alexUserControl10m.Name = "alexUserControl10m";
-            this.alexUserControl10m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl10m.TabIndex = 187;
-            this.alexUserControl10m.Value = 65;
-            this.alexUserControl10m.StateChanged += new System.EventHandler(this.alexUserControl10m_StateChanged);
-            // 
-            // alexUserControl12m
-            // 
-            this.alexUserControl12m.Location = new System.Drawing.Point(104, 219);
-            this.alexUserControl12m.Name = "alexUserControl12m";
-            this.alexUserControl12m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl12m.TabIndex = 186;
-            this.alexUserControl12m.Value = 65;
-            this.alexUserControl12m.StateChanged += new System.EventHandler(this.alexUserControl12m_StateChanged);
-            // 
-            // alexUserControl15m
-            // 
-            this.alexUserControl15m.Location = new System.Drawing.Point(104, 199);
-            this.alexUserControl15m.Name = "alexUserControl15m";
-            this.alexUserControl15m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl15m.TabIndex = 185;
-            this.alexUserControl15m.Value = 65;
-            this.alexUserControl15m.StateChanged += new System.EventHandler(this.alexUserControl15m_StateChanged);
-            // 
-            // alexUserControl17m
-            // 
-            this.alexUserControl17m.Location = new System.Drawing.Point(104, 179);
-            this.alexUserControl17m.Name = "alexUserControl17m";
-            this.alexUserControl17m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl17m.TabIndex = 184;
-            this.alexUserControl17m.Value = 65;
-            this.alexUserControl17m.StateChanged += new System.EventHandler(this.alexUserControl17m_StateChanged);
-            // 
-            // alexUserControl20m
-            // 
-            this.alexUserControl20m.Location = new System.Drawing.Point(104, 159);
-            this.alexUserControl20m.Name = "alexUserControl20m";
-            this.alexUserControl20m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl20m.TabIndex = 183;
-            this.alexUserControl20m.Value = 65;
-            this.alexUserControl20m.StateChanged += new System.EventHandler(this.alexUserControl20m_StateChanged);
-            // 
-            // alexUserControl30m
-            // 
-            this.alexUserControl30m.Location = new System.Drawing.Point(104, 139);
-            this.alexUserControl30m.Name = "alexUserControl30m";
-            this.alexUserControl30m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl30m.TabIndex = 182;
-            this.alexUserControl30m.Value = 65;
-            this.alexUserControl30m.StateChanged += new System.EventHandler(this.alexUserControl30m_StateChanged);
-            // 
-            // alexUserControl40m
-            // 
-            this.alexUserControl40m.Location = new System.Drawing.Point(104, 119);
-            this.alexUserControl40m.Name = "alexUserControl40m";
-            this.alexUserControl40m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl40m.TabIndex = 181;
-            this.alexUserControl40m.Value = 65;
-            this.alexUserControl40m.StateChanged += new System.EventHandler(this.alexUserControl40m_StateChanged);
-            // 
-            // alexUserControl60m
-            // 
-            this.alexUserControl60m.Location = new System.Drawing.Point(104, 99);
-            this.alexUserControl60m.Name = "alexUserControl60m";
-            this.alexUserControl60m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl60m.TabIndex = 180;
-            this.alexUserControl60m.Value = 65;
-            this.alexUserControl60m.StateChanged += new System.EventHandler(this.alexUserControl60m_StateChanged);
-            // 
-            // alexUserControl80m
-            // 
-            this.alexUserControl80m.Location = new System.Drawing.Point(104, 79);
-            this.alexUserControl80m.Name = "alexUserControl80m";
-            this.alexUserControl80m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl80m.TabIndex = 179;
-            this.alexUserControl80m.Value = 65;
-            this.alexUserControl80m.StateChanged += new System.EventHandler(this.alexUserControl80m_StateChanged);
-            // 
-            // alexUserControl160m
-            // 
-            this.alexUserControl160m.Location = new System.Drawing.Point(104, 59);
-            this.alexUserControl160m.Name = "alexUserControl160m";
-            this.alexUserControl160m.Size = new System.Drawing.Size(253, 21);
-            this.alexUserControl160m.TabIndex = 178;
-            this.alexUserControl160m.Value = 65;
-            this.alexUserControl160m.StateChanged += new System.EventHandler(this.alexUserControl160m_StateChanged);
             // 
             // label85
             // 
@@ -3156,7 +2815,7 @@
             this.tabPage7.Controls.Add(this.Metis_IP);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(475, 318);
+            this.tabPage7.Size = new System.Drawing.Size(476, 316);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Ethernet";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3272,14 +2931,344 @@
             this.Metis_IP.Size = new System.Drawing.Size(89, 20);
             this.Metis_IP.TabIndex = 0;
             // 
+            // checkBoxesPenOC6mTX
+            // 
+            this.checkBoxesPenOC6mTX.Location = new System.Drawing.Point(231, 263);
+            this.checkBoxesPenOC6mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC6mTX.Name = "checkBoxesPenOC6mTX";
+            this.checkBoxesPenOC6mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC6mTX.TabIndex = 200;
+            this.checkBoxesPenOC6mTX.Value = 0;
+            this.checkBoxesPenOC6mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC6mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC10mTX
+            // 
+            this.checkBoxesPenOC10mTX.Location = new System.Drawing.Point(231, 243);
+            this.checkBoxesPenOC10mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC10mTX.Name = "checkBoxesPenOC10mTX";
+            this.checkBoxesPenOC10mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC10mTX.TabIndex = 199;
+            this.checkBoxesPenOC10mTX.Value = 0;
+            this.checkBoxesPenOC10mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC10mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC12mTX
+            // 
+            this.checkBoxesPenOC12mTX.Location = new System.Drawing.Point(231, 223);
+            this.checkBoxesPenOC12mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC12mTX.Name = "checkBoxesPenOC12mTX";
+            this.checkBoxesPenOC12mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC12mTX.TabIndex = 198;
+            this.checkBoxesPenOC12mTX.Value = 0;
+            this.checkBoxesPenOC12mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC12mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC15mTX
+            // 
+            this.checkBoxesPenOC15mTX.Location = new System.Drawing.Point(231, 203);
+            this.checkBoxesPenOC15mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC15mTX.Name = "checkBoxesPenOC15mTX";
+            this.checkBoxesPenOC15mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC15mTX.TabIndex = 197;
+            this.checkBoxesPenOC15mTX.Value = 0;
+            this.checkBoxesPenOC15mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC15mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC17mTX
+            // 
+            this.checkBoxesPenOC17mTX.Location = new System.Drawing.Point(231, 183);
+            this.checkBoxesPenOC17mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC17mTX.Name = "checkBoxesPenOC17mTX";
+            this.checkBoxesPenOC17mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC17mTX.TabIndex = 196;
+            this.checkBoxesPenOC17mTX.Value = 0;
+            this.checkBoxesPenOC17mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC17mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC20mTX
+            // 
+            this.checkBoxesPenOC20mTX.Location = new System.Drawing.Point(231, 163);
+            this.checkBoxesPenOC20mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC20mTX.Name = "checkBoxesPenOC20mTX";
+            this.checkBoxesPenOC20mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC20mTX.TabIndex = 195;
+            this.checkBoxesPenOC20mTX.Value = 0;
+            this.checkBoxesPenOC20mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC20mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC30mTX
+            // 
+            this.checkBoxesPenOC30mTX.Location = new System.Drawing.Point(231, 143);
+            this.checkBoxesPenOC30mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC30mTX.Name = "checkBoxesPenOC30mTX";
+            this.checkBoxesPenOC30mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC30mTX.TabIndex = 194;
+            this.checkBoxesPenOC30mTX.Value = 0;
+            this.checkBoxesPenOC30mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC30mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC40mTX
+            // 
+            this.checkBoxesPenOC40mTX.Location = new System.Drawing.Point(231, 123);
+            this.checkBoxesPenOC40mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC40mTX.Name = "checkBoxesPenOC40mTX";
+            this.checkBoxesPenOC40mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC40mTX.TabIndex = 193;
+            this.checkBoxesPenOC40mTX.Value = 0;
+            this.checkBoxesPenOC40mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC40mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC60mTX
+            // 
+            this.checkBoxesPenOC60mTX.Location = new System.Drawing.Point(231, 103);
+            this.checkBoxesPenOC60mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC60mTX.Name = "checkBoxesPenOC60mTX";
+            this.checkBoxesPenOC60mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC60mTX.TabIndex = 192;
+            this.checkBoxesPenOC60mTX.Value = 0;
+            this.checkBoxesPenOC60mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC60mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC80mTX
+            // 
+            this.checkBoxesPenOC80mTX.Location = new System.Drawing.Point(231, 83);
+            this.checkBoxesPenOC80mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC80mTX.Name = "checkBoxesPenOC80mTX";
+            this.checkBoxesPenOC80mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC80mTX.TabIndex = 191;
+            this.checkBoxesPenOC80mTX.Value = 0;
+            this.checkBoxesPenOC80mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC80mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC160mTX
+            // 
+            this.checkBoxesPenOC160mTX.Location = new System.Drawing.Point(231, 63);
+            this.checkBoxesPenOC160mTX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC160mTX.Name = "checkBoxesPenOC160mTX";
+            this.checkBoxesPenOC160mTX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC160mTX.TabIndex = 190;
+            this.checkBoxesPenOC160mTX.Value = 0;
+            this.checkBoxesPenOC160mTX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC160mTX_CheckedChanged);
+            // 
+            // checkBoxesPenOC6mRX
+            // 
+            this.checkBoxesPenOC6mRX.Location = new System.Drawing.Point(64, 263);
+            this.checkBoxesPenOC6mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC6mRX.Name = "checkBoxesPenOC6mRX";
+            this.checkBoxesPenOC6mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC6mRX.TabIndex = 189;
+            this.checkBoxesPenOC6mRX.Value = 0;
+            this.checkBoxesPenOC6mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC6mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC10mRX
+            // 
+            this.checkBoxesPenOC10mRX.Location = new System.Drawing.Point(64, 243);
+            this.checkBoxesPenOC10mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC10mRX.Name = "checkBoxesPenOC10mRX";
+            this.checkBoxesPenOC10mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC10mRX.TabIndex = 188;
+            this.checkBoxesPenOC10mRX.Value = 0;
+            this.checkBoxesPenOC10mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC10mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC12mRX
+            // 
+            this.checkBoxesPenOC12mRX.Location = new System.Drawing.Point(64, 223);
+            this.checkBoxesPenOC12mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC12mRX.Name = "checkBoxesPenOC12mRX";
+            this.checkBoxesPenOC12mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC12mRX.TabIndex = 187;
+            this.checkBoxesPenOC12mRX.Value = 0;
+            this.checkBoxesPenOC12mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC12mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC15mRX
+            // 
+            this.checkBoxesPenOC15mRX.Location = new System.Drawing.Point(64, 203);
+            this.checkBoxesPenOC15mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC15mRX.Name = "checkBoxesPenOC15mRX";
+            this.checkBoxesPenOC15mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC15mRX.TabIndex = 186;
+            this.checkBoxesPenOC15mRX.Value = 0;
+            this.checkBoxesPenOC15mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC15mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC17mRX
+            // 
+            this.checkBoxesPenOC17mRX.Location = new System.Drawing.Point(64, 183);
+            this.checkBoxesPenOC17mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC17mRX.Name = "checkBoxesPenOC17mRX";
+            this.checkBoxesPenOC17mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC17mRX.TabIndex = 185;
+            this.checkBoxesPenOC17mRX.Value = 0;
+            this.checkBoxesPenOC17mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC17mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC20mRX
+            // 
+            this.checkBoxesPenOC20mRX.Location = new System.Drawing.Point(64, 163);
+            this.checkBoxesPenOC20mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC20mRX.Name = "checkBoxesPenOC20mRX";
+            this.checkBoxesPenOC20mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC20mRX.TabIndex = 184;
+            this.checkBoxesPenOC20mRX.Value = 0;
+            this.checkBoxesPenOC20mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC20mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC30mRX
+            // 
+            this.checkBoxesPenOC30mRX.Location = new System.Drawing.Point(64, 143);
+            this.checkBoxesPenOC30mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC30mRX.Name = "checkBoxesPenOC30mRX";
+            this.checkBoxesPenOC30mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC30mRX.TabIndex = 183;
+            this.checkBoxesPenOC30mRX.Value = 0;
+            this.checkBoxesPenOC30mRX.CheckedChanged += new System.EventHandler(this.checkBoxPenOC30mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC40mRX
+            // 
+            this.checkBoxesPenOC40mRX.Location = new System.Drawing.Point(64, 123);
+            this.checkBoxesPenOC40mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC40mRX.Name = "checkBoxesPenOC40mRX";
+            this.checkBoxesPenOC40mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC40mRX.TabIndex = 182;
+            this.checkBoxesPenOC40mRX.Value = 0;
+            this.checkBoxesPenOC40mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC40mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC60mRX
+            // 
+            this.checkBoxesPenOC60mRX.Location = new System.Drawing.Point(64, 103);
+            this.checkBoxesPenOC60mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC60mRX.Name = "checkBoxesPenOC60mRX";
+            this.checkBoxesPenOC60mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC60mRX.TabIndex = 181;
+            this.checkBoxesPenOC60mRX.Value = 0;
+            this.checkBoxesPenOC60mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC60mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC80mRX
+            // 
+            this.checkBoxesPenOC80mRX.Location = new System.Drawing.Point(64, 83);
+            this.checkBoxesPenOC80mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC80mRX.Name = "checkBoxesPenOC80mRX";
+            this.checkBoxesPenOC80mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC80mRX.TabIndex = 180;
+            this.checkBoxesPenOC80mRX.Value = 0;
+            this.checkBoxesPenOC80mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC80mRX_CheckedChanged);
+            // 
+            // checkBoxesPenOC160mRX
+            // 
+            this.checkBoxesPenOC160mRX.Location = new System.Drawing.Point(64, 63);
+            this.checkBoxesPenOC160mRX.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxesPenOC160mRX.Name = "checkBoxesPenOC160mRX";
+            this.checkBoxesPenOC160mRX.Size = new System.Drawing.Size(170, 21);
+            this.checkBoxesPenOC160mRX.TabIndex = 3;
+            this.checkBoxesPenOC160mRX.Value = 0;
+            this.checkBoxesPenOC160mRX.CheckedChanged += new System.EventHandler(this.checkBoxesPenOC160mRX_CheckedChanged);
+            // 
+            // alexUserControlGC
+            // 
+            this.alexUserControlGC.Location = new System.Drawing.Point(104, 279);
+            this.alexUserControlGC.Name = "alexUserControlGC";
+            this.alexUserControlGC.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControlGC.TabIndex = 196;
+            this.alexUserControlGC.Value = 65;
+            this.alexUserControlGC.StateChanged += new System.EventHandler(this.alexUserControlGC_StateChanged);
+            // 
+            // alexUserControl6m
+            // 
+            this.alexUserControl6m.Location = new System.Drawing.Point(104, 259);
+            this.alexUserControl6m.Name = "alexUserControl6m";
+            this.alexUserControl6m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl6m.TabIndex = 188;
+            this.alexUserControl6m.Value = 65;
+            this.alexUserControl6m.StateChanged += new System.EventHandler(this.alexUserControl6m_StateChanged);
+            // 
+            // alexUserControl10m
+            // 
+            this.alexUserControl10m.Location = new System.Drawing.Point(104, 239);
+            this.alexUserControl10m.Name = "alexUserControl10m";
+            this.alexUserControl10m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl10m.TabIndex = 187;
+            this.alexUserControl10m.Value = 65;
+            this.alexUserControl10m.StateChanged += new System.EventHandler(this.alexUserControl10m_StateChanged);
+            // 
+            // alexUserControl12m
+            // 
+            this.alexUserControl12m.Location = new System.Drawing.Point(104, 219);
+            this.alexUserControl12m.Name = "alexUserControl12m";
+            this.alexUserControl12m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl12m.TabIndex = 186;
+            this.alexUserControl12m.Value = 65;
+            this.alexUserControl12m.StateChanged += new System.EventHandler(this.alexUserControl12m_StateChanged);
+            // 
+            // alexUserControl15m
+            // 
+            this.alexUserControl15m.Location = new System.Drawing.Point(104, 199);
+            this.alexUserControl15m.Name = "alexUserControl15m";
+            this.alexUserControl15m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl15m.TabIndex = 185;
+            this.alexUserControl15m.Value = 65;
+            this.alexUserControl15m.StateChanged += new System.EventHandler(this.alexUserControl15m_StateChanged);
+            // 
+            // alexUserControl17m
+            // 
+            this.alexUserControl17m.Location = new System.Drawing.Point(104, 179);
+            this.alexUserControl17m.Name = "alexUserControl17m";
+            this.alexUserControl17m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl17m.TabIndex = 184;
+            this.alexUserControl17m.Value = 65;
+            this.alexUserControl17m.StateChanged += new System.EventHandler(this.alexUserControl17m_StateChanged);
+            // 
+            // alexUserControl20m
+            // 
+            this.alexUserControl20m.Location = new System.Drawing.Point(104, 159);
+            this.alexUserControl20m.Name = "alexUserControl20m";
+            this.alexUserControl20m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl20m.TabIndex = 183;
+            this.alexUserControl20m.Value = 65;
+            this.alexUserControl20m.StateChanged += new System.EventHandler(this.alexUserControl20m_StateChanged);
+            // 
+            // alexUserControl30m
+            // 
+            this.alexUserControl30m.Location = new System.Drawing.Point(104, 139);
+            this.alexUserControl30m.Name = "alexUserControl30m";
+            this.alexUserControl30m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl30m.TabIndex = 182;
+            this.alexUserControl30m.Value = 65;
+            this.alexUserControl30m.StateChanged += new System.EventHandler(this.alexUserControl30m_StateChanged);
+            // 
+            // alexUserControl40m
+            // 
+            this.alexUserControl40m.Location = new System.Drawing.Point(104, 119);
+            this.alexUserControl40m.Name = "alexUserControl40m";
+            this.alexUserControl40m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl40m.TabIndex = 181;
+            this.alexUserControl40m.Value = 65;
+            this.alexUserControl40m.StateChanged += new System.EventHandler(this.alexUserControl40m_StateChanged);
+            // 
+            // alexUserControl60m
+            // 
+            this.alexUserControl60m.Location = new System.Drawing.Point(104, 99);
+            this.alexUserControl60m.Name = "alexUserControl60m";
+            this.alexUserControl60m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl60m.TabIndex = 180;
+            this.alexUserControl60m.Value = 65;
+            this.alexUserControl60m.StateChanged += new System.EventHandler(this.alexUserControl60m_StateChanged);
+            // 
+            // alexUserControl80m
+            // 
+            this.alexUserControl80m.Location = new System.Drawing.Point(104, 79);
+            this.alexUserControl80m.Name = "alexUserControl80m";
+            this.alexUserControl80m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl80m.TabIndex = 179;
+            this.alexUserControl80m.Value = 65;
+            this.alexUserControl80m.StateChanged += new System.EventHandler(this.alexUserControl80m_StateChanged);
+            // 
+            // alexUserControl160m
+            // 
+            this.alexUserControl160m.Location = new System.Drawing.Point(104, 59);
+            this.alexUserControl160m.Name = "alexUserControl160m";
+            this.alexUserControl160m.Size = new System.Drawing.Size(300, 21);
+            this.alexUserControl160m.TabIndex = 178;
+            this.alexUserControl160m.Value = 65;
+            this.alexUserControl160m.StateChanged += new System.EventHandler(this.alexUserControl160m_StateChanged);
+            // 
             // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 344);
+            this.ClientSize = new System.Drawing.Size(484, 342);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetupForm";
-            this.Text = "Setupform";
+            this.Text = "Setup";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Setupform_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
