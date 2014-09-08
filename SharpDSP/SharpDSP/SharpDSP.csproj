@@ -100,7 +100,6 @@
     <Compile Include="SignalPowerSpectrum.cs" />
     <Compile Include="Squelch.cs" />
     <Compile Include="wcpagc.cs" />
-    <Compile Include="Win32api.cs" />
     <Compile Include="WorkerThread.cs" />
   </ItemGroup>
   <ItemGroup>

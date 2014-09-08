@@ -6,10 +6,11 @@
  * Copyright (C) 2009, 2010, 2011 Phil Harman, VK6APH
  * Copyright (C) 2009 David McQuate WA8YWQ
  * Copyright (C) 2009 Joe Martin K5SO
- * Copyright (C) 2009-2013 George Byrkit K9TRV
+ * Copyright (C) 2009-2014 George Byrkit K9TRV
  * Copyright (C) 2009 Mark Amos W8XR
  * Copyright (C) 2011 Erik Anderson KE7YOA
  * Copyright (C) 2011-2012 Warren Pratt NR0V (wcpAGC code)
+ * Copyright (C) 2014-2014, Jae Stutzman K5JAE (Linux/Unix interoperability)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -301,6 +302,7 @@
  *                          version string.
  * 26 May  2013 - v1.1.28 - G Byrkit (K9TRV) Allow 384k spectrum for Metis and Ozy as well.  Add support for Mercury 3.4, Penny 1.8, Metis 2.6, Ozy 2.5.
  *                          Ozy/Magister 2.5 set as default in InitOzy11.bat
+ * 09 Sep  2014 - v1.1.29 - Jae Stutzman (K5JAE) - first pass at integrating code that will build and run under Mono on Linux, yet still run under Windows
  *                          
  *    
  * 
@@ -342,7 +344,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.28";  // change this for each release!
+        string version = "V1.1.29";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -580,6 +582,13 @@ namespace KISS_Konsole
             //Control.CheckForIllegalCrossThreadCalls = false;  // leave on so we catch these
             InitializeComponent();
 
+            // Focus control...
+            DisableFocus(Controls);
+
+            this.labelFocus.MouseWheel += new MouseEventHandler(labelFocus_MouseWheel);
+            this.labelFocus.PreviewKeyDown += new PreviewKeyDownEventHandler(labelFocus_PreviewKeyDown);
+            this.Shown += new System.EventHandler(FocusGotFocus);
+
             Debug.Indent();                         // Indent Debug messages to make them easier to see
 
             // determine where a default appDataDir would be located
@@ -643,12 +652,10 @@ namespace KISS_Konsole
             pictureBoxSpectrum.Width = 1024;
             pictureBoxWideband.Height = 260;
             pictureBoxWideband.Width = 1024;
+            trackBarSetFrequency.Width = 1024;
 
             state = rcvr.DSPStateObj;       // fetch state that Receiver constructor created
             state.DSPBlockSize = iqsize;     // put in some initial values
-
-            VolumeTrackBar.Minimum = 0;
-            VolumeTrackBar.Maximum = 100;
 
             // Load the previous radio settings from the KK.csv file and allocate values.
             // First check that the file exists
@@ -669,7 +676,7 @@ namespace KISS_Konsole
                 Frequency_change();                 // check we are in band, update frequency and display 
                 ChangeMode();                       // Set Bandwidth slider value based on Mode in use
                 rcvr.SampleRate = SampleRate;   // set the previously saved sample rate
-                QuickMemory = set_frequency.Value;  // set a quick frequency value
+                QuickMemory = trackBarSetFrequency.Value;  // set a quick frequency value
                 QuickMemoryBand = BandSelect.Text;  // set a quick frequency band
 
                 // Force the Form1 Controls to the values retrieved from KK.CSV
@@ -679,6 +686,9 @@ namespace KISS_Konsole
                 Squelch_setting.Text = Squelch_level.Value.ToString();
                 DriveLevel_Scroll(this, EventArgs.Empty);   // force Drive contol to accept value from KK.csv
                 chkClipper_CheckedChanged(this, EventArgs.Empty); // force Processor control to update
+                chkVOX_CheckedChanged(this, EventArgs.Empty); // force control to update
+                chkNoiseGate_CheckedChanged(this, EventArgs.Empty); // force control to update
+
                 MicrophoneGain_Scroll(this, EventArgs.Empty);
                 NoiseGateLevel_Scroll(this, EventArgs.Empty);
 
@@ -703,6 +713,79 @@ namespace KISS_Konsole
             {
                 MessageBox.Show("Can't find KK.csv, should be in the same directory as KISS Konsole.exe?", "File Error");
             }
+        }
+
+        private void DisableFocus(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control.HasChildren)
+                {
+                    // recursive
+                    DisableFocus(control.Controls);
+                }
+
+
+                if (control.Name != "labelFocus" && control.GetType() != typeof(MenuStrip) &&
+                    control.GetType() != typeof(Label) && control.GetType() != typeof(TextBox) &&
+                    control.GetType() != typeof(ComboBox))
+                {
+                    control.MouseClick += new MouseEventHandler(FocusMouseClick);
+                }
+
+                if (control.GetType() == typeof(ComboBox))
+                {
+                    ((ComboBox)control).SelectedIndexChanged += new EventHandler(FocusGotFocus);
+                }
+
+            }
+        }
+
+        void FocusMouseClick(object sender, MouseEventArgs e)
+        {
+            labelFocus.Focus();
+        }
+
+        void FocusGotFocus(object sender, EventArgs e)
+        {
+            labelFocus.Focus();
+        }
+
+        void labelFocus_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Space:
+                    
+                    //System.Console.WriteLine("SPACE Pressed");
+
+                    // toggle transmit
+                    MOX_Click(null, new EventArgs());
+
+                    //e.Handled = true;
+                    break;
+            }
+        }
+
+        void labelFocus_MouseWheel(object sender, MouseEventArgs e)
+        {
+            // Manually update the TrackBar using the MouseWheel event. This event is part of the Focus control
+            // label specifically placed to keep focus. NOTE: Mono's implementation of the TrackBar has inverted
+            // TrackBar logic, this is a bug!
+            if (e.Delta > 0)
+            {
+                //System.Console.WriteLine("MOUSE WHEEL Up");
+                if (trackBarSetFrequency.Value < trackBarSetFrequency.Maximum)
+                    trackBarSetFrequency.Value ++;
+            }
+            else
+            {
+                //System.Console.WriteLine("MOUSE WHEEL Down");
+                if (trackBarSetFrequency.Value > trackBarSetFrequency.Minimum)
+                    trackBarSetFrequency.Value --;
+            }
+
+            trackBarSetFrequency_Scroll(null, new EventArgs());
         }
 
         // in-band data (EP6)
@@ -1245,7 +1328,7 @@ namespace KISS_Konsole
                 g.FillRectangle(Brushes.SeaGreen, FilterLeft, 0, Width, BSHeight);
 
                 // truncate tuned frequency to 100Hz digits 
-                int truncate_freq = set_frequency.Value / 100;
+                int truncate_freq = trackBarSetFrequency.Value / 100;
 
                 // the frequency at the left edge of the screen will be the tuned frequency - sample rate/(2 x 100Hz)
                 int left_edge_frequency = truncate_freq - SampleRate / 200;
@@ -1278,7 +1361,7 @@ namespace KISS_Konsole
                         g.DrawString(displayFreq, font, Brushes.White, x_locate, 0);
                     }
                     // highlight band edge in Red
-                    if (display_frequency == set_frequency.Minimum / 100 || display_frequency == set_frequency.Maximum / 100)
+                    if (display_frequency == trackBarSetFrequency.Minimum / 100 || display_frequency == trackBarSetFrequency.Maximum / 100)
                         g.DrawLine(Pens.Red, i, offset, i, BSHeight);
 
                     display_frequency++; // increment frequency in 100s of Hz 
@@ -1567,17 +1650,17 @@ namespace KISS_Konsole
             // save the last frequency used 
             switch (BandSelect.Text)
             {
-                case "160m": set_frequency_160 = set_frequency.Value; break;
-                case "80m": set_frequency_80 = set_frequency.Value; break;
-                case "40m": set_frequency_40 = set_frequency.Value; break;
-                case "30m": set_frequency_30 = set_frequency.Value; break;
-                case "20m": set_frequency_20 = set_frequency.Value; break;
-                case "17m": set_frequency_17 = set_frequency.Value; break;
-                case "15m": set_frequency_15 = set_frequency.Value; break;
-                case "12m": set_frequency_12 = set_frequency.Value; break;
-                case "10m": set_frequency_10 = set_frequency.Value; break;
-                case "6m": set_frequency_6 = set_frequency.Value; break;
-                case "GC": set_frequency_GC = set_frequency.Value; break;
+                case "160m": set_frequency_160 = trackBarSetFrequency.Value; break;
+                case "80m": set_frequency_80 = trackBarSetFrequency.Value; break;
+                case "40m": set_frequency_40 = trackBarSetFrequency.Value; break;
+                case "30m": set_frequency_30 = trackBarSetFrequency.Value; break;
+                case "20m": set_frequency_20 = trackBarSetFrequency.Value; break;
+                case "17m": set_frequency_17 = trackBarSetFrequency.Value; break;
+                case "15m": set_frequency_15 = trackBarSetFrequency.Value; break;
+                case "12m": set_frequency_12 = trackBarSetFrequency.Value; break;
+                case "10m": set_frequency_10 = trackBarSetFrequency.Value; break;
+                case "6m": set_frequency_6 = trackBarSetFrequency.Value; break;
+                case "GC": set_frequency_GC = trackBarSetFrequency.Value; break;
             }
             // save program settings in KK.csv file
             WriteKKCSV(KKCSVName);
@@ -1708,15 +1791,15 @@ namespace KISS_Konsole
         }
 
         // Slider control sets transceiver center frequency
-        private void set_frequency_Scroll_1(object sender, EventArgs e)
+        private void trackBarSetFrequency_Scroll(object sender, EventArgs e)
         {
             // when the frequency slider has focus the mouse scroll wheel
             // can be used to increment the frequency by +/- step_size.
 
             // the scroll bar can also be moved with the arrow and Up/Down keys 
             // make the scroll bar large and small step sizes a function of the step size 
-            set_frequency.LargeChange = ((step_size + 1) * 100) - step_size;
-            set_frequency.SmallChange = (step_size + 1);
+            trackBarSetFrequency.LargeChange = ((step_size + 1) * 100) - step_size;
+            trackBarSetFrequency.SmallChange = (step_size + 1);
 
             // check we are still within the band and update the tune and display frequencies
             Frequency_change();
@@ -1736,7 +1819,6 @@ namespace KISS_Konsole
                 case "100Hz": step_size = 99; break;
                 case "1kHz": step_size = 999; break;
             }
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         public void UpdateBandGain()
@@ -1783,17 +1865,17 @@ namespace KISS_Konsole
             // when changing bands store the last frequency used on that band so we can return to it later
             switch (BandText)
             {
-                case "160m": set_frequency_160 = set_frequency.Value; break;
-                case "80m": set_frequency_80 = set_frequency.Value; break;
-                case "40m": set_frequency_40 = set_frequency.Value; break;
-                case "30m": set_frequency_30 = set_frequency.Value; break;
-                case "20m": set_frequency_20 = set_frequency.Value; break;
-                case "17m": set_frequency_17 = set_frequency.Value; break;
-                case "15m": set_frequency_15 = set_frequency.Value; break;
-                case "12m": set_frequency_12 = set_frequency.Value; break;
-                case "10m": set_frequency_10 = set_frequency.Value; break;
-                case "6m": set_frequency_6 = set_frequency.Value; break;
-                case "GC": set_frequency_GC = set_frequency.Value; break;
+                case "160m": set_frequency_160 = trackBarSetFrequency.Value; break;
+                case "80m": set_frequency_80 = trackBarSetFrequency.Value; break;
+                case "40m": set_frequency_40 = trackBarSetFrequency.Value; break;
+                case "30m": set_frequency_30 = trackBarSetFrequency.Value; break;
+                case "20m": set_frequency_20 = trackBarSetFrequency.Value; break;
+                case "17m": set_frequency_17 = trackBarSetFrequency.Value; break;
+                case "15m": set_frequency_15 = trackBarSetFrequency.Value; break;
+                case "12m": set_frequency_12 = trackBarSetFrequency.Value; break;
+                case "10m": set_frequency_10 = trackBarSetFrequency.Value; break;
+                case "6m": set_frequency_6 = trackBarSetFrequency.Value; break;
+                case "GC": set_frequency_GC = trackBarSetFrequency.Value; break;
             }
 
             // set the band edges depending on the band selected. Restore the last used frequency from KK.csv
@@ -1801,9 +1883,9 @@ namespace KISS_Konsole
             {
                 case "160m":
                     CurrentBand = OpBand.M160;
-                    set_frequency.Minimum = 1800000;  // low band limit
-                    set_frequency.Maximum = 2000000;  // high band limit
-                    set_frequency.Value = set_frequency_160; // last used frequency from KK.csv
+                    trackBarSetFrequency.Minimum = 1800000;  // low band limit
+                    trackBarSetFrequency.Maximum = 2000000;  // high band limit
+                    trackBarSetFrequency.Value = set_frequency_160; // last used frequency from KK.csv
                     if (Mode.Text == "USB")
                     {
                         Mode.Text = "LSB";                  // select the appropriate sideband
@@ -1815,9 +1897,9 @@ namespace KISS_Konsole
 
                 case "80m":
                     CurrentBand = OpBand.M80;
-                    set_frequency.Minimum = 3500000;
-                    set_frequency.Maximum = 4000000;
-                    set_frequency.Value = set_frequency_80;
+                    trackBarSetFrequency.Minimum = 3500000;
+                    trackBarSetFrequency.Maximum = 4000000;
+                    trackBarSetFrequency.Value = set_frequency_80;
                     if (Mode.Text == "USB")
                     {
                         Mode.Text = "LSB";                  // select the appropriate sideband
@@ -1829,9 +1911,9 @@ namespace KISS_Konsole
 
                 case "40m":
                     CurrentBand = OpBand.M40;
-                    set_frequency.Minimum = 7000000;
-                    set_frequency.Maximum = 7300000;
-                    set_frequency.Value = set_frequency_40;
+                    trackBarSetFrequency.Minimum = 7000000;
+                    trackBarSetFrequency.Maximum = 7300000;
+                    trackBarSetFrequency.Value = set_frequency_40;
                     if (Mode.Text == "USB")
                     {
                         Mode.Text = "LSB";                  // select the appropriate sideband
@@ -1843,9 +1925,9 @@ namespace KISS_Konsole
 
                 case "30m":
                     CurrentBand = OpBand.M30;
-                    set_frequency.Minimum = 10100000;
-                    set_frequency.Maximum = 10150000;
-                    set_frequency.Value = set_frequency_30;
+                    trackBarSetFrequency.Minimum = 10100000;
+                    trackBarSetFrequency.Maximum = 10150000;
+                    trackBarSetFrequency.Value = set_frequency_30;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1857,9 +1939,9 @@ namespace KISS_Konsole
 
                 case "20m":
                     CurrentBand = OpBand.M20;
-                    set_frequency.Minimum = 14000000;
-                    set_frequency.Maximum = 14350000;
-                    set_frequency.Value = set_frequency_20;
+                    trackBarSetFrequency.Minimum = 14000000;
+                    trackBarSetFrequency.Maximum = 14350000;
+                    trackBarSetFrequency.Value = set_frequency_20;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1871,9 +1953,9 @@ namespace KISS_Konsole
 
                 case "17m":
                     CurrentBand = OpBand.M17;
-                    set_frequency.Minimum = 18068000;
-                    set_frequency.Maximum = 18168000;
-                    set_frequency.Value = set_frequency_17;
+                    trackBarSetFrequency.Minimum = 18068000;
+                    trackBarSetFrequency.Maximum = 18168000;
+                    trackBarSetFrequency.Value = set_frequency_17;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1885,9 +1967,9 @@ namespace KISS_Konsole
 
                 case "15m":
                     CurrentBand = OpBand.M15;
-                    set_frequency.Minimum = 21000000;
-                    set_frequency.Maximum = 21450000;
-                    set_frequency.Value = set_frequency_15;
+                    trackBarSetFrequency.Minimum = 21000000;
+                    trackBarSetFrequency.Maximum = 21450000;
+                    trackBarSetFrequency.Value = set_frequency_15;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1899,9 +1981,9 @@ namespace KISS_Konsole
 
                 case "12m":
                     CurrentBand = OpBand.M12;
-                    set_frequency.Minimum = 24880000;
-                    set_frequency.Maximum = 24980000;
-                    set_frequency.Value = set_frequency_12;
+                    trackBarSetFrequency.Minimum = 24880000;
+                    trackBarSetFrequency.Maximum = 24980000;
+                    trackBarSetFrequency.Value = set_frequency_12;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1913,9 +1995,9 @@ namespace KISS_Konsole
 
                 case "10m":
                     CurrentBand = OpBand.M10;
-                    set_frequency.Minimum = 28000000;
-                    set_frequency.Maximum = 29700000;
-                    set_frequency.Value = set_frequency_10;
+                    trackBarSetFrequency.Minimum = 28000000;
+                    trackBarSetFrequency.Maximum = 29700000;
+                    trackBarSetFrequency.Value = set_frequency_10;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1927,9 +2009,9 @@ namespace KISS_Konsole
 
                 case "6m":
                     CurrentBand = OpBand.M6;
-                    set_frequency.Minimum = 50000000;
-                    set_frequency.Maximum = 55000000;
-                    set_frequency.Value = set_frequency_6;
+                    trackBarSetFrequency.Minimum = 50000000;
+                    trackBarSetFrequency.Maximum = 55000000;
+                    trackBarSetFrequency.Value = set_frequency_6;
                     if (Mode.Text == "LSB")
                     {
                         Mode.Text = "USB";                  // select the appropriate sideband
@@ -1941,29 +2023,29 @@ namespace KISS_Konsole
 
                 case "GC":
                     CurrentBand = OpBand.GC;
-                    set_frequency.Minimum = 0;
-                    set_frequency.Maximum = 55000000;
-                    set_frequency.Value = set_frequency_GC;
+                    trackBarSetFrequency.Minimum = 0;
+                    trackBarSetFrequency.Maximum = 55000000;
+                    trackBarSetFrequency.Value = set_frequency_GC;
                     Preamp.Checked = Preamp_GC;
                     BandGain = 0;
                     break;
 
                 default:
                     CurrentBand = OpBand.M20;
-                    set_frequency.Minimum = 14000000;
-                    set_frequency.Maximum = 14350000;
+                    trackBarSetFrequency.Minimum = 14000000;
+                    trackBarSetFrequency.Maximum = 14350000;
                     break;
             }
 
             BandText = BandSelect.Text; // save the band we are currently on as we leave 
             Frequency_change(); // update frequency and display
-            set_frequency.Focus(); // return focus to the frequency slider
+
+            UpdateGraphs();
         }
 
         private void Mode_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeMode(); // select filter setting based on mode
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         private void ChangeMode() // ChangeMode() is called by Mode/BandSelect_SelectedIndexChanged()
@@ -2039,6 +2121,8 @@ namespace KISS_Konsole
             }
 
             labelFilterWidth.Text = BandwidthTrackBar.Value.ToString();
+
+            UpdateGraphs();
         }
 
         // set the volume based on the VolumeTrackBar value
@@ -2046,7 +2130,6 @@ namespace KISS_Konsole
         {
             // set the Receiver volume level
             setVolumeSquelched();
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         public void setVolumeSquelched()
@@ -2062,6 +2145,9 @@ namespace KISS_Konsole
                 // otherwise set to volume trackbar level
                 // convert the track bar value to a float in the range 0 to 1, since that's what SharpDSP needs
                 float v = (float)VolumeTrackBar.Value / (float)VolumeTrackBar.Maximum;
+
+                labelVolume.Text = VolumeTrackBar.Value.ToString();
+
                 rcvr.VolumeLeft = v;  // send to SharpSDP
                 rcvr.VolumeRight = v;
            }
@@ -2112,7 +2198,7 @@ namespace KISS_Konsole
                 }
             }
 
-            set_frequency.Focus(); // return focus to the frequency slider
+            labelAGCGain.Text = AGCTrackBar.Value.ToString();
         }
 
         public double AGCMaximumGainDB
@@ -2249,8 +2335,6 @@ namespace KISS_Konsole
 
             // update whether AGC Hang is enabled, and pass the info to any valid setup form.
             AGCHangEnabled = HangEnabled;
-
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         private void UpdateAGCTimeDisplay()
@@ -2326,7 +2410,6 @@ namespace KISS_Konsole
         private void BandwidthTrackBar_Scroll(object sender, EventArgs e)
         {
             AdjustFilterByMode();
-            set_frequency.Focus(); // return focus to the frequency slider
             labelFilterWidth.Text = BandwidthTrackBar.Value.ToString();
         }
 
@@ -2376,8 +2459,6 @@ namespace KISS_Konsole
             }
             else
                 rcvr.InterferenceFilterSwitchOn = false;
-
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         public int nRAdaptiveFilterSize = 64;
@@ -2421,22 +2502,18 @@ namespace KISS_Konsole
             }
             else
                 rcvr.NoiseFilterSwitchOn = false;
-
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // Noise Blanker1
         private void NB1_CheckedChanged(object sender, EventArgs e)
         {
             rcvr.BlockNBSwitchOn = NB1.Checked;
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // Noise Blanker2
         private void NB2_CheckedChanged(object sender, EventArgs e)
         {
             rcvr.AveNBSwitchOn = NB2.Checked;
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         private void UpdateGraphs()
@@ -2450,22 +2527,22 @@ namespace KISS_Konsole
         private void Frequency_change()
         {
             // we need to check if we are too close to the band edge to take a step 
-            if (set_frequency.Value > previous_frequency_value && set_frequency.Value < (set_frequency.Maximum - step_size))
-                set_frequency.Value += step_size;  // add step_size since scroll wheel has added 1 already
-            else if (set_frequency.Value < previous_frequency_value && set_frequency.Value > (set_frequency.Minimum + step_size + 1))
-                set_frequency.Value -= step_size; // subtract step_size since scroll wheel has subtracted 1 already
+            if (trackBarSetFrequency.Value > previous_frequency_value && trackBarSetFrequency.Value < (trackBarSetFrequency.Maximum - step_size))
+                trackBarSetFrequency.Value += step_size;  // add step_size since scroll wheel has added 1 already
+            else if (trackBarSetFrequency.Value < previous_frequency_value && trackBarSetFrequency.Value > (trackBarSetFrequency.Minimum + step_size + 1))
+                trackBarSetFrequency.Value -= step_size; // subtract step_size since scroll wheel has subtracted 1 already
             // else use the current value
 
             // round frequency to step size
-            int temp_frequency = set_frequency.Value; // use a temp value so we don't have to worry about the band edges.
+            int temp_frequency = trackBarSetFrequency.Value; // use a temp value so we don't have to worry about the band edges.
             temp_frequency = temp_frequency / (step_size + 1);
             temp_frequency = temp_frequency * (step_size + 1);
-            set_frequency.Value = temp_frequency;
+            trackBarSetFrequency.Value = temp_frequency;
 
             // display the new frequency and send to Ozy
-            DisplayFrequency(set_frequency.Value);
+            DisplayFrequency(trackBarSetFrequency.Value);
             // save current value so we can compare with next value so we can determine tune direction
-            previous_frequency_value = set_frequency.Value;
+            previous_frequency_value = trackBarSetFrequency.Value;
         }
 
         public float ProcGain;
@@ -2703,8 +2780,6 @@ namespace KISS_Konsole
         {
             doSpectrum = chkSpec.Checked;
             SetSplitterBar();
-            set_frequency.Focus(); // return focus to the frequency slider
-
             UpdateGraphs();
         }
 
@@ -2719,9 +2794,6 @@ namespace KISS_Konsole
             }
 
             SetSplitterBar();
-
-            set_frequency.Focus(); // return focus to the frequency slider
-
             UpdateGraphs();
         }
 
@@ -2741,9 +2813,6 @@ namespace KISS_Konsole
             }
 
             SetSplitterBar();
-
-            set_frequency.Focus(); // return focus to the frequency slider
-
             UpdateGraphs();
         }
 
@@ -2768,7 +2837,6 @@ namespace KISS_Konsole
                 case "6m": Preamp_6 = PreampOn; break;
                 case "GC": Preamp_GC = PreampOn; break;
             }
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // save the current band & frequency in a quick memory
@@ -2776,8 +2844,7 @@ namespace KISS_Konsole
         {
             StoreFreq.BackColor = Color.Gray;
             QuickMemoryBand = BandSelect.Text;
-            QuickMemory = set_frequency.Value;
-            set_frequency.Focus(); // return focus to the frequency slider
+            QuickMemory = trackBarSetFrequency.Value;
         }
 
         // restore a previously stored quick band & frequency 
@@ -2785,9 +2852,8 @@ namespace KISS_Konsole
         {
             RecallFreq.BackColor = Color.Gray;
             BandSelect.Text = QuickMemoryBand;
-            set_frequency.Value = QuickMemory;
+            trackBarSetFrequency.Value = QuickMemory;
             Frequency_change();     // process the new frequency 
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // process key strokes from the keyboard 
@@ -2864,10 +2930,10 @@ namespace KISS_Konsole
                     break;
 
                 // if Up arrow increment frequency by step size
-                case Keys.Up: KeypadFrequency = set_frequency.Value++.ToString(); display = true; break;
+                case Keys.Up: KeypadFrequency = trackBarSetFrequency.Value++.ToString(); display = true; break;
 
                 // if Down arrow decrement frequency by step size
-                case Keys.Down: KeypadFrequency = set_frequency.Value--.ToString(); display = true; break;
+                case Keys.Down: KeypadFrequency = trackBarSetFrequency.Value--.ToString(); display = true; break;
 
                 // if not a valid key then exit
                 default: display = false; return;
@@ -2887,7 +2953,6 @@ namespace KISS_Konsole
                 catch // format error so tidy up and return
                 {
                     Frequency_change();     // display the previous frequency
-                    set_frequency.Focus(); // return focus to the frequency slider
                     KeypadFrequency = null;
                     keycount = 0;
                     return;
@@ -2899,18 +2964,16 @@ namespace KISS_Konsole
                 {
                     Debug.WriteLine(setfrequency);
                     BandSelect.Text = getBand(setfrequency);
-                    set_frequency.Value = setfrequency;
+                    trackBarSetFrequency.Value = setfrequency;
                     // display the new frequency and send to Ozy
                     DisplayFrequency(setfrequency);
                     KeypadFrequency = null;
                     keycount = 0;
-                    set_frequency.Focus(); // return focus to the frequency slider
                     return;
                 }
                 else  // error, abort
                 {
                     Frequency_change();     // display the previous frequency
-                    set_frequency.Focus(); // return focus to the frequency slider
                     KeypadFrequency = null;
                     keycount = 0;
                     return;
@@ -2926,9 +2989,9 @@ namespace KISS_Konsole
         private void DisplayFrequency(int setfrequency)
         {
             // convert tune frequency to an array of bytes ready to send to Ozy
-            frequency = BitConverter.GetBytes(set_frequency.Value);
+            frequency = BitConverter.GetBytes(trackBarSetFrequency.Value);
             // for now set the Duplex frequency  = simplex frequency
-            duplex_frequency = BitConverter.GetBytes(set_frequency.Value);
+            duplex_frequency = BitConverter.GetBytes(trackBarSetFrequency.Value);
             // format the integer frequency to have a decimal point between the MHz digits.
             float temp_freq = (float)setfrequency / 1000000.0f;
             // convert to a string with 6 digits to the right of the decimal point 
@@ -2972,7 +3035,6 @@ namespace KISS_Konsole
                 Setup_form.SampleRate.Text = SampleRate.ToString(); // pass the current Sampling Rate 
                 Setup_form.Owner = this;
                 Setup_form.Show();                  // display the Setup form
-                set_frequency.Focus();              // return focus to the frequency slider
                 Setup_form.Set_CWPitch.Value = CWPitch; // setup the initial value of cw pitch control on the setup form
                 Setup_form.CustomRXAGCEnabled = (rcvr.AGCMode == SharpDSP2._1.AGCType_e.agcUser);
             }
@@ -2980,7 +3042,6 @@ namespace KISS_Konsole
             {
                 // handle setup form already being shown.  Make sure the user sees it...
                 Setup_form.Show();                  // display the Setup form
-                set_frequency.Focus();              // return focus to the frequency slider
             }
         }
 
@@ -3112,27 +3173,26 @@ namespace KISS_Konsole
                     // calculate the  how many Hz the X mouse location represents from the left edge of the screen
                     int offset = MousePositionX * HzPerPixel;
                     // the frequency at the left edge of the screen will be the tuned frequency - sample rate/2
-                    int left_edge_frequency = set_frequency.Value - SampleRate / 2;
+                    int left_edge_frequency = trackBarSetFrequency.Value - SampleRate / 2;
                     // add the offset to the left edge frequency
                     // do so in a way that does NOT generate an exception when going too low in frequency
-                    if (left_edge_frequency + offset <= set_frequency.Minimum)
+                    if (left_edge_frequency + offset <= trackBarSetFrequency.Minimum)
                     {
-                        set_frequency.Value = set_frequency.Minimum;
+                        trackBarSetFrequency.Value = trackBarSetFrequency.Minimum;
                     }
-                    else if (left_edge_frequency + offset >= set_frequency.Maximum)
+                    else if (left_edge_frequency + offset >= trackBarSetFrequency.Maximum)
                     {
-                        set_frequency.Value = set_frequency.Maximum;
+                        trackBarSetFrequency.Value = trackBarSetFrequency.Maximum;
                     }
                     else
                     {
                         if (Mode.Text == "CWL")  // TODO: Hack so that click tune on CWL mode works - need to fix
-                            set_frequency.Value = left_edge_frequency + offset + 1000;
+                            trackBarSetFrequency.Value = left_edge_frequency + offset + 1000;
                         else
-                            set_frequency.Value = left_edge_frequency + offset;
+                            trackBarSetFrequency.Value = left_edge_frequency + offset;
                     }
                     // display the new frequency and send to Ozy
-                    DisplayFrequency(set_frequency.Value);
-                    set_frequency.Focus(); // return focus to the frequency slider
+                    DisplayFrequency(trackBarSetFrequency.Value);
                 }
             }
             // if the right mouse button is down then show large cross 
@@ -3246,20 +3306,19 @@ namespace KISS_Konsole
                 // we need to check if we are too close to the band edges to move 
                 if (delta < 0)
                 {
-                    if (set_frequency.Value > (set_frequency.Minimum + abs_delta * (SampleRate / pictureBoxSpectrum.Width)))
-                        set_frequency.Value -= abs_delta * (SampleRate / pictureBoxSpectrum.Width);
+                    if (trackBarSetFrequency.Value > (trackBarSetFrequency.Minimum + abs_delta * (SampleRate / pictureBoxSpectrum.Width)))
+                        trackBarSetFrequency.Value -= abs_delta * (SampleRate / pictureBoxSpectrum.Width);
                 }
                 // if mouse has moved right then decrease frequency but first
                 // we need to check if we are too close to the band edges to move  
                 else if (delta > 0)
                 {
-                    if (set_frequency.Value < (set_frequency.Maximum - abs_delta * (SampleRate / pictureBoxSpectrum.Width)))
-                        set_frequency.Value += abs_delta * (SampleRate / pictureBoxSpectrum.Width);
+                    if (trackBarSetFrequency.Value < (trackBarSetFrequency.Maximum - abs_delta * (SampleRate / pictureBoxSpectrum.Width)))
+                        trackBarSetFrequency.Value += abs_delta * (SampleRate / pictureBoxSpectrum.Width);
                 }
 
-                DisplayFrequency(set_frequency.Value);
-
-                set_frequency.Focus(); // return focus to the frequency slider
+                DisplayFrequency(trackBarSetFrequency.Value);
+                UpdateGraphs();
             }
 
             // Allow user to alter  filter  high and low frequencies using mouse.
@@ -3451,7 +3510,6 @@ namespace KISS_Konsole
                     setVolumeSquelched();
                 }
             }
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         private bool filterSquelch = false;
@@ -3475,8 +3533,6 @@ namespace KISS_Konsole
                     setVolumeSquelched();
                 }
             }
-        
-            set_frequency.Focus(); // return focus to the frequency slider
         }
         
         // set the drive level to Penelope 
@@ -3485,7 +3541,6 @@ namespace KISS_Konsole
             Drive.Text = DriveLevel.Value.ToString();
             // apply square law to drive level control
             DriveGain = (float)Math.Pow(DriveLevel.Value, 2) / 10000;  // DriveGain is float from 0 to 1.0
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // Toggle the MOX button 
@@ -3513,7 +3568,6 @@ namespace KISS_Konsole
 
             DriveLevel_Scroll(this, EventArgs.Empty); // force drive level update
             setVolumeSquelched();  // check if we need to mute the receiver audio
-            set_frequency.Focus(); // return focus to the frequency slider
         }
 
         // Toggle the TUN (Tune) button
@@ -3552,7 +3606,6 @@ namespace KISS_Konsole
             }
 
             DriveLevel_Scroll(this, EventArgs.Empty); // force drive level update
-            set_frequency.Focus(); // return focus to the frequency slider
         }
         
         HPSDRDevice ourDevice = null;
@@ -3584,7 +3637,6 @@ namespace KISS_Konsole
 
                 KK_on = true;
                 ourDevice.Start();
-                set_frequency.Focus(); // set focus to the frequency slider
             }
             else
             {
@@ -3607,7 +3659,6 @@ namespace KISS_Konsole
                 ourDevice = null;
                 OnlyTxOnPTT = previous_OnlyTxOnPTT;         // restore the previous status 
                 KK_on = false;                              // set this last so PTT off gets sent
-                set_frequency.Focus(); // set focus to the frequency slider
             }            
         }
 
@@ -3647,14 +3698,10 @@ namespace KISS_Konsole
 
         private void chkVOX_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkVOX.Checked)
-            {
-                VOXOn = true;
-            }
-            else
-            {
-                VOXOn = false;
-            }
+            VOXOn = chkVOX.Checked;
+            VOXLevel.Enabled = VOXOn;
+            textBoxVOXLevel.Enabled = VOXOn;
+            VOXHangTime.Enabled = VOXOn;
         }
 
         public bool ClipOn;
@@ -3664,14 +3711,14 @@ namespace KISS_Konsole
         {
             if (ClipOn && PTTEnable)  // only display clip LED if PTT active
             {
-                ClipLED.BackColor = Color.Green;
+                labelClipLED.BackColor = Color.Green;
                 ClipWasOn = true;
                 ClipOn = false;
             }
             else if (ClipWasOn)
             {
                 ClipWasOn = false;
-                ClipLED.BackColor = SystemColors.Control;
+                labelClipLED.BackColor = SystemColors.Control;
             }
         }
 
@@ -3720,21 +3767,19 @@ namespace KISS_Konsole
         private void MicrophoneGain_Scroll(object sender, EventArgs e)
         {
             // apply square law to gain control and allow max 20dB of gain 
-            MicGain = (float) Math.Pow(MicrophoneGain.Value, 2)/1000.00f;                
+            MicGain = (float) Math.Pow(MicrophoneGain.Value, 2)/1000.00f;
+            MicGain = Math.Min(MicGain, 20.0f);
+
+            textBoxMicGain.Text = MicGain.ToString("0.0"); //MicrophoneGain.Value.ToString();    
         }
 
         public bool NoiseGate;
 
         private void chkNoiseGate_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkNoiseGate.Checked)
-            {
-                NoiseGate = true;
-            }
-            else
-            {
-                NoiseGate = false;
-            }
+            NoiseGate = chkNoiseGate.Checked;
+            NoiseGateLevel.Enabled = NoiseGate;
+            textBoxNoiseGate.Enabled = NoiseGate;
         }
 
         public float NoiseThreshold;
@@ -3742,6 +3787,8 @@ namespace KISS_Konsole
         private void NoiseGateLevel_Scroll(object sender, EventArgs e)
         {
             NoiseThreshold = 1.0f - (float)Math.Pow(NoiseGateLevel.Value,2) / 10000.0f;
+
+            textBoxNoiseGate.Text = NoiseThreshold.ToString("0.0");
         }
 
         private void ProcessorGainChange()
@@ -3749,7 +3796,7 @@ namespace KISS_Konsole
             // get the Processor gain
             ProcGain = ProcessorGain.Value / 10.0f;
             // display the Processor Gain in dB
-            ProcGaindB.Text = (20 * Math.Log10(ProcGain)).ToString();
+            ProcGaindB.Text = (20 * Math.Log10(ProcGain)).ToString("0.0");
         }
 
         private void ProcessorGain_Scroll(object sender, EventArgs e)
@@ -3766,6 +3813,8 @@ namespace KISS_Konsole
         {
             //get the VOX threshold, apply square law to the control 
             VOXThreshold = 1.0f - (float)Math.Pow(VOXLevel.Value,2) / 10000.0f;
+
+            textBoxVOXLevel.Text = VOXThreshold.ToString("0.0");
         }
 
         private void VOXLevel_Scroll(object sender, EventArgs e)
@@ -3830,15 +3879,27 @@ namespace KISS_Konsole
                 foreach (UnicastIPAddressInformation a in c)
                 {
                     IPAddress addr = a.Address;
-                    Console.WriteLine("  Unicast Addr ............................ : {0}", addr.ToString());
-                    IPAddress mask = a.IPv4Mask;
-                    Console.WriteLine("  Unicast Mask ............................ : {0}", (mask == null ? "null" : mask.ToString()));
 
-                    NicProperties np = new NicProperties();
-                    np.ipv4Address = a.Address;
-                    np.ipv4Mask = a.IPv4Mask;
+					if (a.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
+						Console.WriteLine ("  Unicast Addr ............................ : {0}", addr.ToString ());
+						IPAddress mask = null;
 
-                    nicProperties.Add(np);
+						try {
+							mask = a.IPv4Mask;
+						} catch (NotImplementedException e) {
+							// IPv4Mask does not yet exist in Mono
+							String subnetMask = IPInfoTools.GetIPv4Mask (adapter.Name, addr);
+							mask = IPAddress.Parse (subnetMask);
+						}
+
+						Console.WriteLine ("  Unicast Mask ............................ : {0}", (mask == null ? "null" : mask.ToString ()));
+
+						NicProperties np = new NicProperties ();
+						np.ipv4Address = a.Address;
+						np.ipv4Mask = mask;
+
+						nicProperties.Add (np);
+					}
                 }
 
                 // list multicast addresses
