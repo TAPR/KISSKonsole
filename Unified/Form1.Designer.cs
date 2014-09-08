@@ -145,10 +145,9 @@ namespace KISS_Konsole
             // chkSpec
             // 
             this.chkSpec.AutoSize = true;
-            this.chkSpec.Location = new System.Drawing.Point(564, 66);
-            this.chkSpec.Margin = new System.Windows.Forms.Padding(4);
+            this.chkSpec.Location = new System.Drawing.Point(423, 54);
             this.chkSpec.Name = "chkSpec";
-            this.chkSpec.Size = new System.Drawing.Size(128, 21);
+            this.chkSpec.Size = new System.Drawing.Size(101, 17);
             this.chkSpec.TabIndex = 23;
             this.chkSpec.Text = "Show Spectrum";
             this.chkSpec.UseVisualStyleBackColor = true;
@@ -159,10 +158,9 @@ namespace KISS_Konsole
             this.display_freq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.display_freq.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.display_freq.ForeColor = System.Drawing.Color.Crimson;
-            this.display_freq.Location = new System.Drawing.Point(388, 10);
-            this.display_freq.Margin = new System.Windows.Forms.Padding(4);
+            this.display_freq.Location = new System.Drawing.Point(291, 8);
             this.display_freq.Name = "display_freq";
-            this.display_freq.Size = new System.Drawing.Size(248, 46);
+            this.display_freq.Size = new System.Drawing.Size(187, 38);
             this.display_freq.TabIndex = 43;
             this.display_freq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -171,10 +169,9 @@ namespace KISS_Konsole
             this.trackBarSetFrequency.AutoSize = false;
             this.trackBarSetFrequency.LargeChange = 0;
             this.trackBarSetFrequency.Location = new System.Drawing.Point(0, 0);
-            this.trackBarSetFrequency.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarSetFrequency.Maximum = 55000000;
             this.trackBarSetFrequency.Name = "trackBarSetFrequency";
-            this.trackBarSetFrequency.Size = new System.Drawing.Size(1024, 30);
+            this.trackBarSetFrequency.Size = new System.Drawing.Size(1024, 24);
             this.trackBarSetFrequency.SmallChange = 0;
             this.trackBarSetFrequency.TabIndex = 44;
             this.trackBarSetFrequency.TickFrequency = 1000000;
@@ -197,20 +194,18 @@ namespace KISS_Konsole
             "10m",
             "6m",
             "GC"});
-            this.BandSelect.Location = new System.Drawing.Point(312, 48);
-            this.BandSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.BandSelect.Location = new System.Drawing.Point(234, 39);
             this.BandSelect.Name = "BandSelect";
-            this.BandSelect.Size = new System.Drawing.Size(80, 24);
+            this.BandSelect.Size = new System.Drawing.Size(61, 21);
             this.BandSelect.TabIndex = 46;
             this.BandSelect.SelectedIndexChanged += new System.EventHandler(this.BandSelect_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(263, 50);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(197, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 47;
             this.label3.Text = "Band";
             // 
@@ -222,40 +217,37 @@ namespace KISS_Konsole
             "10Hz",
             "100Hz",
             "1kHz"});
-            this.stepSize.Location = new System.Drawing.Point(312, 84);
-            this.stepSize.Margin = new System.Windows.Forms.Padding(4);
+            this.stepSize.Location = new System.Drawing.Point(234, 68);
             this.stepSize.Name = "stepSize";
-            this.stepSize.Size = new System.Drawing.Size(80, 24);
+            this.stepSize.Size = new System.Drawing.Size(61, 21);
             this.stepSize.TabIndex = 48;
             this.stepSize.SelectedIndexChanged += new System.EventHandler(this.stepSize_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 86);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(177, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 49;
             this.label4.Text = "Step Size";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(645, 31);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(484, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 17);
+            this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 54;
             this.label10.Text = "Frequency";
             // 
             // Preamp
             // 
             this.Preamp.AutoSize = true;
-            this.Preamp.Location = new System.Drawing.Point(745, 124);
-            this.Preamp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Preamp.Location = new System.Drawing.Point(559, 101);
+            this.Preamp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Preamp.Name = "Preamp";
-            this.Preamp.Size = new System.Drawing.Size(79, 21);
+            this.Preamp.Size = new System.Drawing.Size(62, 17);
             this.Preamp.TabIndex = 56;
             this.Preamp.Text = "Preamp";
             this.Preamp.UseVisualStyleBackColor = true;
@@ -264,29 +256,27 @@ namespace KISS_Konsole
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(413, 50);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(310, 41);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 17);
+            this.label11.Size = new System.Drawing.Size(29, 13);
             this.label11.TabIndex = 59;
             this.label11.Text = "AGC";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 86);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(305, 70);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 17);
+            this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 60;
             this.label12.Text = "Mode";
             // 
             // SyncLED
             // 
-            this.SyncLED.Location = new System.Drawing.Point(107, 33);
-            this.SyncLED.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SyncLED.Location = new System.Drawing.Point(80, 27);
+            this.SyncLED.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SyncLED.Name = "SyncLED";
-            this.SyncLED.Size = new System.Drawing.Size(52, 28);
+            this.SyncLED.Size = new System.Drawing.Size(39, 23);
             this.SyncLED.TabIndex = 63;
             this.SyncLED.Text = "Sync";
             this.SyncLED.UseVisualStyleBackColor = true;
@@ -294,22 +284,20 @@ namespace KISS_Konsole
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(244, 128);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(183, 104);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 17);
+            this.label15.Size = new System.Drawing.Size(42, 13);
             this.label15.TabIndex = 70;
             this.label15.Text = "Volume";
             // 
             // AGCTrackBar
             // 
             this.AGCTrackBar.AutoSize = false;
-            this.AGCTrackBar.Location = new System.Drawing.Point(312, 186);
-            this.AGCTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.AGCTrackBar.Location = new System.Drawing.Point(234, 151);
             this.AGCTrackBar.Maximum = 80;
             this.AGCTrackBar.Minimum = -60;
             this.AGCTrackBar.Name = "AGCTrackBar";
-            this.AGCTrackBar.Size = new System.Drawing.Size(200, 34);
+            this.AGCTrackBar.Size = new System.Drawing.Size(150, 28);
             this.AGCTrackBar.TabIndex = 71;
             this.AGCTrackBar.TickFrequency = 10;
             this.AGCTrackBar.Value = 70;
@@ -325,21 +313,19 @@ namespace KISS_Konsole
             "Med",
             "Fast",
             "User"});
-            this.AGCSpeed.Location = new System.Drawing.Point(465, 48);
-            this.AGCSpeed.Margin = new System.Windows.Forms.Padding(4);
+            this.AGCSpeed.Location = new System.Drawing.Point(349, 39);
             this.AGCSpeed.Name = "AGCSpeed";
-            this.AGCSpeed.Size = new System.Drawing.Size(77, 24);
+            this.AGCSpeed.Size = new System.Drawing.Size(59, 21);
             this.AGCSpeed.TabIndex = 72;
             this.AGCSpeed.SelectedIndexChanged += new System.EventHandler(this.AGCSpeed_SelectedIndexChanged);
             // 
             // BandwidthTrackBar
             // 
             this.BandwidthTrackBar.AutoSize = false;
-            this.BandwidthTrackBar.Location = new System.Drawing.Point(780, 178);
-            this.BandwidthTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.BandwidthTrackBar.Location = new System.Drawing.Point(585, 145);
             this.BandwidthTrackBar.Maximum = 20000;
             this.BandwidthTrackBar.Name = "BandwidthTrackBar";
-            this.BandwidthTrackBar.Size = new System.Drawing.Size(139, 34);
+            this.BandwidthTrackBar.Size = new System.Drawing.Size(104, 28);
             this.BandwidthTrackBar.TabIndex = 73;
             this.BandwidthTrackBar.TickFrequency = 500;
             this.BandwidthTrackBar.Scroll += new System.EventHandler(this.BandwidthTrackBar_Scroll);
@@ -348,10 +334,9 @@ namespace KISS_Konsole
             // ANF
             // 
             this.ANF.AutoSize = true;
-            this.ANF.Location = new System.Drawing.Point(745, 69);
-            this.ANF.Margin = new System.Windows.Forms.Padding(4);
+            this.ANF.Location = new System.Drawing.Point(559, 56);
             this.ANF.Name = "ANF";
-            this.ANF.Size = new System.Drawing.Size(57, 21);
+            this.ANF.Size = new System.Drawing.Size(47, 17);
             this.ANF.TabIndex = 74;
             this.ANF.Text = "ANF";
             this.ANF.UseVisualStyleBackColor = true;
@@ -360,10 +345,9 @@ namespace KISS_Konsole
             // NR
             // 
             this.NR.AutoSize = true;
-            this.NR.Location = new System.Drawing.Point(824, 69);
-            this.NR.Margin = new System.Windows.Forms.Padding(4);
+            this.NR.Location = new System.Drawing.Point(618, 56);
             this.NR.Name = "NR";
-            this.NR.Size = new System.Drawing.Size(50, 21);
+            this.NR.Size = new System.Drawing.Size(42, 17);
             this.NR.TabIndex = 75;
             this.NR.Text = "NR";
             this.NR.UseVisualStyleBackColor = true;
@@ -372,10 +356,9 @@ namespace KISS_Konsole
             // NB1
             // 
             this.NB1.AutoSize = true;
-            this.NB1.Location = new System.Drawing.Point(745, 96);
-            this.NB1.Margin = new System.Windows.Forms.Padding(4);
+            this.NB1.Location = new System.Drawing.Point(559, 78);
             this.NB1.Name = "NB1";
-            this.NB1.Size = new System.Drawing.Size(57, 21);
+            this.NB1.Size = new System.Drawing.Size(47, 17);
             this.NB1.TabIndex = 76;
             this.NB1.Text = "NB1";
             this.NB1.UseVisualStyleBackColor = true;
@@ -384,10 +367,9 @@ namespace KISS_Konsole
             // NB2
             // 
             this.NB2.AutoSize = true;
-            this.NB2.Location = new System.Drawing.Point(824, 96);
-            this.NB2.Margin = new System.Windows.Forms.Padding(4);
+            this.NB2.Location = new System.Drawing.Point(618, 78);
             this.NB2.Name = "NB2";
-            this.NB2.Size = new System.Drawing.Size(57, 21);
+            this.NB2.Size = new System.Drawing.Size(47, 17);
             this.NB2.TabIndex = 77;
             this.NB2.Text = "NB2";
             this.NB2.UseVisualStyleBackColor = true;
@@ -396,20 +378,18 @@ namespace KISS_Konsole
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(243, 188);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(182, 153);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 17);
+            this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 78;
             this.label16.Text = "AGC-Gain";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(701, 178);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(526, 145);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 17);
+            this.label17.Size = new System.Drawing.Size(60, 13);
             this.label17.TabIndex = 79;
             this.label17.Text = "Filter Width";
             // 
@@ -424,20 +404,18 @@ namespace KISS_Konsole
             "LSB",
             "CWU",
             "CWL"});
-            this.Mode.Location = new System.Drawing.Point(465, 82);
-            this.Mode.Margin = new System.Windows.Forms.Padding(4);
+            this.Mode.Location = new System.Drawing.Point(349, 67);
             this.Mode.Name = "Mode";
-            this.Mode.Size = new System.Drawing.Size(77, 24);
+            this.Mode.Size = new System.Drawing.Size(59, 21);
             this.Mode.TabIndex = 80;
             this.Mode.SelectedIndexChanged += new System.EventHandler(this.Mode_SelectedIndexChanged);
             // 
             // chkWideSpec
             // 
             this.chkWideSpec.AutoSize = true;
-            this.chkWideSpec.Location = new System.Drawing.Point(564, 89);
-            this.chkWideSpec.Margin = new System.Windows.Forms.Padding(4);
+            this.chkWideSpec.Location = new System.Drawing.Point(423, 72);
             this.chkWideSpec.Name = "chkWideSpec";
-            this.chkWideSpec.Size = new System.Drawing.Size(164, 21);
+            this.chkWideSpec.Size = new System.Drawing.Size(129, 17);
             this.chkWideSpec.TabIndex = 85;
             this.chkWideSpec.Text = "Show Wide Spectrum";
             this.chkWideSpec.UseVisualStyleBackColor = true;
@@ -445,10 +423,10 @@ namespace KISS_Konsole
             // 
             // ADCoverloadButton
             // 
-            this.ADCoverloadButton.Location = new System.Drawing.Point(167, 33);
-            this.ADCoverloadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ADCoverloadButton.Location = new System.Drawing.Point(125, 27);
+            this.ADCoverloadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ADCoverloadButton.Name = "ADCoverloadButton";
-            this.ADCoverloadButton.Size = new System.Drawing.Size(52, 28);
+            this.ADCoverloadButton.Size = new System.Drawing.Size(39, 23);
             this.ADCoverloadButton.TabIndex = 86;
             this.ADCoverloadButton.Text = "ADC";
             this.ADCoverloadButton.UseVisualStyleBackColor = true;
@@ -461,11 +439,10 @@ namespace KISS_Konsole
             // 
             this.VolumeTrackBar.AutoSize = false;
             this.VolumeTrackBar.LargeChange = 0;
-            this.VolumeTrackBar.Location = new System.Drawing.Point(297, 128);
-            this.VolumeTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.VolumeTrackBar.Location = new System.Drawing.Point(223, 104);
             this.VolumeTrackBar.Maximum = 100;
             this.VolumeTrackBar.Name = "VolumeTrackBar";
-            this.VolumeTrackBar.Size = new System.Drawing.Size(231, 34);
+            this.VolumeTrackBar.Size = new System.Drawing.Size(173, 28);
             this.VolumeTrackBar.SmallChange = 0;
             this.VolumeTrackBar.TabIndex = 69;
             this.VolumeTrackBar.TickFrequency = 10;
@@ -474,10 +451,10 @@ namespace KISS_Konsole
             // StoreFreq
             // 
             this.StoreFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.StoreFreq.Location = new System.Drawing.Point(7, 20);
-            this.StoreFreq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StoreFreq.Location = new System.Drawing.Point(5, 16);
+            this.StoreFreq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.StoreFreq.Name = "StoreFreq";
-            this.StoreFreq.Size = new System.Drawing.Size(49, 28);
+            this.StoreFreq.Size = new System.Drawing.Size(37, 23);
             this.StoreFreq.TabIndex = 93;
             this.StoreFreq.Tag = "";
             this.StoreFreq.Text = "STO";
@@ -487,10 +464,10 @@ namespace KISS_Konsole
             // RecallFreq
             // 
             this.RecallFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RecallFreq.Location = new System.Drawing.Point(61, 20);
-            this.RecallFreq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RecallFreq.Location = new System.Drawing.Point(46, 16);
+            this.RecallFreq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RecallFreq.Name = "RecallFreq";
-            this.RecallFreq.Size = new System.Drawing.Size(49, 28);
+            this.RecallFreq.Size = new System.Drawing.Size(37, 23);
             this.RecallFreq.TabIndex = 94;
             this.RecallFreq.Text = "RCL";
             this.RecallFreq.UseVisualStyleBackColor = true;
@@ -500,11 +477,9 @@ namespace KISS_Konsole
             // 
             this.groupBox1.Controls.Add(this.StoreFreq);
             this.groupBox1.Controls.Add(this.RecallFreq);
-            this.groupBox1.Location = new System.Drawing.Point(564, 159);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(423, 129);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(119, 55);
+            this.groupBox1.Size = new System.Drawing.Size(89, 45);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quick Memory";
@@ -513,10 +488,9 @@ namespace KISS_Konsole
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(941, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(706, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(187, 49);
+            this.pictureBox2.Size = new System.Drawing.Size(140, 40);
             this.pictureBox2.TabIndex = 98;
             this.pictureBox2.TabStop = false;
             // 
@@ -529,39 +503,37 @@ namespace KISS_Konsole
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1236, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1022, 24);
             this.menuStrip1.TabIndex = 101;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // setupToolStripMenuItem
             // 
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.setupToolStripMenuItem.Text = "Setup";
             this.setupToolStripMenuItem.Click += new System.EventHandler(this.setupToolStripMenuItem_Click);
             // 
             // deviceConfigToolStripMenuItem
             // 
             this.deviceConfigToolStripMenuItem.Name = "deviceConfigToolStripMenuItem";
-            this.deviceConfigToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.deviceConfigToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.deviceConfigToolStripMenuItem.Text = "Connection Type";
             this.deviceConfigToolStripMenuItem.Click += new System.EventHandler(this.deviceConfigToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // chkWaterFall
             // 
             this.chkWaterFall.AutoSize = true;
-            this.chkWaterFall.Location = new System.Drawing.Point(564, 110);
-            this.chkWaterFall.Margin = new System.Windows.Forms.Padding(4);
+            this.chkWaterFall.Location = new System.Drawing.Point(423, 89);
             this.chkWaterFall.Name = "chkWaterFall";
-            this.chkWaterFall.Size = new System.Drawing.Size(124, 21);
+            this.chkWaterFall.Size = new System.Drawing.Size(98, 17);
             this.chkWaterFall.TabIndex = 102;
             this.chkWaterFall.Text = "Show Waterfall";
             this.chkWaterFall.UseVisualStyleBackColor = true;
@@ -570,8 +542,7 @@ namespace KISS_Konsole
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 91);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 75);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -584,9 +555,8 @@ namespace KISS_Konsole
             // 
             this.splitContainer1.Panel2.Controls.Add(this.pictureBoxWideband);
             this.splitContainer1.Panel2MinSize = 0;
-            this.splitContainer1.Size = new System.Drawing.Size(1236, 586);
-            this.splitContainer1.SplitterDistance = 288;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(1022, 475);
+            this.splitContainer1.SplitterDistance = 233;
             this.splitContainer1.TabIndex = 2;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -594,10 +564,9 @@ namespace KISS_Konsole
             // 
             this.pictureBoxSpectrum.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxSpectrum.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxSpectrum.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxSpectrum.MinimumSize = new System.Drawing.Size(1024, 256);
+            this.pictureBoxSpectrum.MinimumSize = new System.Drawing.Size(768, 208);
             this.pictureBoxSpectrum.Name = "pictureBoxSpectrum";
-            this.pictureBoxSpectrum.Size = new System.Drawing.Size(1024, 288);
+            this.pictureBoxSpectrum.Size = new System.Drawing.Size(1024, 233);
             this.pictureBoxSpectrum.TabIndex = 0;
             this.pictureBoxSpectrum.TabStop = false;
             this.pictureBoxSpectrum.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSpectrum_Paint);
@@ -611,10 +580,9 @@ namespace KISS_Konsole
             // 
             this.pictureBoxWideband.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxWideband.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxWideband.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWideband.MinimumSize = new System.Drawing.Size(1024, 260);
+            this.pictureBoxWideband.MinimumSize = new System.Drawing.Size(768, 211);
             this.pictureBoxWideband.Name = "pictureBoxWideband";
-            this.pictureBoxWideband.Size = new System.Drawing.Size(1024, 293);
+            this.pictureBoxWideband.Size = new System.Drawing.Size(1024, 238);
             this.pictureBoxWideband.TabIndex = 0;
             this.pictureBoxWideband.TabStop = false;
             this.pictureBoxWideband.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxWideband_Paint);
@@ -625,11 +593,9 @@ namespace KISS_Konsole
             this.groupBox2.Controls.Add(this.Squelch_level);
             this.groupBox2.Controls.Add(this.Filter_squelch);
             this.groupBox2.Controls.Add(this.Bandscope_squelch);
-            this.groupBox2.Location = new System.Drawing.Point(15, 149);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(11, 121);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(207, 97);
+            this.groupBox2.Size = new System.Drawing.Size(155, 79);
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Squelch";
@@ -638,10 +604,10 @@ namespace KISS_Konsole
             // 
             this.Squelch_setting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Squelch_setting.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Squelch_setting.Location = new System.Drawing.Point(149, 62);
-            this.Squelch_setting.Margin = new System.Windows.Forms.Padding(4);
+            this.Squelch_setting.Location = new System.Drawing.Point(112, 50);
+            this.Squelch_setting.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Squelch_setting.Name = "Squelch_setting";
-            this.Squelch_setting.Size = new System.Drawing.Size(36, 22);
+            this.Squelch_setting.Size = new System.Drawing.Size(27, 18);
             this.Squelch_setting.TabIndex = 3;
             // 
             // Squelch_level
@@ -651,12 +617,11 @@ namespace KISS_Konsole
             this.Squelch_level.BackColor = System.Drawing.SystemColors.Control;
             this.Squelch_level.Cursor = System.Windows.Forms.Cursors.Default;
             this.Squelch_level.LargeChange = 2;
-            this.Squelch_level.Location = new System.Drawing.Point(8, 62);
-            this.Squelch_level.Margin = new System.Windows.Forms.Padding(4);
+            this.Squelch_level.Location = new System.Drawing.Point(6, 50);
             this.Squelch_level.Maximum = 500;
             this.Squelch_level.Minimum = -1500;
             this.Squelch_level.Name = "Squelch_level";
-            this.Squelch_level.Size = new System.Drawing.Size(133, 25);
+            this.Squelch_level.Size = new System.Drawing.Size(100, 20);
             this.Squelch_level.TabIndex = 2;
             this.Squelch_level.TickStyle = System.Windows.Forms.TickStyle.None;
             this.Squelch_level.Value = -1000;
@@ -668,10 +633,9 @@ namespace KISS_Konsole
             this.Filter_squelch.AutoSize = true;
             this.Filter_squelch.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Filter_squelch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Filter_squelch.Location = new System.Drawing.Point(123, 27);
-            this.Filter_squelch.Margin = new System.Windows.Forms.Padding(4);
+            this.Filter_squelch.Location = new System.Drawing.Point(92, 22);
             this.Filter_squelch.Name = "Filter_squelch";
-            this.Filter_squelch.Size = new System.Drawing.Size(61, 21);
+            this.Filter_squelch.Size = new System.Drawing.Size(48, 17);
             this.Filter_squelch.TabIndex = 1;
             this.Filter_squelch.Text = "Filter";
             this.Filter_squelch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -684,10 +648,9 @@ namespace KISS_Konsole
             this.Bandscope_squelch.AutoSize = true;
             this.Bandscope_squelch.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Bandscope_squelch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Bandscope_squelch.Location = new System.Drawing.Point(8, 27);
-            this.Bandscope_squelch.Margin = new System.Windows.Forms.Padding(4);
+            this.Bandscope_squelch.Location = new System.Drawing.Point(6, 22);
             this.Bandscope_squelch.Name = "Bandscope_squelch";
-            this.Bandscope_squelch.Size = new System.Drawing.Size(101, 21);
+            this.Bandscope_squelch.Size = new System.Drawing.Size(80, 17);
             this.Bandscope_squelch.TabIndex = 0;
             this.Bandscope_squelch.Text = "Bandscope";
             this.Bandscope_squelch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -700,11 +663,10 @@ namespace KISS_Konsole
             this.DriveLevel.BackColor = System.Drawing.SystemColors.Control;
             this.DriveLevel.Cursor = System.Windows.Forms.Cursors.Default;
             this.DriveLevel.LargeChange = 2;
-            this.DriveLevel.Location = new System.Drawing.Point(23, 118);
-            this.DriveLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.DriveLevel.Location = new System.Drawing.Point(17, 96);
             this.DriveLevel.Maximum = 100;
             this.DriveLevel.Name = "DriveLevel";
-            this.DriveLevel.Size = new System.Drawing.Size(133, 25);
+            this.DriveLevel.Size = new System.Drawing.Size(100, 20);
             this.DriveLevel.TabIndex = 4;
             this.DriveLevel.TickStyle = System.Windows.Forms.TickStyle.None;
             this.DriveLevel.Value = 50;
@@ -712,39 +674,36 @@ namespace KISS_Konsole
             // 
             // Drive
             // 
-            this.Drive.Location = new System.Drawing.Point(163, 118);
-            this.Drive.Margin = new System.Windows.Forms.Padding(4);
+            this.Drive.Location = new System.Drawing.Point(122, 96);
             this.Drive.Name = "Drive";
             this.Drive.ReadOnly = true;
-            this.Drive.Size = new System.Drawing.Size(36, 22);
+            this.Drive.Size = new System.Drawing.Size(28, 20);
             this.Drive.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 102);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(51, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 105;
             this.label2.Text = "Drive";
             // 
             // labelSMeter
             // 
-            this.labelSMeter.Location = new System.Drawing.Point(668, 21);
-            this.labelSMeter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSMeter.Location = new System.Drawing.Point(501, 17);
             this.labelSMeter.Name = "labelSMeter";
-            this.labelSMeter.Size = new System.Drawing.Size(259, 28);
+            this.labelSMeter.Size = new System.Drawing.Size(194, 23);
             this.labelSMeter.TabIndex = 106;
             this.labelSMeter.Text = "SMeter:";
             this.labelSMeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MOX
             // 
-            this.MOX.Location = new System.Drawing.Point(107, 69);
-            this.MOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MOX.Location = new System.Drawing.Point(80, 56);
+            this.MOX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MOX.Name = "MOX";
-            this.MOX.Size = new System.Drawing.Size(52, 28);
+            this.MOX.Size = new System.Drawing.Size(39, 23);
             this.MOX.TabIndex = 107;
             this.MOX.Text = "MOX";
             this.MOX.UseVisualStyleBackColor = true;
@@ -752,10 +711,10 @@ namespace KISS_Konsole
             // 
             // TUN
             // 
-            this.TUN.Location = new System.Drawing.Point(167, 69);
-            this.TUN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TUN.Location = new System.Drawing.Point(125, 56);
+            this.TUN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TUN.Name = "TUN";
-            this.TUN.Size = new System.Drawing.Size(52, 28);
+            this.TUN.Size = new System.Drawing.Size(39, 23);
             this.TUN.TabIndex = 108;
             this.TUN.Text = "TUN";
             this.TUN.UseVisualStyleBackColor = true;
@@ -763,10 +722,10 @@ namespace KISS_Konsole
             // 
             // OnOffButton
             // 
-            this.OnOffButton.Location = new System.Drawing.Point(47, 33);
-            this.OnOffButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.OnOffButton.Location = new System.Drawing.Point(35, 27);
+            this.OnOffButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.OnOffButton.Name = "OnOffButton";
-            this.OnOffButton.Size = new System.Drawing.Size(52, 28);
+            this.OnOffButton.Size = new System.Drawing.Size(39, 23);
             this.OnOffButton.TabIndex = 109;
             this.OnOffButton.Text = "OFF";
             this.OnOffButton.UseVisualStyleBackColor = true;
@@ -775,10 +734,9 @@ namespace KISS_Konsole
             // labelFilterWidth
             // 
             this.labelFilterWidth.AutoSize = true;
-            this.labelFilterWidth.Location = new System.Drawing.Point(828, 212);
-            this.labelFilterWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFilterWidth.Location = new System.Drawing.Point(621, 172);
             this.labelFilterWidth.Name = "labelFilterWidth";
-            this.labelFilterWidth.Size = new System.Drawing.Size(40, 17);
+            this.labelFilterWidth.Size = new System.Drawing.Size(32, 13);
             this.labelFilterWidth.TabIndex = 133;
             this.labelFilterWidth.Text = "width";
             // 
@@ -788,11 +746,10 @@ namespace KISS_Konsole
             this.NoiseGateLevel.BackColor = System.Drawing.SystemColors.Control;
             this.NoiseGateLevel.Cursor = System.Windows.Forms.Cursors.Default;
             this.NoiseGateLevel.LargeChange = 1;
-            this.NoiseGateLevel.Location = new System.Drawing.Point(31, 181);
-            this.NoiseGateLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.NoiseGateLevel.Location = new System.Drawing.Point(23, 147);
             this.NoiseGateLevel.Maximum = 100;
             this.NoiseGateLevel.Name = "NoiseGateLevel";
-            this.NoiseGateLevel.Size = new System.Drawing.Size(133, 25);
+            this.NoiseGateLevel.Size = new System.Drawing.Size(100, 20);
             this.NoiseGateLevel.TabIndex = 150;
             this.NoiseGateLevel.TickStyle = System.Windows.Forms.TickStyle.None;
             this.NoiseGateLevel.Scroll += new System.EventHandler(this.NoiseGateLevel_Scroll);
@@ -800,10 +757,10 @@ namespace KISS_Konsole
             // chkNoiseGate
             // 
             this.chkNoiseGate.AutoSize = true;
-            this.chkNoiseGate.Location = new System.Drawing.Point(9, 185);
-            this.chkNoiseGate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkNoiseGate.Location = new System.Drawing.Point(7, 150);
+            this.chkNoiseGate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkNoiseGate.Name = "chkNoiseGate";
-            this.chkNoiseGate.Size = new System.Drawing.Size(18, 17);
+            this.chkNoiseGate.Size = new System.Drawing.Size(15, 14);
             this.chkNoiseGate.TabIndex = 149;
             this.chkNoiseGate.UseVisualStyleBackColor = true;
             this.chkNoiseGate.CheckedChanged += new System.EventHandler(this.chkNoiseGate_CheckedChanged);
@@ -811,17 +768,15 @@ namespace KISS_Konsole
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(259, 94);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(194, 76);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 34);
+            this.label13.Size = new System.Drawing.Size(33, 26);
             this.label13.TabIndex = 148;
             this.label13.Text = "Hang\r\n (mS)";
             // 
             // VOXHangTime
             // 
-            this.VOXHangTime.Location = new System.Drawing.Point(205, 97);
-            this.VOXHangTime.Margin = new System.Windows.Forms.Padding(4);
+            this.VOXHangTime.Location = new System.Drawing.Point(154, 79);
             this.VOXHangTime.Maximum = new decimal(new int[] {
             999,
             0,
@@ -833,7 +788,7 @@ namespace KISS_Konsole
             0,
             0});
             this.VOXHangTime.Name = "VOXHangTime";
-            this.VOXHangTime.Size = new System.Drawing.Size(51, 22);
+            this.VOXHangTime.Size = new System.Drawing.Size(38, 20);
             this.VOXHangTime.TabIndex = 147;
             this.VOXHangTime.Value = new decimal(new int[] {
             400,
@@ -847,11 +802,10 @@ namespace KISS_Konsole
             this.MicrophoneGain.BackColor = System.Drawing.SystemColors.Control;
             this.MicrophoneGain.Cursor = System.Windows.Forms.Cursors.Default;
             this.MicrophoneGain.LargeChange = 2;
-            this.MicrophoneGain.Location = new System.Drawing.Point(31, 139);
-            this.MicrophoneGain.Margin = new System.Windows.Forms.Padding(4);
+            this.MicrophoneGain.Location = new System.Drawing.Point(23, 113);
             this.MicrophoneGain.Maximum = 142;
             this.MicrophoneGain.Name = "MicrophoneGain";
-            this.MicrophoneGain.Size = new System.Drawing.Size(133, 25);
+            this.MicrophoneGain.Size = new System.Drawing.Size(100, 20);
             this.MicrophoneGain.TabIndex = 146;
             this.MicrophoneGain.TickStyle = System.Windows.Forms.TickStyle.None;
             this.MicrophoneGain.Scroll += new System.EventHandler(this.MicrophoneGain_Scroll);
@@ -859,10 +813,9 @@ namespace KISS_Konsole
             // labelClipLED
             // 
             this.labelClipLED.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelClipLED.Location = new System.Drawing.Point(205, 142);
-            this.labelClipLED.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelClipLED.Location = new System.Drawing.Point(154, 115);
             this.labelClipLED.Name = "labelClipLED";
-            this.labelClipLED.Size = new System.Drawing.Size(63, 19);
+            this.labelClipLED.Size = new System.Drawing.Size(48, 16);
             this.labelClipLED.TabIndex = 145;
             this.labelClipLED.Text = "Clip";
             this.labelClipLED.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -870,10 +823,10 @@ namespace KISS_Konsole
             // chkVOX
             // 
             this.chkVOX.AutoSize = true;
-            this.chkVOX.Location = new System.Drawing.Point(9, 101);
-            this.chkVOX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkVOX.Location = new System.Drawing.Point(7, 82);
+            this.chkVOX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkVOX.Name = "chkVOX";
-            this.chkVOX.Size = new System.Drawing.Size(18, 17);
+            this.chkVOX.Size = new System.Drawing.Size(15, 14);
             this.chkVOX.TabIndex = 143;
             this.chkVOX.UseVisualStyleBackColor = true;
             this.chkVOX.CheckedChanged += new System.EventHandler(this.chkVOX_CheckedChanged);
@@ -884,11 +837,10 @@ namespace KISS_Konsole
             this.VOXLevel.BackColor = System.Drawing.SystemColors.Control;
             this.VOXLevel.Cursor = System.Windows.Forms.Cursors.Default;
             this.VOXLevel.LargeChange = 1;
-            this.VOXLevel.Location = new System.Drawing.Point(31, 97);
-            this.VOXLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.VOXLevel.Location = new System.Drawing.Point(23, 79);
             this.VOXLevel.Maximum = 100;
             this.VOXLevel.Name = "VOXLevel";
-            this.VOXLevel.Size = new System.Drawing.Size(133, 25);
+            this.VOXLevel.Size = new System.Drawing.Size(100, 20);
             this.VOXLevel.TabIndex = 142;
             this.VOXLevel.TickStyle = System.Windows.Forms.TickStyle.None;
             this.VOXLevel.Scroll += new System.EventHandler(this.VOXLevel_Scroll);
@@ -897,29 +849,27 @@ namespace KISS_Konsole
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(201, 60);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(151, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 17);
+            this.label5.Size = new System.Drawing.Size(20, 13);
             this.label5.TabIndex = 140;
             this.label5.Text = "dB";
             // 
             // ProcGaindB
             // 
             this.ProcGaindB.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ProcGaindB.Location = new System.Drawing.Point(161, 55);
-            this.ProcGaindB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ProcGaindB.Location = new System.Drawing.Point(121, 45);
             this.ProcGaindB.Name = "ProcGaindB";
-            this.ProcGaindB.Size = new System.Drawing.Size(37, 25);
+            this.ProcGaindB.Size = new System.Drawing.Size(28, 20);
             this.ProcGaindB.TabIndex = 139;
             // 
             // chkBassCut
             // 
             this.chkBassCut.AutoSize = true;
-            this.chkBassCut.Location = new System.Drawing.Point(9, 15);
-            this.chkBassCut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkBassCut.Location = new System.Drawing.Point(7, 12);
+            this.chkBassCut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkBassCut.Name = "chkBassCut";
-            this.chkBassCut.Size = new System.Drawing.Size(86, 21);
+            this.chkBassCut.Size = new System.Drawing.Size(68, 17);
             this.chkBassCut.TabIndex = 138;
             this.chkBassCut.Text = "Bass Cut";
             this.chkBassCut.UseVisualStyleBackColor = true;
@@ -931,12 +881,11 @@ namespace KISS_Konsole
             this.ProcessorGain.BackColor = System.Drawing.SystemColors.Control;
             this.ProcessorGain.Cursor = System.Windows.Forms.Cursors.Default;
             this.ProcessorGain.LargeChange = 1;
-            this.ProcessorGain.Location = new System.Drawing.Point(31, 55);
-            this.ProcessorGain.Margin = new System.Windows.Forms.Padding(4);
+            this.ProcessorGain.Location = new System.Drawing.Point(23, 45);
             this.ProcessorGain.Maximum = 100;
             this.ProcessorGain.Minimum = 10;
             this.ProcessorGain.Name = "ProcessorGain";
-            this.ProcessorGain.Size = new System.Drawing.Size(133, 25);
+            this.ProcessorGain.Size = new System.Drawing.Size(100, 20);
             this.ProcessorGain.TabIndex = 137;
             this.ProcessorGain.TickStyle = System.Windows.Forms.TickStyle.None;
             this.ProcessorGain.Value = 10;
@@ -946,10 +895,10 @@ namespace KISS_Konsole
             // chkClipper
             // 
             this.chkClipper.AutoSize = true;
-            this.chkClipper.Location = new System.Drawing.Point(9, 59);
-            this.chkClipper.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkClipper.Location = new System.Drawing.Point(7, 48);
+            this.chkClipper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkClipper.Name = "chkClipper";
-            this.chkClipper.Size = new System.Drawing.Size(18, 17);
+            this.chkClipper.Size = new System.Drawing.Size(15, 14);
             this.chkClipper.TabIndex = 136;
             this.chkClipper.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.chkClipper.UseVisualStyleBackColor = true;
@@ -958,22 +907,20 @@ namespace KISS_Konsole
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(31, 165);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(23, 134);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.label14.Size = new System.Drawing.Size(86, 17);
+            this.label14.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label14.Size = new System.Drawing.Size(65, 13);
             this.label14.TabIndex = 152;
             this.label14.Text = "Noise Gate";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 123);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(23, 100);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.label9.Size = new System.Drawing.Size(70, 17);
+            this.label9.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label9.Size = new System.Drawing.Size(54, 13);
             this.label9.TabIndex = 125;
             this.label9.Text = "Mic Gain";
             // 
@@ -990,21 +937,20 @@ namespace KISS_Konsole
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 81);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(23, 66);
             this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 153;
             this.label8.Text = "VOX";
             // 
             // chkMicAGC
             // 
             this.chkMicAGC.AutoSize = true;
-            this.chkMicAGC.Location = new System.Drawing.Point(108, 15);
-            this.chkMicAGC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkMicAGC.Location = new System.Drawing.Point(81, 12);
+            this.chkMicAGC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkMicAGC.Name = "chkMicAGC";
-            this.chkMicAGC.Size = new System.Drawing.Size(84, 21);
+            this.chkMicAGC.Size = new System.Drawing.Size(68, 17);
             this.chkMicAGC.TabIndex = 154;
             this.chkMicAGC.Text = "Mic AGC";
             this.chkMicAGC.UseVisualStyleBackColor = true;
@@ -1016,58 +962,52 @@ namespace KISS_Konsole
             // textBoxForwardPower
             // 
             this.textBoxForwardPower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBoxForwardPower.Location = new System.Drawing.Point(92, 21);
-            this.textBoxForwardPower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textBoxForwardPower.Location = new System.Drawing.Point(69, 17);
             this.textBoxForwardPower.Name = "textBoxForwardPower";
-            this.textBoxForwardPower.Size = new System.Drawing.Size(93, 25);
+            this.textBoxForwardPower.Size = new System.Drawing.Size(70, 20);
             this.textBoxForwardPower.TabIndex = 155;
             // 
             // textBoxReversePower
             // 
             this.textBoxReversePower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBoxReversePower.Location = new System.Drawing.Point(268, 21);
-            this.textBoxReversePower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textBoxReversePower.Location = new System.Drawing.Point(201, 17);
             this.textBoxReversePower.Name = "textBoxReversePower";
-            this.textBoxReversePower.Size = new System.Drawing.Size(93, 25);
+            this.textBoxReversePower.Size = new System.Drawing.Size(70, 20);
             this.textBoxReversePower.TabIndex = 156;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 26);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(10, 21);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 17);
+            this.label18.Size = new System.Drawing.Size(53, 13);
             this.label18.TabIndex = 157;
             this.label18.Text = "FWD Pwr";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(193, 26);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(145, 21);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(63, 17);
+            this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 158;
             this.label19.Text = "REV Pwr";
             // 
             // labelAGCGain
             // 
             this.labelAGCGain.AutoSize = true;
-            this.labelAGCGain.Location = new System.Drawing.Point(389, 219);
-            this.labelAGCGain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAGCGain.Location = new System.Drawing.Point(292, 178);
             this.labelAGCGain.Name = "labelAGCGain";
-            this.labelAGCGain.Size = new System.Drawing.Size(35, 17);
+            this.labelAGCGain.Size = new System.Drawing.Size(27, 13);
             this.labelAGCGain.TabIndex = 159;
             this.labelAGCGain.Text = "gain";
             // 
             // labelVolume
             // 
             this.labelVolume.AutoSize = true;
-            this.labelVolume.Location = new System.Drawing.Point(389, 159);
-            this.labelVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVolume.Location = new System.Drawing.Point(292, 129);
             this.labelVolume.Name = "labelVolume";
-            this.labelVolume.Size = new System.Drawing.Size(26, 17);
+            this.labelVolume.Size = new System.Drawing.Size(21, 13);
             this.labelVolume.TabIndex = 160;
             this.labelVolume.Text = "vol";
             // 
@@ -1112,10 +1052,9 @@ namespace KISS_Konsole
             this.panelBottom.Controls.Add(this.label10);
             this.panelBottom.Controls.Add(this.trackBarSetFrequency);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 677);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBottom.Location = new System.Drawing.Point(0, 550);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1236, 261);
+            this.panelBottom.Size = new System.Drawing.Size(1022, 212);
             this.panelBottom.TabIndex = 2;
             // 
             // groupBox3
@@ -1141,48 +1080,44 @@ namespace KISS_Konsole
             this.groupBox3.Controls.Add(this.ProcGaindB);
             this.groupBox3.Controls.Add(this.ProcessorGain);
             this.groupBox3.Controls.Add(this.chkClipper);
-            this.groupBox3.Location = new System.Drawing.Point(919, 31);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Location = new System.Drawing.Point(689, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(305, 215);
+            this.groupBox3.Size = new System.Drawing.Size(229, 175);
             this.groupBox3.TabIndex = 161;
             this.groupBox3.TabStop = false;
             // 
             // textBoxNoiseGate
             // 
             this.textBoxNoiseGate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBoxNoiseGate.Location = new System.Drawing.Point(161, 181);
-            this.textBoxNoiseGate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textBoxNoiseGate.Location = new System.Drawing.Point(121, 147);
             this.textBoxNoiseGate.Name = "textBoxNoiseGate";
-            this.textBoxNoiseGate.Size = new System.Drawing.Size(37, 25);
+            this.textBoxNoiseGate.Size = new System.Drawing.Size(28, 20);
             this.textBoxNoiseGate.TabIndex = 160;
             // 
             // textBoxVOXLevel
             // 
             this.textBoxVOXLevel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBoxVOXLevel.Location = new System.Drawing.Point(161, 97);
-            this.textBoxVOXLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textBoxVOXLevel.Location = new System.Drawing.Point(121, 79);
             this.textBoxVOXLevel.Name = "textBoxVOXLevel";
-            this.textBoxVOXLevel.Size = new System.Drawing.Size(37, 25);
+            this.textBoxVOXLevel.Size = new System.Drawing.Size(28, 20);
             this.textBoxVOXLevel.TabIndex = 158;
             // 
             // textBoxMicGain
             // 
             this.textBoxMicGain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBoxMicGain.Location = new System.Drawing.Point(161, 139);
-            this.textBoxMicGain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.textBoxMicGain.Location = new System.Drawing.Point(121, 113);
             this.textBoxMicGain.Name = "textBoxMicGain";
-            this.textBoxMicGain.Size = new System.Drawing.Size(37, 25);
+            this.textBoxMicGain.Size = new System.Drawing.Size(28, 20);
             this.textBoxMicGain.TabIndex = 156;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 38);
+            this.label1.Location = new System.Drawing.Point(23, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(131, 17);
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 155;
             this.label1.Text = "Speech Processor";
             // 
@@ -1199,26 +1134,24 @@ namespace KISS_Konsole
             this.panelTopStatus.Controls.Add(this.labelSMeter);
             this.panelTopStatus.Controls.Add(this.textBoxForwardPower);
             this.panelTopStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopStatus.Location = new System.Drawing.Point(0, 28);
-            this.panelTopStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTopStatus.Location = new System.Drawing.Point(0, 24);
             this.panelTopStatus.Name = "panelTopStatus";
-            this.panelTopStatus.Size = new System.Drawing.Size(1236, 63);
+            this.panelTopStatus.Size = new System.Drawing.Size(1022, 51);
             this.panelTopStatus.TabIndex = 1;
             // 
             // labelFocus
             // 
             this.labelFocus.AutoSize = true;
             this.labelFocus.Location = new System.Drawing.Point(0, 0);
-            this.labelFocus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFocus.Name = "labelFocus";
-            this.labelFocus.Size = new System.Drawing.Size(0, 17);
+            this.labelFocus.Size = new System.Drawing.Size(0, 13);
             this.labelFocus.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 938);
+            this.ClientSize = new System.Drawing.Size(1022, 762);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panelTopStatus);
             this.Controls.Add(this.panelBottom);
@@ -1226,8 +1159,7 @@ namespace KISS_Konsole
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(799, 599);
+            this.MinimumSize = new System.Drawing.Size(603, 494);
             this.Name = "Form1";
             this.Text = "KISS Konsole";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
