@@ -145,7 +145,7 @@ namespace SharpDSP2._1
                     break;
                 case WindowType_e.WELCH_WINDOW:
                     for (i = 0, j = size - 1; i <= midn; i++, j--)
-						window[j] = (window[i] = 1.0F - (float)Math.Sqrt((float) (i - midm1) / (float) midp1));
+						window[j] = (window[i] = 1.0F - (float)Math.Pow((float) (i - midm1) / (float) midp1), 2));
                     break;
                 case WindowType_e.PARZEN_WINDOW:
                     for (i = 0, j = size - 1; i <= midn; i++, j--)
