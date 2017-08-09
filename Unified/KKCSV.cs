@@ -294,7 +294,7 @@ namespace KISS_Konsole
                     // they match.  return the next element in value
                     try
                     {
-                        return (float)Convert.ToDouble(value[i + 1], nfi);
+                        return Convert.ToDouble(value[i + 1], nfi);
                     }
                     catch
                     {
@@ -366,20 +366,26 @@ namespace KISS_Konsole
             // process the string array of data that was read
             foreach (string text in lines)
             {
+                // make sure to trim the lines, and remove things line newlines, returns, etc. that might have somehow
+                // gotten in!
+                string t = text.Trim();
+                t = t.Replace("\n", "");
+                t = t.Replace("\r", "");
+
                 /* This gets around the problem of the locale of the user as far as saving floating point
                  * values which might (because of locale) have commas in the numbers, thus creating
                  * more entries in the array than desired, because of mis-parsing based on the extra commas.
                  * We also get to use a List<string> so that we don't need to know how big it is before we process
                  * data.  It indexes the same as 'string[] value' did.
                  */
-                int p = text.IndexOf(",");      // search for the comma after the data element name
+                int p = t.IndexOf(",");      // search for the comma after the data element name
                 if (p != -1)
                 {
                     // we found a comma.  Split the line into 'before' and 'after' the comma
                     // before the comma is the data name
                     // after the comma is its value
-                    value.Add(text.Substring(0, p));
-                    value.Add(text.Substring(p + 1));
+                    value.Add(t.Substring(0, p));
+                    value.Add(t.Substring(p + 1));
                 }
             }
 

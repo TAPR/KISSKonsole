@@ -303,6 +303,8 @@
  * 26 May  2013 - v1.1.28 - G Byrkit (K9TRV) Allow 384k spectrum for Metis and Ozy as well.  Add support for Mercury 3.4, Penny 1.8, Metis 2.6, Ozy 2.5.
  *                          Ozy/Magister 2.5 set as default in InitOzy11.bat
  * 09 Sep  2014 - v1.1.29 - Jae Stutzman (K5JAE) - first pass at integrating code that will build and run under Mono on Linux, yet still run under Windows
+ * 05 Aug  2017 - v1.1.30 - G Byrkit (K9TRV) If Ethernet attached device, allow writing of full-spectrum data to a data file, for use monitoring during the
+ *                          upcoming eclipse on 21 August 2017.
  *                          
  *    
  * 
@@ -344,7 +346,7 @@ namespace KISS_Konsole
     public partial class Form1 : Form
     {
         // put the version string early so that it can be found easily...
-        string version = "V1.1.29";  // change this for each release!
+        string version = "V1.1.30";  // change this for each release!
 
         // create a delegate for the text display since may be called from another thread
         public string Ozy_version = null;  // holds version of Ozy code loaded into FX2 or Metis
@@ -1641,6 +1643,8 @@ namespace KISS_Konsole
         // current state of the Radio in the KK.csv file.
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            disableDataLogging();
+
             if (ourDevice != null)
             {
                 ourDevice.Stop();
@@ -3966,6 +3970,52 @@ namespace KISS_Konsole
         {
             KISSAboutBox k = new KISSAboutBox();
             k.ShowDialog();
+        }
+
+        private string dataFileName = null;
+
+        public void disableDataLogging()
+        {
+            enableDataLoggingToolStripMenuItem.Checked = false;
+            if (ourDevice != null)
+            {
+                ourDevice.CloseFullBandwidthDataFile();
+            }
+        }
+
+        public void enableDataLogging()
+        {
+            enableDataLoggingToolStripMenuItem.Checked = true;
+            if (ourDevice != null && (dataFileName != null))
+            {
+                ourDevice.OpenFullBandwidthDataFile(dataFileName);
+            }
+        }
+
+        private void enableDataLoggingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (enableDataLoggingToolStripMenuItem.Checked)
+            {
+                disableDataLogging();
+            }
+            else
+            {
+                enableDataLogging();
+            }
+        }
+
+        private void specifyFilenameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ourDevice != null)
+            {
+                DialogResult dr = saveFileDialogDataLogging.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    ourDevice.CloseFullBandwidthDataFile();
+
+                    dataFileName = saveFileDialogDataLogging.FileName;
+                }
+            }
         }
     }
 
