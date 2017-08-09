@@ -289,6 +289,51 @@ namespace KISS_Konsole
 
         public override void ProcessWideBandData(ref byte[] EP4buf)
         {
+            if (bWriteFullBandData && (fullBandData != null))
+            {
+
+                // Open the stream for writing.
+                try
+                {
+                    // Add some information to the file.
+
+                    // write a timestamp (8 bytes)
+                    // the reverse action is done by:
+                    // DateTime d = DateTime.FromBinary(BitConverter.ToInt64(b, 0))
+                    // where 'b' is an array of bytes of length 8.
+
+                    DateTime timestamp = DateTime.UtcNow;
+                    byte[] time = BitConverter.GetBytes(timestamp.Ticks);
+                    fullBandData.Write(time, 0, time.Length);
+
+                    // write number of bytes that follow (using 4 bytes for the length)
+                    // the reverse of this is: int length = Integer.FromBinary(DateTime d = DateTime.FromBinary(BitConverter.ToInt32(b, 0))
+                    // where 'b' is an array of bytes of length 4.
+                    byte[] length = BitConverter.GetBytes(EP4buf.Length);
+                    fullBandData.Write(length, 0, length.Length);
+
+                    // write the data
+                    fullBandData.Write(EP4buf, 0, EP4buf.Length);
+
+                    // how to decode the file:
+                    // 1: read 8 bytes, and convert into a timestamp in UTC time
+                    // 2: read 4 bytes, and convert into an integer, call this 'length'.  This is the number of bytes to read next.
+                    // 3: read 'length' bytes into a byte array.
+                    // 4: process the resulting data, exactly as it is processed below in the 'if (MainForm.doWideBand)' clause.
+                }
+                catch (Exception ex)
+                {
+                    // if it's an IO exception, then the folder where the file is stored MAY be used
+                    // by other processes like an AntiVirus program scanning the file after it was closed,
+                    // or a program like 'WD Sync', which shadows your files to to a network or USB drive,
+                    // and may NOT use a shadow-copy mode that allows the file to be opened!
+                    // Best to configure these tools to store the file somewhere else that IS NOT
+                    // being managed by such programs
+                    MessageBox.Show("Likely there is a process like AntiVirus or 'WD Sync' that is accessing the file, preventing further writes.  Reconfigure your programs and/or don't save the data file where it will be scanned or copied", "Another program is interfering");
+                    MainForm.disableDataLogging();
+                }
+            }
+
             if (MainForm.doWideBand) // display wide band spectrum
             {
                 // EP4 contains 4k x 16 bit raw ADC samples
@@ -298,8 +343,9 @@ namespace KISS_Konsole
                     float Sample, RealAverage;
 
                     RealAverage = 0.0f;
-                    int i, k;
-                    for (i = 0, k = 0; i < Form1.EP4BufSize; i += 2, ++k)
+                    int numRawSamples = Form1.EP4BufSize;
+                    int numSamples = numRawSamples / 2;
+                    for (int i = 0, k = 0; i < numRawSamples; i += 2, ++k)
                     {
                         // use this rather than BitConverter.ToInt16()...since its faster and less CPU intensive
                         // without the '(short)' in there, the value doesn't get sign-extended!
@@ -309,15 +355,19 @@ namespace KISS_Konsole
                         SamplesReal[k] = Sample;
                     }
 
-                    RealAverage /= (float)k;
-                    for (i = 0; i < k; ++i)
+                    RealAverage /= (float)numSamples;
+
+                    // normalize each real data value, based on the average of all samples,
+                    // and copy the Real value to the Imaginary array.
+                    for (int i = 0; i < numSamples; ++i)
                     {
                         SamplesReal[i] -= RealAverage;      // Subtract average
-                        SamplesImag[i] = SamplesReal[i];    // temporary -- soon will do digital down-conversion
+                        // temporary fake Imaginary data -- soon will do digital down-conversion
                         // with sin & cos, so we'll actually have I & Q data to enter.
+                        SamplesImag[i] = SamplesReal[i];
                     }
 
-                    FullBandwidthSpectrum.Process(SamplesReal, SamplesImag, Form1.EP4BufSize / 2);
+                    FullBandwidthSpectrum.Process(SamplesReal, SamplesImag, numSamples);
                 }
             }
         }
@@ -362,7 +412,7 @@ namespace KISS_Konsole
 
                         last_sequence_number = Metis_sequ_number;
 
-                        if (++Ethernet_count == 2) // we have two 1024 byte frames so concatinate and send to Process_Data
+                        if (++Ethernet_count == 2) // we have two 1024 byte frames so concatenate and send to Process_Data
                         {
                             Ethernet_count = 0;  // reset Ethernet frame counter
                             // add to previous frame
@@ -378,7 +428,7 @@ namespace KISS_Konsole
                         }
                     }
 
-                    // check for data to EP4 i.e. wideband spectrum data
+                    // check for data to EP4 i.e. wide band spectrum data
                     if ((data[3] == 0x04) && MainForm.KK_on)
                     {
                         Spectrum_sequ_number = ((uint)(data[4] << 24) | (uint)(data[5] << 16) | (uint)(data[6] << 8) | (uint)data[7]);
@@ -386,8 +436,8 @@ namespace KISS_Konsole
                         if (Spectrum_sequ_number != unchecked(last_spectrum_sequence_number + 1))
                         {
                             Console.WriteLine("EP4 (WideBand) Sequence error! last = " + last_sequence_number + " current = " + Spectrum_sequ_number);
-                            // if a wideband (EP4) sequence error, discard any accumulated frames so that all the
-                            // wideband data is from the same group.
+                            // if a wide band (EP4) sequence error, discard any accumulated frames so that all the
+                            // wide band data is from the same group.
                             start = false;
                         }
 

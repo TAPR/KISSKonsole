@@ -1257,6 +1257,48 @@ namespace KISS_Konsole
             }
         }
 
+        public bool bWriteFullBandData = false;
+        public string fullBandDataFileName = "";
+        protected System.IO.FileStream fullBandData = null;
+
+        public void OpenFullBandwidthDataFile(string dataFileName)
+        {
+            fullBandDataFileName = dataFileName;
+            bWriteFullBandData = true;
+            try
+            {
+                if (System.IO.File.Exists(fullBandDataFileName))
+                {
+                    System.IO.File.Delete(fullBandDataFileName);
+                }
+
+                fullBandData = new System.IO.FileStream(fullBandDataFileName, System.IO.FileMode.Append, System.IO.FileAccess.Write, System.IO.FileShare.Write);
+            }
+            catch (Exception ex)
+            {
+                // if it's an IO exception, then the folder where the file is stored MAY be used
+                // by other processes like an AntiVirus program scanning the file after it was closed,
+                // or a program like 'WD Sync', which shadows your files to to a network or USB drive,
+                // and may NOT use a shadow-copy mode that allows the file to be opened!
+                // Best to configure these tools to store the file somewhere else that IS NOT
+                // being managed by such programs
+                MessageBox.Show("Likely there is a process like AntiVirus or 'WD Sync' that is accessing the file, preventing further writes.  Reconfigure your programs and/or don't save the data file where it will be scanned or copied", "Another program is interfering");
+                MainForm.disableDataLogging();
+            }
+        }
+
+        public void CloseFullBandwidthDataFile()
+        {
+            bWriteFullBandData = false;
+            fullBandDataFileName = "";
+            if (fullBandData != null)
+            {
+                fullBandData.Close();
+                fullBandData = null;
+            }
+        }
+
+
         public virtual void Start() { }
         public virtual void Stop() { }
         public virtual void SetMicGain() { }
